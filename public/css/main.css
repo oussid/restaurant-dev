@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Roboto:wght@500&display=swap');
+
+:root {
+    --main-color: #FF6E31;
+    --main-color-hover: #f77f4b;
+    --main-color-active: #cf3f01;
+  }
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif ;
+}
+
+/* NAVBAR STYLE START */
+.main-navbar{
+    z-index: 3;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #000;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    color: #fff; 
+    border-bottom: var(--main-color) solid 3px;
+}
+
+.main-navbar-center{
+    display: flex;
+    flex-direction: row;
+    gap: .3rem;
+}
+
+.main-navbar-center-item{
+    color: #fff;
+    text-decoration: none;
+    padding: 1.5rem 1rem;
+}
+
+.main-navbar-right{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.main-navbar-right-left{
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+}
+
+.main-navbar-right-left-item{
+    padding: 0px 10px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.main-navbar-right-left-item.border-right{
+    border-right: #fff solid 1px;
+
+}
+
+.main-navbar-right-right button{
+    padding: .3rem .6rem;
+    cursor: pointer;
+    outline: none;
+    border: solid 1px var(--main-color);
+    border-radius: 6px;
+    color: #fff;
+    font-weight: 500;
+    background-color: var(--main-color);
+    
+}
+/* NAVBAR STYLE END */
+
+/* CAROUSEL STYLE START */
+.home-carousel{
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.home-carousel > button {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background:none ;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 4rem;
+    padding-inline: 1rem;
+    color: white;
+    opacity: .4;
+    transition: .3s ease-in-out all;
+}
+
+.home-carousel > button:hover{
+    scale: 1.2;
+    opacity: 1;
+}
+
+.home-carousel > button:active{
+    transition: all 0s;
+    scale: .99;
+    opacity: 1;
+}
+
+.home-carousel-next-btn{
+    right: 0;
+}
+
+.home-carousel-slide-text{
+    text-align: center;
+    font-size: 2rem;    
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+    padding-inline: 10rem;
+}
+
+.home-carousel-slide-text h2{
+    color: var(--main-color);
+    text-shadow: 2px 7px 5px rgba(0,0,0,0.3), 
+    0px -4px 10px rgba(255,255,255,0.3);
+}
+
+.home-carousel-slide-text h1{
+    color: white;
+    text-shadow: 2px 7px 5px rgba(0,0,0,0.3), 
+    0px -4px 10px rgba(255,255,255,0.3);
+}
+
+.home-carousel-slide-btn{
+    outline: none;
+    border: var(--main-color);
+    background-color: var(--main-color);
+    padding: .7rem 1.2rem;
+    font-size: 1.1rem;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: .7rem;
+    cursor: pointer;
+    transition: all ease-in-out .3s;
+}
+
+.home-carousel-slide-btn:hover{
+  background-color: var(--main-color-hover);
+  transform: translateY(-5px);  
+}
+
+.home-carousel-slide-btn:active{
+  transition: 0s all;  
+  background-color: var(--main-color-active);
+  transform: translateY(-1px);
+}
+
+.home-carousel-slide{
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/* CAROUSEL STYLE END */
+
+.banner{
+    height: 550px;
+    background-image: url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.banner-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    backdrop-filter: brightness(50%);
+    text-align: center;
+    text-shadow: 3px 3px black;
+}
+.banner-text>h1{
+    color: white;
+    font-size: 50px;
+
+}
+.banner-text>h2{
+    font-size: 30px;
+    color: var(--secondary)
+}
+.sample-products-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    height: 225px;
+    padding: 2rem;
+    margin: 3rem 0rem;
+}
+.sample-product{
+    border-radius: 10px;
+    height: 220px;
+    flex: 0.29;
+    overflow: hidden;
+}
+.sample-product-img{
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    background-size:cover;
+    background-position:center;
+    transition: ease-in-out 0.3s;
+    cursor: pointer;
+}
+.sample-product:hover .sample-product-img,.sample-product:focus .sample-product-img{
+    transform: scale(1.1);
+    filter:brightness(50%);
+}
+.categories-container{
+    display: flex;
+    flex-direction: column;
+    margin-bottom:3rem;
+    height: 300px;
+    width: 100%;
+    gap: 1rem;
+}
+
+.categories{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    gap: 4rem
+}
+.category{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    transition:ease-in-out 0.3s;
+}
+.category-img{
+    height: 125px;
+    width: 125px;
+    border-radius:50%;
+    background-image:url('https://cdn.pixabay.com/photo/2014/10/19/20/59/hamburger-494706_960_720.jpg');
+    background-size:cover;
+    background-position:center;
+    outline: #e5ebee  5px solid;
+    border: white 5px solid;
+    transition:ease-in-out .3s;
+}
+.category:hover{
+    transform: rotateY(30deg);
+}
+.category-name{
+    text-align: center;
+    font-size: 25px;
+}
