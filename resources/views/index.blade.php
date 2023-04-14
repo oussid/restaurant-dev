@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <x-navbar/>
+    <x-nav/>
     <x-carousel />
     <div class="sample-products-container">
         @foreach ( $products as $product )
@@ -51,5 +51,6 @@
     </div>
     <x-cta/>
     <x-services/>
-@endsection
-
+    <x-reviews/>
+</body>
+</html>

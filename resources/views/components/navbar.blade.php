@@ -5,7 +5,7 @@
     </div>
     <div class="main-navbar-center">
        <a href="#" class="main-navbar-center-item">
-         HOME       
+         HOME
        </a>
        <a href="#" class="main-navbar-center-item">
          MENU
@@ -23,7 +23,7 @@
                  <i class="fa-solid fa-magnifying-glass"></i>
              </a>
              <a href="#" class="main-navbar-right-left-item">
-                 <i class="fa-solid fa-cart-shopping"></i>   
+                 <i class="fa-solid fa-cart-shopping"></i>
              </a>
          </div>
          <div class="main-navbar-right-right">
