@@ -11,9 +11,9 @@ class Product extends Model
 {
     use HasFactory;
     public function category(){
-        return $this->hasOne(Category::class,'products_category');
+        return $this->belongsTo(Category::class);
     }
     public function todaySpecials(){
-        return $this->belongsTo(TodaySpecials::class, 'product_id');
+        return $this->belongsTo(TodaySpecials::class);
     }
 }
