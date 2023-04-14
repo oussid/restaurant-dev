@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+  />
+
+  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
     <title>Document</title>
 </head>
 <style>
@@ -165,5 +171,6 @@
     </div>
     <x-cta/>
     <x-services/>
+    <x-reviews/>
 </body>
 </html>
