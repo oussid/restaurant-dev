@@ -51,6 +51,8 @@
     </div>
     <x-cta/>
     <x-services/>
-    <x-reviews/>
+    <x-testimonials/>
+    {{-- <x-reviews/> --}}
+
 </body>
 </html>

@@ -196,6 +196,68 @@
 }
 /* CAROUSEL STYLE END */
 
+/* TESTIMONIALS STYLE START */
+.swiper {
+    background: url('https://single-restaurant.gravityinfotech.net/storage/app/public/admin-assets/images/about/booknow_bg_image-637393cd7c886.png');
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position:center;
+    width: 100%;
+    height: 400px;
+    backdrop-filter: invert(3%)  
+}
+
+.swiper .swiper-slide{
+    /* max-width: 30rem; */
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+}
+.swiper .swiper-slide .testimonial-profile{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: var(--secondary) dashed 3px;
+    border-radius: 50%;
+}
+
+.swiper .swiper-slide .testimonial-profile{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: var(--secondary) dashed 3px;
+    border-radius: 50%;
+}
+
+.swiper .swiper-slide .testimonial-details-name{
+    text-decoration: none;
+    color: var(--secondary);
+    font-weight: 500;
+    font-size: 1.7rem;
+}
+
+.swiper .swiper-slide .testimonial-text{
+    max-width: 30rem;
+    margin-top: 1rem;
+    font-size: 1.6rem;
+    text-align: center;
+    margin-bottom: 2rem
+}
+
+.swiper .swiper-slide .testimonial-text i{
+    color: var(--secondary);
+}
+
+.swiper .swiper-button-next, .swiper .swiper-button-prev{
+    color: var(--secondary);
+}
+
+.swiper .swiper-pagination-bullet-active{
+    background-color: var(--secondary);
+}
+/* TESTIMONIALS STYLE END */
+
 .banner{
     height: 550px;
     background-image: url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80');
