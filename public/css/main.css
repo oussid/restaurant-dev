@@ -4,6 +4,12 @@
     --main-color: #FF6E31;
     --main-color-hover: #f77f4b;
     --main-color-active: #cf3f01;
+
+        --primary:black;
+        --secondary:#f82647;
+        --secondary-hover:#bd1c34;
+        --border:rgba(0, 0, 0, 0.16);
+
   }
 
 *{
@@ -26,7 +32,7 @@
     top: 0;
     width: 100%;
     color: #fff; 
-    border-bottom: var(--main-color) solid 3px;
+    border-bottom: var(--secondary) solid 3px;
 }
 
 .main-navbar-center{
@@ -70,11 +76,11 @@
     padding: .3rem .6rem;
     cursor: pointer;
     outline: none;
-    border: solid 1px var(--main-color);
+    border: solid 1px var(--secondary);
     border-radius: 6px;
     color: #fff;
     font-weight: 500;
-    background-color: var(--main-color);
+    background-color: var(--secondary);
     
 }
 /* NAVBAR STYLE END */
@@ -82,6 +88,7 @@
 /* CAROUSEL STYLE START */
 .home-carousel{
     height: 100vh;
+    width: 100%;
     position: relative;
     overflow: hidden;
 }
@@ -138,8 +145,8 @@
 
 .home-carousel-slide-btn{
     outline: none;
-    border: var(--main-color);
-    background-color: var(--main-color);
+    border: var(--secondary);
+    background-color: var(--secondary);
     padding: .7rem 1.2rem;
     font-size: 1.1rem;
     color: #fff;
@@ -156,13 +163,13 @@
 }
 
 .home-carousel-slide-btn:hover{
-  background-color: var(--main-color-hover);
+  background-color: var(--secondary);
   transform: translateY(-5px);  
 }
 
 .home-carousel-slide-btn:active{
   transition: 0s all;  
-  background-color: var(--main-color-active);
+  background-color: var(--secondary);
   transform: translateY(-1px);
 }
 
@@ -170,10 +177,22 @@
     background-position: center;
     background-size: cover;
     height: 100%;
+    position: absolute;
+    inset: 0;
+    /* flex-basis: 100%; */
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    opacity: 0;
+    transition: all ease-in-out .3s;
+    transition-delay: .3s;
+}
+
+.home-carousel-slide.active{
+    opacity: 1;
+    transition-delay: 0s;
 }
 /* CAROUSEL STYLE END */
 
