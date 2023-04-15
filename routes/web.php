@@ -15,3 +15,5 @@ use App\Http\Controllers\userController;
 */
 
 Route::get('/', [userController::class, 'index']);
+Route::get('/signup', [userController::class, 'signupPage']);
+Route::post('/signup', [userController::class, 'signup']);

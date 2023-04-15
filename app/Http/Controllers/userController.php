@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\User;
 use App\Models\TodaySpecials;
 use DB;
 
@@ -20,5 +21,30 @@ class userController extends Controller
             'sampleProducts'=>$sampleProducts,
             'todaySpecialProducts'=>$todaySpecialProducts
         ]);
+    }
+    public function signupPage(){
+        return view('signup');
+    }
+    public function signup(Request $req){
+        $req->validate([
+            "name"=>"required|min:2",
+            "email"=>"required|email|unique:users,email",
+            "mobile"=>"required|numeric|digits:10|unique:users,mobile",
+            "password"=>"required|min:5",
+            "c_password"=>"required|same:password",
+            "terms"=>"accepted"
+        ],[
+            'c_password.required'=>'The password confirmation is required',
+            'c_password.same'=>"password confirmation does't match",
+            'mobile.numeric'=>"must be a valid phone number"
+        ]);
+        User::create([
+            'name'=>$req->name,
+            'email'=>$req->email,
+            'mobile'=>$req->mobile,
+            'password'=>bcrypt($req->password)
+        ]);
+
+        return redirect()->back()->with('success','Registered Successfully');
     }
 }

@@ -31,7 +31,7 @@
     left: 0;
     top: 0;
     width: 100%;
-    color: #fff; 
+    color: #fff;
     border-bottom: var(--secondary) solid 3px;
 }
 
@@ -81,7 +81,7 @@
     color: #fff;
     font-weight: 500;
     background-color: var(--secondary);
-    
+
 }
 /* NAVBAR STYLE END */
 
@@ -125,21 +125,21 @@
 
 .home-carousel-slide-text{
     text-align: center;
-    font-size: 2rem;    
+    font-size: 2rem;
     margin-top: 5rem;
     margin-bottom: 3rem;
     padding-inline: 10rem;
 }
 
 .home-carousel-slide-text h2{
-    color: var(--main-color);
-    text-shadow: 2px 7px 5px rgba(0,0,0,0.3), 
+    color: var(--secondary);
+    text-shadow: 2px 7px 5px rgba(0,0,0,0.3),
     0px -4px 10px rgba(255,255,255,0.3);
 }
 
 .home-carousel-slide-text h1{
     color: white;
-    text-shadow: 2px 7px 5px rgba(0,0,0,0.3), 
+    text-shadow: 2px 7px 5px rgba(0,0,0,0.3),
     0px -4px 10px rgba(255,255,255,0.3);
 }
 
@@ -164,11 +164,11 @@
 
 .home-carousel-slide-btn:hover{
   background-color: var(--secondary);
-  transform: translateY(-5px);  
+  transform: translateY(-5px);
 }
 
 .home-carousel-slide-btn:active{
-  transition: 0s all;  
+  transition: 0s all;
   background-color: var(--secondary);
   transform: translateY(-1px);
 }
@@ -204,7 +204,7 @@
     background-position:center;
     width: 100%;
     height: 400px;
-    backdrop-filter: invert(3%)  
+    backdrop-filter: invert(3%)
 }
 
 .swiper .swiper-slide{
@@ -356,4 +356,185 @@
 .category-name{
     text-align: center;
     font-size: 25px;
+}
+/* SIGNUP PAGE START*/
+.signup-container{
+    z-index: 2;
+    height: 120vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-image:url('https://single-restaurant.gravityinfotech.net/storage/app/public/admin-assets/images/about/auth_bg_image-6373941ba3c7e.jpg') ;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.signup-filter{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: brightness(80%);
+}
+.signup-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    width: 40%;
+    box-shadow: 0px 0px 5px 1px #000;
+    height:98%;
+    border-radius:6px;
+}
+.signup-form-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+    width: 90%;
+    border-bottom: 1px solid var(--secondary);
+    gap: 1rem;
+}
+.form-logo{
+    background-image: url("https://www.freepnglogos.com/uploads/kfc-png-logo/camera-kfc-png-logo-0.png");
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+}
+.signup-form-long-inputs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.signup-form-long-input-grp{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    gap: 0.3rem;
+}
+.signup-form-long-input-grp>input{
+    padding: 0.3rem 0.5rem;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+}
+
+.signup-form-short-inputs-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+    width: 90%;
+    margin-top: 1rem;
+
+}
+.signup-form-short-input-grp{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.3rem;
+}
+.signup-form-short-input-grp>div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 4px;
+}
+.signup-form-short-input-grp>div>input , .signup-form-short-input-grp>input{
+    display: flex;
+    flex-direction: row;
+    padding: 0.3rem 0.5rem;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+}
+.signup-form-short-input-grp>div>input
+{
+    width: 100%;
+}
+.signup-form-short-input-grp>div>i
+{
+    color:var(--secondary);
+    padding: 0.3rem;
+}
+.signup-form-terms{
+    display: flex;
+    align-items: center;
+    width: 90%;
+    gap: 5px;
+    margin-top: 1rem;
+}
+.terms-checkbox:checked{
+    accent-color: var(--secondary);
+}
+.signup-form-terms>label>a, .signup-form-footer>a{
+    text-decoration: none;
+    color: var(--secondary);
+    font-weight: bold;
+}
+.signup-form-button{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+.signup-form-button>button{
+    width: 100%;
+    padding: 0.4rem;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    background-color: var(--secondary);
+    transition: ease-in-out 0.3s;
+    color: white;
+}
+.signup-form-button>button:hover{
+    background: var(--secondary-hover);
+    cursor: pointer;
+}
+.error{
+    font-size: 10px;
+    color: red;
+}
+.flash-message-container{
+    position: fixed;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(8px);
+}
+.flash-message{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 30%;
+    height: 30%;
+    gap: 1rem;
+    background-color: white;
+    border-radius: 5px;
+    color: green;
+}
+@keyframes successIcon {
+    from{transform: rotateY(0deg);}
+    to{transform: rotateY(360deg);}
+}
+.flash-message>i{
+    font-size: 2rem;
+    animation: successIcon 2s infinite;
 }
