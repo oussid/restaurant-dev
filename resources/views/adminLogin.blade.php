@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 <div class="login-form-container">
-    <form action="" class="login-form">
+    <form action="" class="login-admin-form">
         <div class="login-form-top">
             <h2>Welcome back!</h2>
             <p>Sign in to continue</p>

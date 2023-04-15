@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\User;
 use App\Models\TodaySpecials;
 use DB;
+use Auth;
 
 class userController extends Controller
 {
@@ -22,9 +23,11 @@ class userController extends Controller
             'todaySpecialProducts'=>$todaySpecialProducts
         ]);
     }
+
     public function signupPage(){
         return view('signup');
     }
+
     public function signup(Request $req){
         $req->validate([
             "name"=>"required|min:2",
@@ -46,5 +49,21 @@ class userController extends Controller
         ]);
 
         return redirect()->back()->with('success','Registered Successfully');
+    }
+    public function loginPage(){
+        return view('login');
+    }
+    public function login(Request $req){
+        $isAuthenticated=Auth::attempt(['email' => $req->email, 'password' => $req->password]);
+        if($isAuthenticated){
+            return abort(400,'Credentials are correct');
+        }
+        else{
+            if(User::where('email','=',$req->email)->count()==1){
+                return redirect()->back()->with("incorrectP","Password incorrect");
+            }else{
+                return redirect()->back()->with("noAcc","Account doesn't exist");;
+            }
+        }
     }
 }

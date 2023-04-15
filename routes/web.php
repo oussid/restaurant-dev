@@ -18,6 +18,8 @@ use App\Http\Controllers\AdminController;
 Route::get('/', [userController::class, 'index']);
 Route::get('/signup', [userController::class, 'signupPage']);
 Route::post('/signup', [userController::class, 'signup']);
+Route::get('/login', [userController::class, 'loginPage']);
+Route::post('/login', [userController::class, 'login']);
 
 // admin routes
 Route::get('/admin', [AdminController::class, 'dashboard']);

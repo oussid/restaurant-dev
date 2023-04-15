@@ -385,8 +385,8 @@
     font-size: 25px;
 }
 
-/* SIGNUP PAGE START*/
-.signup-container{
+/* SIGNUP and LOGIN START*/
+.signup-container, .login-container{
     z-index: 2;
     height: 120vh;
     display: flex;
@@ -398,7 +398,10 @@
     background-repeat: no-repeat;
     background-position: center;
 }
-.signup-filter{
+.login-container{
+    height: 110vh;
+}
+.signup-filter, .login-filter{
     height: 100%;
     display: flex;
     justify-content: center;
@@ -407,7 +410,7 @@
     height: 100%;
     backdrop-filter: brightness(80%);
 }
-.signup-form{
+.signup-form, .login-form{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -417,7 +420,11 @@
     height:98%;
     border-radius:6px;
 }
-.signup-form-header{
+.login-form{
+    width: 30%;
+    height: 90%;
+}
+.signup-form-header, .login-form-header{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -428,13 +435,13 @@
     gap: 1rem;
 }
 .form-logo{
-    background-image: url("https://www.freepnglogos.com/uploads/kfc-png-logo/camera-kfc-png-logo-0.png");
+    background-image: url("../images/burger-logo.png");
     background-size: cover;
     width: 100px;
     height: 100px;
     cursor: pointer;
 }
-.signup-form-long-inputs{
+.signup-form-long-inputs, .login-form-inputs{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -443,13 +450,13 @@
     gap: 1rem;
     margin-top: 1rem;
 }
-.signup-form-long-input-grp{
+.signup-form-long-input-grp, .login-form-input-grp{
     display: flex;
     flex-direction: column;
     width: 90%;
     gap: 0.3rem;
 }
-.signup-form-long-input-grp>input{
+.signup-form-long-input-grp>input ,.login-form-input-grp>input{
     padding: 0.3rem 0.5rem;
     border-radius: 4px;
     border: none;
@@ -506,19 +513,26 @@
 .terms-checkbox:checked{
     accent-color: var(--secondary);
 }
-.signup-form-terms>label>a, .signup-form-footer>a{
+.login-form-password-recovery{
+    width: 90%;
+    text-align: right;
+}
+.signup-form-terms>label>a, .signup-form-footer>a,.login-form-password-recovery>a,.login-form-footer>a{
     text-decoration: none;
     color: var(--secondary);
     font-weight: bold;
 }
-.signup-form-button{
+.signup-form-button ,.login-form-button{
     width: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 1rem;
 }
-.signup-form-button>button{
+.login-form-button{
+    margin-top: 0;
+}
+.signup-form-button>button,.login-form-button>button{
     width: 100%;
     padding: 0.4rem;
     border-radius: 4px;
@@ -528,7 +542,7 @@
     transition: ease-in-out 0.3s;
     color: white;
 }
-.signup-form-button>button:hover{
+.signup-form-button>button:hover, .login-form-button>button:hover{
     background: var(--secondary-hover);
     cursor: pointer;
 }
@@ -565,6 +579,37 @@
 .flash-message>i{
     font-size: 2rem;
     animation: successIcon 2s infinite;
+}
+.or{
+    font-size: 10px;
+}
+.social-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 90%;
+    height: 50px;
+    margin-top: -1rem;
+}
+.google-login,.facebook-login{
+    height: 50%;
+    width: 30%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.google-login{
+
+    background-image: url('https://cdn-icons-png.flaticon.com/512/2991/2991148.png');
+
+}
+
+.facebook-login{
+
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png');
+
 }
 /* SIGNUP PAGE END */
 
