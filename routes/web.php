@@ -20,5 +20,6 @@ Route::get('/signup', [userController::class, 'signupPage']);
 Route::post('/signup', [userController::class, 'signup']);
 
 // admin routes
+Route::get('/admin', [AdminController::class, 'dashboard']);
 Route::get('/admin/login', [AdminController::class, 'loginForm']);
 

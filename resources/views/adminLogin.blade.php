@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 <div class="login-form-container">
     <form action="" class="login-form">
