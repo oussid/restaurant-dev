@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\userController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,7 @@ use App\Http\Controllers\userController;
 Route::get('/', [userController::class, 'index']);
 Route::get('/signup', [userController::class, 'signupPage']);
 Route::post('/signup', [userController::class, 'signup']);
+
+// admin routes
+Route::get('/admin/login', [AdminController::class, 'loginForm']);
+
