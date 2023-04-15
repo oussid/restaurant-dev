@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.admin-unauthenticated')
 
 <div class="login-form-container">
     <form action="" class="login-admin-form">

@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800;900&family=Roboto:wght@500&display=swap');
+:root {
+    --admin-primary: #01112B;
+    --admin-primary-hover: #021c46;
+    --admin-secondary: #0A98AF;
+    --light-bg: #F5F5F9;
+    --light-text: #6F7483;
+    --admin-red: #f82647;
+  }
+
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Poppins', sans-serif ;
+}
+
+/* ADMIN LOGIN PAGE START */
+.login-form-container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #F8F8FB;
+}
+
+.login-admin-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #fff;
+    min-width: 23rem;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.login-form-top{
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction:column ;
+    gap: .5rem;
+    background-color: var(--admin-secondary);
+    color: #fff;
+    border-radius: 6px 6px 0 0;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+}
+
+.login-form-main{
+    display: flex;
+    flex-direction:column ;
+    padding:  1rem;
+    gap: 1rem;
+    
+}
+
+.login-form-main input{
+    height: 2.6rem;
+    border-radius: 6px;
+    outline: none;
+    border: 2px solid #CED4DA;
+    padding: .1rem 1rem;
+    font-size: 1.1rem;
+    transition: box-shadow .3s ease-in-out;
+}
+
+.login-form-main input:focus{
+    box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+}
+
+.login-form-main button {
+    height: 2.6rem;
+    background: var(--admin-primary);
+    color: #fff;
+    font-size: 1.1rem;
+    border: var(--admin-primary);
+    border-radius: 6px;
+    outline: none;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+.login-form-main button:hover {
+    background: var(--admin-primary-hover);
+}
+
+.login-form-bottom{
+    display: flex;
+    flex-direction:column ;
+    justify-content: center;
+    align-items: center; 
+    padding: 1rem 0 2rem 0; 
+}
+
+.login-form-bottom a {
+    color: #6C757D;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+}
+/* ADMIN LOGIN PAGE END */
