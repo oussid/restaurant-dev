@@ -1,21 +1,19 @@
 
 <nav class="main-navbar">
-    <div class="main-navbar-left">
-     LOGO
-    </div>
+    <img class="navbar-logo" src="{{asset('images/burger-logo.png')}}" alt="Logo">
     <div class="main-navbar-center">
-       <a href="#" class="main-navbar-center-item">
-         HOME
-       </a>
-       <a href="#" class="main-navbar-center-item">
-         MENU
-       </a>
-       <a href="#" class="main-navbar-center-item">
-         BOOK A TABLE
-       </a>
-       <a href="#" class="main-navbar-center-item">
-         CONTACT
-       </a>
+       <div href="#" class="main-navbar-center-item">
+         <a href="#">HOME</a> 
+       </div>
+       <div href="#" class="main-navbar-center-item">
+         <a href="#">MENU</a> 
+       </div>
+       <div href="#" class="main-navbar-center-item">
+         <a href="#">BOOK A TABLE</a> 
+       </div>
+       <div href="#" class="main-navbar-center-item">
+         <a href="#">CONTACT</a> 
+       </div>
     </div>
     <div class="main-navbar-right">
          <div class="main-navbar-right-left">

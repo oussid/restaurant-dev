@@ -52,7 +52,7 @@
     <x-cta/>
     <x-services/>
     <x-testimonials/>
-    {{-- <x-reviews/> --}}
+    <x-footer/>
 
 </body>
 </html>

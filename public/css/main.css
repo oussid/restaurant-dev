@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Roboto:wght@500&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800;900&family=Roboto:wght@500&display=swap');
 :root {
     --main-color: #FF6E31;
     --main-color-hover: #f77f4b;
@@ -21,6 +20,7 @@
 
 /* NAVBAR STYLE START */
 .main-navbar{
+    padding: .2rem 0;
     z-index: 3;
     display: flex;
     flex-direction: row;
@@ -35,6 +35,11 @@
     border-bottom: var(--secondary) solid 3px;
 }
 
+.navbar-logo{
+    width: 80px;
+    height: auto;
+}
+
 .main-navbar-center{
     display: flex;
     flex-direction: row;
@@ -42,9 +47,29 @@
 }
 
 .main-navbar-center-item{
+    padding: 1.5rem 1rem;
+}
+
+.main-navbar-center-item a{
     color: #fff;
     text-decoration: none;
-    padding: 1.5rem 1rem;
+    position: relative;
+}
+
+.main-navbar-center-item a::before{
+    content: '';
+    position: absolute;
+    background: var(--secondary);
+    height: 3px;
+    width: 0;
+    bottom: -2px;
+    left: 0;
+    border-radius: 3px;
+    transition: all ease-in-out .3s;
+}
+
+.main-navbar-center-item:hover a::before{
+    width: 100%;
 }
 
 .main-navbar-right{
@@ -258,6 +283,8 @@
 }
 /* TESTIMONIALS STYLE END */
 
+
+
 .banner{
     height: 550px;
     background-image: url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80');
@@ -357,3 +384,118 @@
     text-align: center;
     font-size: 25px;
 }
+
+
+/* FOOTER STYLE START */
+/* to apply blur effect */
+.footer-container{
+    margin-top: 1rem;
+    background-image:url('../images/burger-bg.jpg');
+    background-size:cover;
+    background-position:center;
+    background-repeat: no-repeat;
+}
+
+footer{
+    backdrop-filter: blur(3px);
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    padding:  0 8rem;
+    
+}
+
+.footer-main{
+    padding: 3rem 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+    border-bottom: 4px solid var(--secondary);
+}
+
+.footer-main-identity{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.footer-main-identity-logo{
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.footer-main-identity-slogan{
+    color: #fff;
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
+    font-size: 4rem;
+    font-weight: 900;
+    line-height: 3.9rem;
+    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+    font-family: 'Dancing Script', sans-serif;;
+}
+
+.footer-main-identity-description{
+    color: #fff;
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+    0px 8px 13px rgba(0,0,0,0.1),
+    0px 18px 23px rgba(0,0,0,0.1);
+    font-size: 1.2rem;
+}
+
+.footer-main-links{
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+}
+
+.footer-main-links-section{
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-main-links-section-title{
+    margin-bottom: 1.2rem;
+    color: var(--secondary);
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+    0px 8px 13px rgba(0,0,0,0.1),
+    0px 18px 23px rgba(0,0,0,0.1);
+}
+
+.footer-main-links-section-tabs{
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+    padding-left: .2rem;
+}
+
+.footer-main-links-section-tabs a{
+    font-size: 1.2rem;
+    color: #fff;
+    text-decoration: none;
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+    0px 8px 13px rgba(0,0,0,0.1),
+    0px 18px 23px rgba(0,0,0,0.1);
+}
+
+.footer-bottom{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 5rem;
+}
+
+.footer-copyright{
+    color: #fff ;
+    font-size: 1.1rem;
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+    0px 8px 13px rgba(0,0,0,0.1),
+    0px 18px 23px rgba(0,0,0,0.1);
+}
+
+/* FOOTER STYLE END */
