@@ -6,6 +6,7 @@
     --light-bg: #F5F5F9;
     --light-text: #6F7483;
     --admin-red: #f82647;
+    --text: #495067;
   }
 
 *{
@@ -27,23 +28,53 @@ font-family: 'Poppins', sans-serif ;
 .admin-main-side{
     display: flex;
     flex-direction: column;
+    height: 100vh;
 }
 
 .admin-main-side-body{
     background: var(--light-bg);
     height: 100%;
-    width: 100%;
+    max-width: 100%;
+    overflow-y: auto;
 }
 
 .admin-main-side-nav{
     z-index: 3;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
 }
+
 /* ADMIN LAYOUT END */
 
+/* ADMIN DASHBOARD CHARTS START */
+.admin-dashboard-charts{
+    margin-top: 1.3rem;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-auto-rows: 1fr;
+    gap: 1.3rem;
+}
 
+.admin-dashboard-charts-orders, .admin-dashboard-charts-earnings{
+    height: 100%;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    border-radius: 6px;
+    padding: 1rem;
+}
 
-/* ADMIN DASHBOARD START */
+.chart-container{
+
+    position: relative;
+    height: 100%;
+}
+
+.chart-title{
+    color: var(--text);
+    font-size: 1.6rem;
+}
+/* ADMIN DASHBOARD CHARTS END */
+
+/* ADMIN SIDEBAR START */
 .admin-sidebar{
     display: flex;
     flex-direction: column;
@@ -95,7 +126,7 @@ font-family: 'Poppins', sans-serif ;
     color: var(--admin-primary);
     background: #fff;
 }
-/* ADMIN DASHBOARD END */
+/* ADMIN SIDEBAR END */
 
 /* ADMIN NAV START */
 .admin-nav{
@@ -127,3 +158,58 @@ font-family: 'Poppins', sans-serif ;
     font-weight: 500;
 }
 /* ADMIN NAV END */
+
+/* ADMIN DASHBOARD START */
+.admin-dashboard{
+    padding: 2.5rem 2rem;
+}
+
+.admin-dashboard-cards{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 1.3rem;
+}
+
+.dashboard-card{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding:  1rem;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    border-radius: 6px;
+}
+
+.dashboard-card-info{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.dashboard-card-right-label{
+    color: var(--light-text);
+    font-size: 1.2rem;
+}
+
+.dashboard-card-right-count{
+    font-size: 1.8rem;
+    color: var(--text);
+}
+
+
+.dashboard-card-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboard-card-icon i{
+    font-size: 1.6rem;
+    background-color: var(--admin-secondary);
+    padding: .8rem;
+    color: #fff;
+    border-radius: 50%;
+}
+/* ADMIN DASHBOARD END */

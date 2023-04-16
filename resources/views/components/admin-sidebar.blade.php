@@ -14,6 +14,11 @@
             <i class="fa-solid fa-cart-shopping"></i>
             Orders
         </a href="#">
+        
+        <a href="#" class="admin-sidebar-tab">
+            <i class="fa-solid fa-list"></i>
+            Categories
+        </a href="#">
 
         <a href="#" class="admin-sidebar-tab">
             <i class="fa-solid fa-burger"></i>
@@ -32,7 +37,7 @@
         
         <a href="#" class="admin-sidebar-tab">
             <i class="fa-solid fa-motorcycle"></i>
-            Delivery Man
+            Delivery Men
         </a href="#">
 
         <a href="#" class="admin-sidebar-tab">
