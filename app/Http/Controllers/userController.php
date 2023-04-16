@@ -41,12 +41,15 @@ class userController extends Controller
             'c_password.same'=>"password confirmation does't match",
             'mobile.numeric'=>"must be a valid phone number"
         ]);
+
         User::create([
             'name'=>$req->name,
             'email'=>$req->email,
             'mobile'=>$req->mobile,
             'password'=>bcrypt($req->password)
         ]);
+        
+
 
         return redirect()->back()->with('success','Registered Successfully');
     }
