@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Order;
 use App\Models\Category;
 use App\Models\TodaySpecials;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Product extends Model
 {
@@ -15,5 +16,11 @@ class Product extends Model
     }
     public function todaySpecials(){
         return $this->belongsTo(TodaySpecials::class);
+    }
+
+
+    public function orders()
+    {
+        return $this->belongsToMany(Order::class);
     }
 }
