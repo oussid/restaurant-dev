@@ -915,3 +915,97 @@ footer{
 }
 /*BOOKING PAGE END*/
 
+/*Contact Page Start*/
+.contact-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 5.5rem;
+    width: 100%;
+}
+.contact-content-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.contact-infos, .contact-form-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: .5;
+    padding: 2rem;
+    gap: 3rem;
+    flex-direction:column ;
+}
+.contact-infos-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    gap: 3rem;
+}
+.contact-infos-square{
+    flex: .5;
+}
+.contact-infos-square>i{
+    font-size: 2rem;
+    color: var(--secondary);
+}
+.contact-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px black;
+    text-align: center;
+    gap: 1rem;
+}
+.contact-form>h1>span{
+    color: var(--secondary);
+}
+.contact-form-short-inputs{
+    display: flex;
+    gap: 1rem;
+    width: 80%;
+}
+.contact-form-long-inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 80%;
+}
+.contact-form-input-box{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.contact-form-input-box>input,.contact-form-input-box>textarea{
+    padding: 0.3rem 1rem ;
+    border-radius: 3px;
+    border: 1px solid var(--border);
+    outline: none;
+    width: 100%;
+}
+.contact-form-input-box>textarea{
+    resize: vertical;
+}
+.contact-form-long-inputs>button{
+    border: none;
+    outline: none;
+    padding: 0.5rem;
+    color: white;
+    border-radius: 3px;
+    background-color: var(--secondary);
+    cursor: pointer;
+    transition: ease-in-out .3s;
+}
+.contact-form-long-inputs>button:hover{
+    background-color: var(--secondary-hover);
+}
+/*Contact Page End*/

@@ -12,7 +12,7 @@
          <a href="/booking">BOOK A TABLE</a>
        </div>
        <div href="#" class="main-navbar-center-item">
-         <a href="#">CONTACT</a>
+         <a href="/contact">CONTACT</a>
        </div>
     </div>
     <div class="main-navbar-right">

@@ -22,7 +22,8 @@ return new class extends Migration
             $table->string('contact_name');
             $table->string('contact_email');
             $table->string('contact_mobile');
-            $table->string('special_request');
+            $table->string('special_request')->nullable();
+            $table->timestamps();
         });
     }
 

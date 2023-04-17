@@ -1,5 +1,9 @@
 @extends('layouts.app')
 @section('content')
+
+
+
+
 @if (session()->has('error'))
 <div class="flash-message-container">
     <div class="flash-message flash-error"><h3>{{ session()->get('error') }}</h3><i class="fa-solid fa-circle-xmark"></i></div>
@@ -9,7 +13,17 @@
             let successFlash = document.querySelector('.flash-message-container')
             successFlash.style.display = "none";
         }, 5000);
-    </script>
+</script>
+@elseif (session()->has('success'))
+<div class="flash-message-container">
+    <div class="flash-message"><h3>{{ session()->get('success') }}</h3><i class="fa-solid fa-calendar-check"></i></div>
+</div>
+<script>
+    setTimeout(() => {
+        let successFlash = document.querySelector('.flash-message-container')
+        successFlash.style.display = "none";
+    }, 5000);
+</script>
     @else
     <x-loader/>
 @endif

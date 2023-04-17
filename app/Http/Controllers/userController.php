@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\TodaySpecials;
 use App\Models\Booking;
 use App\Models\Table;
+use App\Models\Inbox;
 use DB;
 use Auth;
 use Carbon\Carbon;
@@ -83,7 +84,7 @@ class userController extends Controller
     }
     public function booking(Request $req){
         $req->validate([
-            "date"=>"required",
+            "date"=>"required|after:yesterday",
             "time"=>"required|date_format:H:i|after:09:00",
             "n_guests"=>"required|min:1|max:10",
             "booking_type"=>"required",
@@ -91,10 +92,32 @@ class userController extends Controller
             "email"=>"required|email",
             "mobile"=>"required|numeric|digits:10"
         ]);
-        $time = $req->time; // get the value of the input using the request object
-        $maxTime = Carbon::parse($time)->addHours('3'); // parse the input value as a Carbon object and add 1 hour
-        $maxTime = $maxTime->format('H:i');//changing time format
-        $table=null;
+
+
+        $date = $req->date;
+        $timeStart = $req->time;
+        $table = DB::table('tables')
+        ->select('tables.*')
+        ->whereNotExists(function ($query) use ($date, $timeStart) {
+            $query->select(DB::raw(1))
+                ->from('bookings')
+                ->whereRaw('bookings.table_id = tables.id')
+                ->where(function ($query) use ($date, $timeStart) {
+                    $query->where(function ($query) use ($date, $timeStart) {
+                        $query->where('booking_date', $date)
+                              ->whereBetween('booking_time', [$timeStart, DB::raw('booking_time + INTERVAL 3 HOUR')]);
+                    })
+                    ->orWhere(function ($query) use ($date, $timeStart) {
+                        $query->where('booking_date', '>', $date)
+                              ->orWhere(function ($query) use ($date, $timeStart) {
+                                  $query->where('booking_date', $date)
+                                        ->where('booking_time', '<=', $timeStart)
+                                        ->whereRaw('booking_time + INTERVAL 3 HOUR <= ?', [Carbon::parse(request("time"))->addHours('3')]);
+                              });
+                    });
+                });
+        })
+        ->first();
         if($table==null){
             return redirect()->back()->with('error','No tables are available during this date and time');
         }
@@ -110,6 +133,26 @@ class userController extends Controller
                 "contact_mobile"=>$req->mobile,
                 "special_request"=>$req->special_r
             ]);
+
+            return redirect()->back()->with('success','Table booked');
         }
+    }
+    public function contactPage(){
+        return view('contact');
+    }
+    public function contact(Request $req){
+        $req->validate([
+            "first_name"=>"required|min:3",
+            "last_name"=>"required|min:3",
+            "email"=>"required|email",
+            "message"=>"required|min:20"
+        ]);
+        Inbox::create([
+            "first_name"=>$req->first_name,
+            "last_name"=>$req->last_name,
+            "email"=>$req->email,
+            "message"=>$req->message
+        ]);
+        return redirect()->back()->with('success','Message sent');
     }
 }
