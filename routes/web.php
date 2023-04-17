@@ -22,6 +22,13 @@ Route::get('/login', [userController::class, 'loginPage']);
 Route::post('/login', [userController::class, 'login']);
 
 // admin routes
-Route::get('/admin', [AdminController::class, 'dashboard']);
-Route::get('/admin/login', [AdminController::class, 'loginForm']);
+
+Route::group(['prefix'=> 'admin', 'namespace'=> 'App\Http\Controllers'], function (){
+    Route::get('/', [AdminController::class, 'dashboard']);
+    Route::get('/login', [AdminController::class, 'loginForm']);
+    Route::get('/signup', [AdminController::class, 'signupForm']);
+    Route::post('/signup', [AdminController::class, 'signup'])->name('admin.signup');
+    Route::post('/login', [AdminController::class, 'login'])->name('admin.login');
+    Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');
+});
 

@@ -52,9 +52,12 @@
             @if (count($earningsChart)>0)
             <x-bar-chart :earnings='$earningsChart' />
             @else
-            No orders yet
+            No earnings yet
             @endif
         </div>
+    </div>
+    <div class="admin-dashboard-orders">
+        <livewire:orders-table />
     </div>
 </div>
 

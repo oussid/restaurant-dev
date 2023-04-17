@@ -8,6 +8,7 @@
         <script src="https://kit.fontawesome.com/ea7913d8a3.js" crossorigin="anonymous"></script>
         {{-- swiper  --}}
         <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+        @livewireStyles
         <title>Restaurant</title>
     </head>
     <body>
@@ -15,5 +16,6 @@
         {{-- swiper --}}
         <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
         <script src="js/swiper.js"></script>
+        @livewireScripts
     </body>
 </html>

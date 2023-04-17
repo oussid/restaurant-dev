@@ -7,11 +7,13 @@
         <link rel="stylesheet" href="{{asset('css/admin-unauthenticated.css')}}">
         {{-- fontawesome --}}
         <script src="https://kit.fontawesome.com/ea7913d8a3.js" crossorigin="anonymous"></script>
+        @livewireStyles
         <title>Restaurant</title>
     </head>
     <body>
         <div class="admin-container">
             @yield('content')
         </div>
+        @livewireScripts
     </body>
 </html>

@@ -1,7 +1,10 @@
 @extends('layouts.admin-unauthenticated')
 
 <div class="login-form-container">
-    <form action="" class="login-admin-form">
+    {{session('error')}}
+    {{session('message')}}
+    <form action="{{route('admin.login')}}" method="POST" class="login-admin-form">
+        @csrf
         <div class="login-form-top">
             <h2>Welcome back!</h2>
             <p>Sign in to continue</p>
