@@ -8,8 +8,11 @@
         setTimeout(() => {
             let successFlash = document.querySelector('.flash-message-container')
             successFlash.style.display = "none";
+            window.location.href ='/'
         }, 5000);
     </script>
+    @else
+    <x-loader/>
 @endif
 
 <div class="signup-container">

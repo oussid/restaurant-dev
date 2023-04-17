@@ -69,7 +69,7 @@
 </style>
 
 <div class="products-container">
-    @foreach ($products as $product )
+    @forelse ($products as $product )
         <div class="product-card">
             <div class="product-image" style="background-image:url({{ $product->img }})"></div>
             <div class="product-name"> {{ $product->name }}</div>
@@ -79,5 +79,9 @@
                 <button class="card-button">ADD</button>
             </div>
         </div>
-    @endforeach
+        @empty
+        <div class="empty-data">
+            <h2>No products yet</h2>
+        </div>
+    @endforelse
 </div>

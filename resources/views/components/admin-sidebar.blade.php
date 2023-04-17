@@ -1,7 +1,7 @@
 <div class="admin-sidebar">
     <div class="admin-sidebar-top">
         <p class="admin-sidebar-top-title">
-            Admin
+            Menu
         </p>
     </div>
     <div class="admin-sidebar-tabs ">
@@ -9,12 +9,12 @@
             <i class="fa-solid fa-house-user"></i>
             Dashboard
         </a href="#">
-        
+
         <a href="#" class="admin-sidebar-tab">
             <i class="fa-solid fa-cart-shopping"></i>
             Orders
         </a href="#">
-        
+
         <a href="#" class="admin-sidebar-tab">
             <i class="fa-solid fa-list"></i>
             Categories
@@ -34,7 +34,7 @@
             <i class="fa-solid fa-calendar"></i>
             Bookings
         </a href="#">
-        
+
         <a href="#" class="admin-sidebar-tab">
             <i class="fa-solid fa-motorcycle"></i>
             Delivery Men
