@@ -15,8 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('mobile')->unique();
+            $table->string('mobile')->unique()->nullable();
+            $table->string('profile_pic')->nullable();
             $table->string('password');
+            $table->integer('role')->default(0);  // 0=>customer 1=>delivery_man 2=>admin
+            $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

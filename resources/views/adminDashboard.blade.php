@@ -49,7 +49,11 @@
         </div>
         <div class="admin-dashboard-charts-earnings">
             <p class="chart-title">Earnings</p>
-            <x-bar-chart />
+            @if (count($earningsChart)>0)
+            <x-bar-chart :earnings='$earningsChart' />
+            @else
+            No orders yet
+            @endif
         </div>
     </div>
 </div>

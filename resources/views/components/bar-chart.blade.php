@@ -4,26 +4,33 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-    const barChartCanvas = document.getElementById('bar-chart')
+    // converting data from php to a readable json array
+    const earnings =  @php echo json_encode($earnings) @endphp;
+    // months
+    let earningsLabels = []
+    // counts
+    let earningsData = []
+    // extracting months and revenues
+    earnings.forEach(earning => {
+        earningsLabels = [...earningsLabels, earning.month]
+        earningsData = [...earningsData, earning.revenue]
+    });
 
-    const barChartData = {
-        labels: ["wahd", "joj", "tlata", "rbaa", "khamsa"],
-        data: [30, 17, 10, 7, 36],
-    }
+    // Chart.js configuration
+    const barChartCanvas = document.getElementById('bar-chart')
 
     const barChartConfig = {
         type: "bar", 
         data: {
-            labels: barChartData.labels,
+            labels: earningsLabels,
             datasets: [
                 {
                     label: "Revenue",
-                    data: barChartData.data
+                    data: earningsData
                 }
             ]
         }
     }
-
 
     const barChart = new Chart(barChartCanvas, barChartConfig)
 </script>

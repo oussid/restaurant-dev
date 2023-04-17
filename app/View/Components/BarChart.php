@@ -8,12 +8,11 @@ use Illuminate\View\Component;
 
 class BarChart extends Component
 {
-    /**
-     * Create a new component instance.
-     */
-    public function __construct()
+    public $earnings ;
+
+    public function __construct($earnings)
     {
-        //
+        $this->earnings = $earnings;
     }
 
     /**
