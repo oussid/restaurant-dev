@@ -20,6 +20,9 @@ Route::get('/signup', [userController::class, 'signupPage']);
 Route::post('/signup', [userController::class, 'signup']);
 Route::get('/login', [userController::class, 'loginPage']);
 Route::post('/login', [userController::class, 'login']);
+Route::post('/logout',[userController::class, 'logout']);
+Route::get('/booking', [userController::class, 'bookingPage']);
+Route::post('/booking',[userController::class, 'booking']);
 
 // admin routes
 Route::get('/admin', [AdminController::class, 'dashboard']);

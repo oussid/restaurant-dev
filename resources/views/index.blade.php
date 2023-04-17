@@ -1,14 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
+<x-loader/>
     <x-navbar/>
     <x-carousel />
     <div class="sample-products-container">
-        @foreach ( $products as $product )
+        @forelse ( $products as $product )
         <div onclick="window.location.href='/products/{{ $product->id }}'" class="sample-product">
             <div class="sample-product-img" style="background-image:url({{$product->img }})"></div>
         </div>
-        @endforeach
+        @empty
+        <div class="empty-data">
+            <h2>No sample products yet</h2>
+        </div>
+        @endforelse
     </div>
     <div class="categories-container">
         <x-sections-header>
@@ -17,12 +22,16 @@
             <x-slot name="buttonUrl">/categories</x-slot>
         </x-sections-header>
         <div class="categories">
-            @foreach ($categories as $category )
+            @forelse ($categories as $category )
             <div class="category">
                 <div class="category-img" style="background-image:url({{ $category->img }})"></div>
                 <div class="category-name">{{ $category->name }}</div>
             </div>
-            @endforeach
+            @empty
+            <div class="empty-data">
+                <h2>No categories yet</h2>
+            </div>
+            @endforelse
         </div>
     </div>
     <div class="today-special-container">
@@ -34,11 +43,15 @@
         <x-products-spreader :products="$todaySpecialProducts" />
 
         <div class="sample-products-container">
-            @foreach ( $sampleProducts as $product )
+            @forelse ( $sampleProducts as $product )
             <div style="height:270px"  onclick="window.location.href='/products/{{ $product->id }}'" class="sample-product">
                 <div class="sample-product-img" style="background-image:url({{$product->img }})"></div>
             </div>
-            @endforeach
+            @empty
+            <div class="empty-data">
+                <h2>No sample products yet</h2>
+            </div>
+            @endforelse
         </div>
     </div>
     <div class="recommended-container">

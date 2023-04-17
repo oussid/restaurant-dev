@@ -2,7 +2,7 @@
 @section('content')
 
 
-
+<x-loader/>
 <div class="login-container">
 
     <div class="login-filter">
