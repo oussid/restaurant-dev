@@ -58,7 +58,8 @@ class AdminController extends Controller
             'role'=> 2,
         ]);
         
-        $user->createToken('admin_token', ['everything']);
+        $token = $user->createToken('admin_token', ['everything']);
+        $user->save();
 
         // dd(Auth::user());
         Auth::login($user); 

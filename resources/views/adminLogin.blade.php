@@ -11,8 +11,8 @@
         </div>
 
         <div class="login-form-main">
-            <input type="email" placeholder="Email address" name="email">
-            <input type="text" placeholder="Password" name="password">
+            <input type="email" placeholder="Email address" name="email" value="{{old('email')}}">
+            <input type="text" placeholder="Password" name="password" value="{{old('password')}}"> 
             <button type="submit">Login</button>
         </div>
 

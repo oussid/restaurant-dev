@@ -17,7 +17,7 @@
             <div class="login-form-inputs">
                 <div class="login-form-input-grp">
                     <label for="name">Email</label>
-                    <input type="email" name="email" placeholder="Email" required />
+                    <input type="email" name="email" placeholder="Email"  required />
                     @if(session()->has('noAcc'))
                         <h4 class='error'>{{ session()->get('noAcc') }}</h4>
                     @endif
