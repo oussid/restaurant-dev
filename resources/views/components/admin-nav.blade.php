@@ -9,7 +9,7 @@
         <div id="navProfile" class="admin-nav-right-profile">
             <img src="{{asset('images/admin.jpeg')}}" alt="Profile Picture" class="admin-nav-right-profile-pic"/>
             <div class="admin-nav-right-profile-name">
-                Abbas 
+                {{Auth::user()->name}} 
                 <i class="fa-solid fa-caret-down"></i>
             </div>
 

@@ -4,6 +4,12 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
+        //current month
+        const localDateForBar = new Date();
+    const currentMonthForBar = localDateForBar.getMonth() + 1 
+    // converting data from php to a readable json array
+    const earnings =  @php echo json_encode($earnings) @endphp;
+
     //months map
     let monthsMap = {
         1: 'January',
@@ -20,14 +26,28 @@
         12: 'December',
 };
 
-    // converting data from php to a readable json array
-    const earnings =  @php echo json_encode($earnings) @endphp;
+// array of 12 objects with month numbers and order count initilized with 0
+    const barResult = Array.from({ length: currentMonthForBar }, (_, i) => ({
+        month: i + 1,
+        revenue: 0
+        }));    
+
+    // updating objects of 'months' based of 'result'
+    earnings.forEach(item => {
+        const index = item.month - 1;
+        barResult[index].revenue = item.revenue;
+        });
+    
+    //making sure objects are sorted by month
+    barResult.sort((a, b) => a.month - b.month);
+
+
     // months
     let earningsLabels = []
     // counts
     let earningsData = []
     // extracting months and revenues
-    earnings.forEach(earning => {
+    barResult.forEach(earning => {
         earningsLabels = [...earningsLabels, monthsMap[earning.month]]
         earningsData = [...earningsData, earning.revenue]
     });
