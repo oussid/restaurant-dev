@@ -1,57 +1,46 @@
-<div class="table-container">
+
+  <div class="table-container">
     <div class="table-container-top">
         <div class="table-container-top-title">
             Today's orders
         </div>
-        <form class="table-container-top-search">
-            <input type="text" placeholder="Search">
+        <form wire:submit.prevent="test" class="table-container-top-search">
+            <input wire:model='search' type="text" placeholder="Search">
         </form>
     </div>
     <div class="table-container-main">
         <table>
             <thead>
                 <tr>
-                    <th>#</th>
-                    <th>Label</th>
-                    <th>Quantity</th>
-                    <th>Total</th>
-                    <th>Customer</th>                    
+                    <th>Order Number</th>
+                    <th>Date</th>
+                    <th>User Details</th>
+                    <th>Total</th>                    
+                    <th>Status</th>                    
+                    <th>Action</th>                    
                 </tr>
 
             </thead>
             <tbody>
-                <tr>
-                    <td>Test</td>
-                    <td>Test</td>
-                    <td>Test</td>
-                    <td>Test</td>
-                    <td>Test</td>                    
-                </tr>
-                <tr>
-                    <td>Test</td>
-                    <td>Test</td>
-                    <td>Test</td>
-                    <td>Test</td>
-                    <td>Test</td>
-                </tr>
-                <tr>
-                    <td>Test</td>
-                    <td>Test</td>
-                    <td>Test</td>
-                    <td>Test</td>
-                    <td>Test</td>
-                </tr>
+                @forelse ($orders as $order)
+                    <tr>
+                        <td> {{$order->order_number}} </td>
+                        <td> {{$order->created_at}} </td>
+                        <td> {{$order->user->name}} <br> {{$order->user->mobile}} <br> {{$order->user->email}} </td>
+                        <td> ${{$order->total}} </td>
+                        <td> {{$order->status}} </td>
+                        <td> actions </td>
+                    </tr>
+                @empty
+                    <tr><td colspan='7'>No orders to show</td></tr>
+                @endforelse
             </tbody>
         </table>
     </div>
     <div class="table-container-bottom">
-        <div class="table-container-bottom-pagination-count">
-            Showing 1 to 3 of 3 entries
-        </div>
-        <div class="table-container-bottom-pagination-links">
-            <a href="#" class="table-container-bottom-pagination-link disabled">Previous</a>
-            <a href="#" class="table-container-bottom-pagination-link ">1</a>
-            <a href="#" class="table-container-bottom-pagination-link ">Next</a>
-        </div>
+        {{$orders->links('pagination-links')}}
     </div>
-</div>
+</div>  
+
+
+

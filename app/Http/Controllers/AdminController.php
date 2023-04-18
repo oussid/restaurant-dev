@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Models\User;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -11,28 +12,26 @@ use Illuminate\Support\Facades\Auth;
 class AdminController extends Controller
 {
     public function dashboard(){
-        $orders = DB::table('orders')
-            ->whereRaw('YEAR(order_date) = YEAR(CURRENT_DATE())')
-            ->select(DB::raw('MONTH(order_date) as month'), DB::raw('count(*) as orders_count'))
+        $ordersForChart = DB::table('orders')
+            ->whereRaw('YEAR(created_at) = YEAR(CURRENT_DATE())')
+            ->select(DB::raw('MONTH(created_at) as month'), DB::raw('count(*) as orders_count'))
             ->groupBy('month')
             ->get()
             ->toArray();
-            // $orders = DB::table('orders')
-            // ->select('month', DB::raw('COUNT(*) as count'))
-            // ->groupBy('month')
-            // ->get()
-            // ->toArray();
-            $earnings = DB::table('orders')
-            ->whereRaw('YEAR(order_date) = YEAR(CURRENT_DATE())')
-            ->select(DB::raw('MONTH(order_date) as month'), DB::raw('sum(total) as revenue'))
+
+            $earningsForChart = DB::table('orders')
+            ->whereRaw('YEAR(created_at) = YEAR(CURRENT_DATE())')
+            ->select(DB::raw('MONTH(created_at) as month'), DB::raw('sum(total) as revenue'))
             ->groupBy('month')
             ->get()
             ->toArray();
+
+            
             
 
         return view('adminDashboard', [
-            'ordersChart'=>$orders,
-            'earningsChart' => $earnings
+            'ordersChart'=>$ordersForChart,
+            'earningsChart' => $earningsForChart
         ]);
     }
 

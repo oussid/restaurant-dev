@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('order_number');
             $table->double('total',255,2);
-            $table->date('order_date'); // required for dashboard charts
+            $table->string('status');
             $table->timestamps();
         });
     }

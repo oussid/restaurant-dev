@@ -300,44 +300,8 @@ font-family: 'Poppins', sans-serif ;
     padding: 1rem 0;
 }
 
-.table-container-bottom-pagination-count{
-    color: var(--light-text);
-}
 
-.table-container-bottom-pagination-links{
-    display: flex;
-    align-items: center;
-    border: var(--light-border) solid 1px;
-    border-radius: 6px;
-}
 
-.table-container-bottom-pagination-link{
-    padding: .5rem 1rem ;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    color: var(--text);
-    font-weight: 500;
-    transition: .3s all;
-}
-
-.table-container-bottom-pagination-link.disabled{
-    color: var(--light-text);
-    cursor: not-allowed;
-}
-
-.table-container-bottom-pagination-link.disabled:hover{
-    background: none ;
-}
-
-.table-container-bottom-pagination-link:hover{
-    background-color: var(--main-hover);
-}
-
-.table-container-bottom-pagination-link:not(:first-child){
-    border-left: var(--light-border) solid 1px;
-}
 
 .table-container-main{
     display: flex;
@@ -353,6 +317,7 @@ font-family: 'Poppins', sans-serif ;
     border: 1px solid var(--light-border);
     border-collapse: collapse;
 }
+
 
 .table-container-main th {
     font-weight: 600;
@@ -373,5 +338,59 @@ font-family: 'Poppins', sans-serif ;
     background-color: var(--light-hover);
 }
 /* admin table end */
+
+/* custom pagination start */
+.custom-pagination{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.custom-pagination-links{
+    display: flex;
+    flex-direction: row;
+}
+
+.custom-pagination-links button{
+    background: none;
+    outline: none;
+    border: var(--light-border) solid 1px;
+    color: var(--text);
+    font-weight: 500;
+    font-size: 1.05rem;
+    padding: .5rem 1rem;
+    cursor: pointer;
+}
+
+.custom-pagination-count{
+    color: var(--light-text);
+}
+
+.custom-pagination button.disabled{
+    color: var(--light-text);
+    cursor: not-allowed;
+}
+
+.table-container-bottom-pagination-link.disabled:hover{
+    background: none ;
+}
+
+.custom-pagination button:hover{
+    background-color: var(--main-hover);
+}
+
+.custom-pagination button.disabled:hover{
+    background: none;
+}
+
+.custom-pagination button.active{
+    background-color: var(--admin-primary-hover);
+    border: var(--admin-primary-hover) solid 1px;
+    cursor: default;
+    color: #fff;
+}
+/* custom pagination end */
 
 /* ADMIN DASHBOARD END */
