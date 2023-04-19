@@ -9,12 +9,10 @@ use Livewire\WithPagination;
 class OrdersTable extends Component
 {
     use WithPagination;
-
     public $search;
+    public $title;
 
-    public function test(){
-        dd($this->search);
-    }
+
     
     public function render()
     {

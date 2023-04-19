@@ -2,10 +2,17 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Booking;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Table extends Model
 {
     use HasFactory;
+
+
+    public function booking()
+    {
+        return $this->hasOne(Booking::class);
+    }
 }

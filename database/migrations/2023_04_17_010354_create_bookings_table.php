@@ -18,7 +18,7 @@ return new class extends Migration
             $table->date('booking_date');
             $table->time('booking_time');
             $table->string('booking_type');
-            $table->integer('guests_number');
+            $table->integer('guests_number'); 
             $table->string('contact_name');
             $table->string('contact_email');
             $table->string('contact_mobile');

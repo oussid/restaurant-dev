@@ -1,6 +1,6 @@
 <div class="admin-nav">
     <div class="admin-nav-left">
-        
+        Admin
     </div>
     <div class="admin-nav-center">
 
@@ -14,7 +14,7 @@
             </div>
 
             <div id="dropdown" class="admin-nav-right-profile-dropdown">
-                <a href="/" class="admin-nav-right-profile-dropdown-tab">
+                <a href="#" class="admin-nav-right-profile-dropdown-tab">
                     <i class="fa-solid fa-arrow-pointer"></i> Visit site
                 </a>
                 <div class="admin-nav-right-profile-dropdown-tab">

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\TableController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +35,15 @@ Route::post('admin/login', [AdminController::class, 'login'])->name('admin.login
 
 // admin routes
 Route::group(['prefix'=> 'admin', 'namespace'=> 'App\Http\Controllers', 'middleware'=>['admin']], function (){
-    Route::get('/', [AdminController::class, 'dashboard']);
+    Route::get('/', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+    Route::resource('category', CategoryController::class);
+    Route::resource('product', ProductController::class);
+    Route::resource('customer', CustomerController::class);
+    Route::resource('order', OrderController::class);
+    Route::resource('delivery', DeliveryManController::class);
+    Route::resource('testimonial', TestimonialController::class);
+    Route::resource('booking', BookingController::class);
+    Route::resource('table', TableController::class);
     Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');
 });
 

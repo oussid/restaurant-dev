@@ -1,12 +1,11 @@
-
-  <div class="table-container">
+<div class="table-container">
     <div class="table-container-top">
         <div class="table-container-top-title">
-            Today's orders
+            {{$title}}
         </div>
-        <form wire:submit.prevent="test" class="table-container-top-search">
+        <div  class="table-container-top-search">
             <input wire:model='search' type="text" placeholder="Search">
-        </form>
+        </div>
     </div>
     <div class="table-container-main">
         <table>

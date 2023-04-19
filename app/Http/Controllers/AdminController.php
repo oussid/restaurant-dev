@@ -19,28 +19,33 @@ class AdminController extends Controller
             ->get()
             ->toArray();
 
-            $earningsForChart = DB::table('orders')
+        $earningsForChart = DB::table('orders')
             ->whereRaw('YEAR(created_at) = YEAR(CURRENT_DATE())')
             ->select(DB::raw('MONTH(created_at) as month'), DB::raw('sum(total) as revenue'))
             ->groupBy('month')
             ->get()
             ->toArray();
 
-            
-            
+        $counts = [
+            'customers' => DB::table('users')->where('role', 0)->count(),
+            'products' => DB::table('products')->count(),
+            'categories' => DB::table('categories')->count(),
+            'deliveryMen' => DB::table('delivery_men')->count(),
+        ];
 
-        return view('adminDashboard', [
+        return view('admin.dashboard', [
             'ordersChart'=>$ordersForChart,
-            'earningsChart' => $earningsForChart
+            'earningsChart' => $earningsForChart,
+            'counts' => $counts
         ]);
     }
 
     public function loginForm(){
-        return view('adminLogin');
+        return view('admin.auth.login');
     }
 
     public function signupForm () {
-        return view('adminSignup');
+        return view('admin.auth.signup');
     }
     
     // SIGNUP
@@ -78,7 +83,7 @@ class AdminController extends Controller
             $user = Auth::user();
             // check if the user is an admin
             if($user->role == 2){
-                return redirect('/admin')->with('message', 'Logged in successfully');
+                return redirect('/admin');
             }else{
                 return redirect('/');
             }
@@ -92,8 +97,8 @@ class AdminController extends Controller
     public function logout (Request $request) {
         if (Auth::user()){
             Auth::logout();
-            return redirect('/admin/login');
+            return redirect('/admin');
         }
-        return redirect('/');
+        return redirect()->back();
     }
 }
