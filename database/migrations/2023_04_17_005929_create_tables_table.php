@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('number')->unique();
             $table->string('floor'); 
             $table->string('position');
+            $table->timestamps();
         });
     }
 

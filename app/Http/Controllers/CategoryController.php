@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class CategoryController extends Controller
 {
@@ -20,7 +21,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.category.create');
     }
 
     /**
@@ -28,7 +29,18 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $fields = $request->validate([
+            'name' => 'required|max:16',
+            'image' => 'required|mimes:png,jpg,jpeg|max:5000',
+        ]);
+
+        $uniqueImageName =  time().'-'.$request->name. '.' .$request->image->extension();
+        $request->image->move(public_path('uploads'), $uniqueImageName);
+        $fields['image'] = 'uploads/' . $uniqueImageName;
+
+        Category::create($fields);
+        
+        return redirect()->back()->with('success', 'Category created');
     }
 
     /**
@@ -36,7 +48,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+
     }
 
     /**
@@ -44,7 +56,9 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('admin.category.edit', [
+            'category' => $category
+        ]);
     }
 
     /**
@@ -52,7 +66,33 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        // image is not required if it's already in the db
+        $imageValidation;
+        if($category->image){
+            $imageValidation = 'mimes:png,jpg,jpeg|max:5000';
+        }else{
+            $imageValidation = 'required|mimes:png,jpg,jpeg|max:5000';
+        }
+
+        $fields = $request->validate([
+            'name' => 'required|max:16',
+            'image' => $imageValidation,
+        ]);
+
+        // update the image in the public folder with the new one
+        if($request->image){
+            // check db and public folder for the file if exists to delete it 
+            if($category->image && File::exists($category->image)){
+                File::delete($category->image);
+            }
+            $uniqueImageName =  time().'-'.$request->name. '.' .$request->image->extension();
+            $request->image->move(public_path('uploads'), $uniqueImageName);
+            $fields['image'] = 'uploads/' . $uniqueImageName;
+        }
+
+        $category->update($fields);
+        
+        return redirect()->back()->with('success', 'Category updated');
     }
 
     /**
@@ -60,6 +100,10 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        if(File::exists($category->image)){
+            File::delete($category->image);
+        }
+        $category->delete();
+        return redirect()->back()->with('success', 'Category deleted');
     }
 }

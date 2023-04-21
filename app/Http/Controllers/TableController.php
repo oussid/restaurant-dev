@@ -28,7 +28,15 @@ class TableController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $fields = $request->validate([
+            'number' => 'required|max:6|unique:tables,number',
+            'floor' => 'required|max:24',
+            'position' => 'required|max:56',
+        ]);
+
+        Table::create($fields);
+
+        return redirect()->back()->with('success' , 'Table created');
     }
 
     /**
@@ -44,7 +52,7 @@ class TableController extends Controller
      */
     public function edit(Table $table)
     {
-        //
+        return view('admin.table.edit', ['table' => $table]);
     }
 
     /**
@@ -52,7 +60,22 @@ class TableController extends Controller
      */
     public function update(Request $request, Table $table)
     {
-        //
+        // because the number column must be unique
+        $numberValidation;
+        if($table->number === $request->number){
+            $numberValidation = 'required|max:6';
+        }else{
+            $numberValidation = 'required|max:6|unique:tables,number';
+        }
+
+        $fields = $request->validate([
+            'number' => $numberValidation,
+            'floor' => 'required|max:24',
+            'position' => 'required|max:56',
+        ]);
+
+        $table->update($fields);
+        return redirect()->back()->with('success' , 'Table updated');
     }
 
     /**
@@ -60,6 +83,7 @@ class TableController extends Controller
      */
     public function destroy(Table $table)
     {
-        //
+        $table->delete();
+        return redirect()->back()->with('success', 'Table deleted');
     }
 }

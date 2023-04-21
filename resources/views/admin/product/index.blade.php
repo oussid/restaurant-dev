@@ -12,7 +12,7 @@
     </div>
 
     <div class="resource-index-main">
-        <livewire:products-table />
+        @livewire('products-table')
     </div>
 </div>
 @endsection

@@ -1,6 +1,6 @@
 
 <nav class="main-navbar">
-    <img class="navbar-logo" src="{{asset('images/burger-logo.png')}}" alt="Logo">
+    <img class="navbar-logo" src="{{asset('images/logo_white.png')}}" alt="Logo">
     <div class="main-navbar-center">
        <div href="#" class="main-navbar-center-item">
          <a href="#">HOME</a>

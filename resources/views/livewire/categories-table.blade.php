@@ -21,9 +21,28 @@
                 @forelse ($categories as $category)
                     <tr>
                         <td> {{$category->id}} </td>
-                        <td> {{$category->image}} </td>
-                        <td> {{$category->label}} </td>
-                        <td> actions </td>
+                        <td>
+                            <img class="mini-square-img" src="{{asset($category->image)}}" alt="Category Image">
+                        </td>
+                        <td> {{$category->name}} </td>
+                        <td>
+                            <div class="col-action-btns">
+                                <a href="{{route("category.edit", ["category"=>$category->id])}}">
+                                    <button class="edit-resource-btn" >
+                                        <i class="fa-solid fa-pen-to-square"></i>   
+                                    </button>
+                                </a>
+    
+                                <form action="{{route("category.destroy", ["category"=>$category->id])}}" method="POST">
+                                    @method("DELETE")
+                                    @csrf
+    
+                                <button class="delete-resource-btn">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button> 
+                                </form>
+                            </div>
+                        </td>
                     </tr>
                 @empty
                     <tr><td colspan='7'>No categories to show</td></tr>

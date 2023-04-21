@@ -15,7 +15,7 @@ class CategoriesTable extends Component
     {
         return view('livewire.categories-table', [
             'categories' => Category::where('id', 'like', '%'.$this->search.'%')
-                                    ->orWhere('label', 'like', '%'.$this->search.'%')
+                                    ->orWhere('name', 'like', '%'.$this->search.'%')
                                     ->paginate(10)
         ]);
     }

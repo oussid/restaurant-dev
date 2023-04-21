@@ -4,10 +4,11 @@
 
 <div class="resource-create">
     <div class="resource-breadcrum">
-        Tables / Add new
+        Tables / Update
     </div>
 
-    <form action="{{route('table.store')}}" method="POST" class="resource-form">
+    <form action="{{route('table.update', ['table' => $table->id])}}" method="POST" class="resource-form">
+        @method('PUT')
         @csrf
         <div class="resource-grid-inputs">
             <div>
@@ -19,7 +20,7 @@
                         {{$message}}
                     @enderror
                 </div>
-                <input type="text" name="number" placeholder="Table number" value="{{old('number')}}">
+                <input type="text" name="number" placeholder="Table number" value="{{$table->number}}">
             </div>
             <div>
                 <div class="form-label">
@@ -30,7 +31,7 @@
                         {{$message}}
                     @enderror
                 </div>
-                <input type="text" name="floor" placeholder="Table floor" value="{{old('floor')}}">
+                <input type="text" name="floor" placeholder="Table floor" value="{{$table->floor}}">
             </div>
             <div>
                 <div class="form-label">
@@ -41,7 +42,7 @@
                         {{$message}}
                     @enderror
                 </div>
-                <input type="text" name="position" placeholder="Table postion" value="{{old('position')}}">
+                <input type="text" name="position" placeholder="Table postion" value="{{$table->position}}">
             </div>
         </div>
 
@@ -50,7 +51,7 @@
             <div class="middle"></div>
             <div class="right">
                 <button type="reset" class="resource-form-cancel-btn">Reset</button>
-                <button type="submit" class="resource-form-submit-btn">Submit</button>
+                <button type="submit" class="resource-form-submit-btn">Update</button>
             </div>
         </div>
     </form>

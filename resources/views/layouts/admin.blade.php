@@ -5,12 +5,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         {{-- <link rel="stylesheet" href="{{asset('css/main.css')}}"> --}}
         <link rel="stylesheet" href="{{asset('css/admin.css')}}">
-        {{-- fontawesome --}}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />        {{-- fontawesome --}}
         <script src="https://kit.fontawesome.com/ea7913d8a3.js" crossorigin="anonymous"></script>
         @livewireStyles
         <title>Restaurant</title>
     </head>
     <body>
+        {{-- scripts for toastr --}}
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
         <div class="admin-container">
             <div class="admin-left-side">
                 <x-admin-sidebar/>
@@ -24,6 +28,18 @@
                 </div>
             </div>
         </div>
+
+{{-- toastr notifications --}}
+@if (Session::has('success'))
+    <script>
+        toastr.options = {
+            progressBar: true,
+            closeButton: true,
+        }
+        toastr.success("{{Session::get('success')}}")
+    </script>
+@endif
+
         @livewireScripts
     </body>
 </html>

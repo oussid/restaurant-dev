@@ -31,6 +31,10 @@ class AdminController extends Controller
             'products' => DB::table('products')->count(),
             'categories' => DB::table('categories')->count(),
             'deliveryMen' => DB::table('delivery_men')->count(),
+            'orders' => DB::table('orders')->where('status', '!=', 0)->count(),
+            'testimonials' => DB::table('testimonials')->count(),
+            'bookings' => DB::table('delivery_men')->count(),
+            'earnings' => DB::table('orders')->where('status', 3)->sum('total'),
         ];
 
         return view('admin.dashboard', [

@@ -20,19 +20,19 @@
             <i class="fa-solid fa-motorcycle"></i>
         </x-dashboard-card>
         
-        <x-dashboard-card label='Total Orders' count='935' >
+        <x-dashboard-card label='Total Orders' count='{{$counts["orders"]}}' >
             <i class="fa-solid fa-cart-shopping"></i>
         </x-dashboard-card>
         
-        <x-dashboard-card label='Testimonials' count='11' >
+        <x-dashboard-card label='Testimonials' count='{{$counts["testimonials"]}}' >
             <i class="fa-solid fa-star"></i>
         </x-dashboard-card>
         
-        <x-dashboard-card label='Bookings' count='12' >
+        <x-dashboard-card label='Bookings' count='{{$counts["bookings"]}}' >
             <i class="fa-solid fa-calendar"></i>
         </x-dashboard-card>
         
-        <x-dashboard-card label='Earnings' count='$322,552' >
+        <x-dashboard-card label='Earnings' count='${{$counts["earnings"]}}' >
             <i class="fa-solid fa-money-bill"></i>
         </x-dashboard-card>
     </div>

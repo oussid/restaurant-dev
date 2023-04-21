@@ -25,7 +25,24 @@
                         <td> {{$table->number}} </td>
                         <td> {{$table->position}} </td>
                         <td> {{$table->floor}} </td>
-                        <td> actions </td>
+                        <td>
+                            <div class="col-action-btns">
+                                <a href="{{route("table.edit", ["table"=>$table->id])}}">
+                                    <button class="edit-resource-btn" >
+                                        <i class="fa-solid fa-pen-to-square"></i>   
+                                    </button>
+                                </a>
+    
+                                <form action="{{route("table.destroy", ["table"=>$table->id])}}" method="POST">
+                                    @method("DELETE")
+                                    @csrf
+    
+                                <button class="delete-resource-btn">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button> 
+                                </form>
+                            </div>
+                        </td>
                     </tr>
                 @empty
                     <tr><td colspan='6'>No tables to show</td></tr>

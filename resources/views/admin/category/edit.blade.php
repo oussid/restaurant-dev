@@ -4,44 +4,40 @@
 
 <div class="resource-create">
     <div class="resource-breadcrum">
-        Tables / Add new
+        Categories / Update
     </div>
 
-    <form action="{{route('table.store')}}" method="POST" class="resource-form">
+    <form action="{{route('category.update', ['category'=> $category->id])}}" method="POST" class="resource-form" enctype="multipart/form-data">
+        @method('PUT')
         @csrf
         <div class="resource-grid-inputs">
             <div>
                 <div class="form-label">
-                    Number <span class="required">*</span>
+                    Name <span class="required">*</span>
                 </div>
                 <div class="form-error">
-                    @error('number')
+                    @error('name')
                         {{$message}}
                     @enderror
                 </div>
-                <input type="text" name="number" placeholder="Table number" value="{{old('number')}}">
+                <input type="text" name="name" placeholder="Category Name" value="{{$category->name}}">
             </div>
+
+            <div>
+                
+            </div>
+
             <div>
                 <div class="form-label">
-                    Floor <span class="required">*</span>
+                    Image (5mb max) <span class="required">*</span>
                 </div>
                 <div class="form-error">
-                    @error('floor')
+                    @error('image')
                         {{$message}}
                     @enderror
                 </div>
-                <input type="text" name="floor" placeholder="Table floor" value="{{old('floor')}}">
-            </div>
-            <div>
-                <div class="form-label">
-                    Postion <span class="required">*</span>
-                </div>
-                <div class="form-error">
-                    @error('position')
-                        {{$message}}
-                    @enderror
-                </div>
-                <input type="text" name="position" placeholder="Table postion" value="{{old('position')}}">
+                <input type="file" name="image" >
+                <img style="margin-top: 1rem" class="mini-square-img" src="{{asset($category->image)}}" alt="Category image">
             </div>
         </div>
 
@@ -55,7 +51,4 @@
         </div>
     </form>
 </div>
-
-
-
 @endsection

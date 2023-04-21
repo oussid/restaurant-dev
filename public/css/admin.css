@@ -14,6 +14,7 @@
     --main-boxshadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
     --title-size: 1.5rem;
     --input-height: 2rem;
+    --success-blue: #0A98AF;
 }
 
 *{
@@ -21,6 +22,18 @@ margin: 0;
 padding: 0;
 box-sizing: border-box;
 font-family: 'Poppins', sans-serif ;
+}
+
+a{
+    text-decoration: none;
+}
+
+.mini-square-img{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: var(--main-boxshadow);
 }
 
 
@@ -322,9 +335,6 @@ font-family: 'Poppins', sans-serif ;
     padding: 1rem 0;
 }
 
-
-
-
 .table-container-main{
     display: flex;
     flex-direction: column;
@@ -340,6 +350,50 @@ font-family: 'Poppins', sans-serif ;
     border-collapse: collapse;
 }
 
+
+.table-container-main .col-action-btns{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: .5rem;
+}
+
+.table-container-main .col-action-btns button{
+    outline: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: .4rem;
+    font-size: 1.02rem;
+    border-radius: 6px;
+    transition: .3s all ease-in-out;
+    cursor: pointer;
+}
+
+.delete-resource-btn{
+    background-color: transparent;
+    border: 2px solid var(--admin-red);
+    color: var(--admin-red);
+    cursor: pointer;
+}
+
+.delete-resource-btn:hover{
+    color: #fff;
+    background-color: var(--admin-red);
+}
+
+.edit-resource-btn{
+    background-color: transparent;
+    color: var(--success-blue);
+    border: 2px solid var(--success-blue);
+}
+
+.edit-resource-btn:hover{
+    background-color: var(--success-blue);
+    color: #fff;
+    border: var(--success-blue) solid 2px;
+}
 
 .table-container-main th {
     font-weight: 600;
@@ -463,6 +517,12 @@ font-family: 'Poppins', sans-serif ;
     color: var(--admin-red);
 }
 
+.form-error{
+    color: var(--admin-red);
+    padding-left: .1rem;
+    font-size: .9rem;
+}
+
 .resource-breadcrum{
     padding: .8rem 0;
     color: var(--text);
@@ -493,7 +553,7 @@ font-family: 'Poppins', sans-serif ;
     margin-bottom: .5rem;
 }
 
-.resource-form input{
+.resource-form input:not([type="file"]){
     width: 100%;
     height: var(--input-height);
     border-radius: 6px;
@@ -502,8 +562,30 @@ font-family: 'Poppins', sans-serif ;
     padding: 1.2rem .8rem;
 }
 
-.resource-form input:focus{
+.resource-form input:not([type="file"]):focus{
     box-shadow: var(--focus-outline);
+}
+
+.resource-form input[type="file"]{
+    width:  100%;
+    font-size: 1.02rem;
+    border: var(--light-border) solid 1px;
+    border-radius: 6px;
+}
+
+::-webkit-file-upload-button{
+    border: none;
+    border-right: 1px solid var(--light-border);
+    border-radius: 6px 0 0 6px;
+    padding: .7rem;
+    cursor: pointer;
+    background: var(--light-hover);
+    margin-right: 1rem;
+    transition: all .3s;
+}
+
+::-webkit-file-upload-button:hover{
+    background: var(--light-bg);
 }
 
 .resource-form-bottom{
@@ -513,27 +595,34 @@ font-family: 'Poppins', sans-serif ;
     justify-content: space-between;
 }
 
+.resource-form-bottom button{
+    outline: none;
+    padding: .5rem 1rem;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all .2s ease-in-out;
+}
+
 .resource-form-submit-btn{
     background: var(--admin-primary);
     border: var(--admin-primary) 1px solid;
-    cursor: pointer;
-    border-radius: 6px;
     color: #fff;
-    outline: none;
-    padding: .5rem 1rem;
-    /* font-size: 1.01rem; */
-    font-weight: 500;
+}
+
+.resource-form-submit-btn:hover{
+    background: var(--admin-primary-hover);
+    border: var(--admin-primary-hover) 1px solid;
 }
 
 .resource-form-cancel-btn{
     background: none;
     border: var(--admin-primary) 2px solid;
-    cursor: pointer;
-    border-radius: 6px;
     color: var(--admin-primary);
-    outline: none;
-    padding: .5rem 1rem;
-    /* font-size: 1rem; */
-    font-weight: 500;
+}
+
+.resource-form-cancel-btn:hover{
+    background: var(--admin-primary);
+    color: #fff;
 }
 /* RESOURCES STYLE END*/

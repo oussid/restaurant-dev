@@ -10,6 +10,7 @@ class Table extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['number', 'floor', 'position'];
 
     public function booking()
     {

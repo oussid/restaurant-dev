@@ -7,9 +7,6 @@
         <div class="resource-index-top-left">
             Customers
         </div>
-        <div class="resource-index-top-right">
-            <a href="{{route('customer.create')}}">Add New</a>
-        </div>
     </div>
 
     <div class="resource-index-main">
