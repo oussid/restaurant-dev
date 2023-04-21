@@ -29,9 +29,9 @@
 @endif
 <x-navbar/>
 <div class="booking-container">
-    <div class="booking-header">
-        <h1>Book a <span>table</span></h1>
-    </div>
+<x-banner>
+    <h1>Book a <span style="color: var(--secondary)">table</span></h1>
+</x-banner>
     <div class="booking-form-container">
         <form class="booking-form" action="/booking" method="POST">
             @csrf

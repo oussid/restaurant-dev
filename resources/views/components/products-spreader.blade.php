@@ -66,19 +66,31 @@
     .card-button:hover{
         color: red;
     }
+    .card-footer >.quantity{
+        text-align: center;
+        width: 50px;
+        padding: 0rem 0.5rem ;
+        border-radius:3px;
+        border : rgba(0, 0, 0, 0.16) solid 1px;
+        outline: none
+
+    }
 </style>
 
 <div class="products-container">
     @forelse ($products as $product )
-        <div class="product-card">
-            <div class="product-image" style="background-image:url({{ $product->img }})"></div>
+        <form class="product-card" action="/cart_store" method="POST">
+            @csrf
+            <input type="number" hidden value="{{ $product->id }}" name="id"/>
+            <div class="product-image" style="background-image:url('{{ $product->image }}')"></div>
             <div class="product-name"> {{ $product->name }}</div>
-            <div class="product-category">{{ $product->category }}</div>
+            <div class="product-category">{{ $product->category->name }}</div>
             <div class="card-footer">
                 <div class="product-price">${{ $product->price }}</div>
-                <button class="card-button">ADD</button>
+                <input type="number" min="1" class="quantity" name="quantity"  value="1"/>
+                <button class="card-button" type="submit">ADD</button>
             </div>
-        </div>
+        </form>
         @empty
         <div class="empty-data">
             <h2>No products yet</h2>

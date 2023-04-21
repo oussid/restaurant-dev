@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TableController;
+use App\Http\Controllers\cartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,9 @@ Route::get('/booking', [userController::class, 'bookingPage']);
 Route::post('/booking',[userController::class, 'booking']);
 Route::get('/contact',[userController::class, 'contactPage']);
 Route::post('/contact',[userController::class, 'contact']);
+Route::get('/cart',[cartController::class, 'cartPage']);
+Route::post('/cart_store',[cartController::class, 'store']);
+Route::post('/cart_remove_item',[cartController::class, 'removeItem']);
 
 // admin doesn't have to be authenticated
 Route::get('admin/login', [AdminController::class, 'loginForm']);

@@ -3,7 +3,7 @@
     <img class="navbar-logo" src="{{asset('images/logo_white.png')}}" alt="Logo">
     <div class="main-navbar-center">
        <div href="#" class="main-navbar-center-item">
-         <a href="#">HOME</a>
+         <a href="/">HOME</a>
        </div>
        <div href="#" class="main-navbar-center-item">
          <a href="#">MENU</a>
@@ -20,8 +20,9 @@
              <a href="#" class="main-navbar-right-left-item border-right">
                  <i class="fa-solid fa-magnifying-glass"></i>
              </a>
-             <a href="#" class="main-navbar-right-left-item">
+             <a href="/cart" class="main-navbar-right-left-item">
                  <i class="fa-solid fa-cart-shopping"></i>
+                 <h4 class="badge">{{ Cart::content()->count() }}</h4>
              </a>
          </div>
          @if (Auth::check())
