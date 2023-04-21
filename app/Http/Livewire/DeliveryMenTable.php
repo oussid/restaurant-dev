@@ -3,7 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use App\Models\DeliveryMan;
+use App\Models\User;
 use Livewire\WithPagination;
 
 class DeliveryMenTable extends Component
@@ -14,7 +14,7 @@ class DeliveryMenTable extends Component
     public function render()
     {
         return view('livewire.delivery-men-table', [
-            'deliveryMen' => DeliveryMan::where('name', 'like', '%'.$this->search.'%')
+            'deliveryMen' => User::where('role', 1)
                                     ->paginate(10)
         ]);
     }

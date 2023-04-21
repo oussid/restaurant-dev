@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('customer_id');
+            $table->foreign('customer_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('delivery_man_id')->nullable()->default(null);
-            $table->foreign('delivery_man_id')->references('id')->on('delivery_men')->onDelete('set null');
+            $table->foreign('delivery_man_id')->references('id')->on('users')->onDelete('set null');
             $table->string('order_number');
             $table->double('total',255,2);
             $table->integer('status')->default(1); //1=>preparing, 2=>On the way, 3=>completed, 0=>canceled

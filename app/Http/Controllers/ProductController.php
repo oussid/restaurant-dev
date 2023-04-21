@@ -97,8 +97,8 @@ class ProductController extends Controller
  
          // update the image in the public folder with the new one
          if($request->image){
-             // check db and public folder for the file if exists to delete it 
-             if($product->image && File::exists($product->image)){
+             // check public folder for the file if exists to delete it 
+             if(File::exists($product->image)){
                  File::delete($product->image);
              }
              $uniqueImageName =  time().'-'.$request->name. '.' .$request->image->extension();

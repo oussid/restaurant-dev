@@ -81,8 +81,8 @@ class CategoryController extends Controller
 
         // update the image in the public folder with the new one
         if($request->image){
-            // check db and public folder for the file if exists to delete it 
-            if($category->image && File::exists($category->image)){
+            // check public folder for the file if exists to delete it 
+            if(File::exists($category->image)){
                 File::delete($category->image);
             }
             $uniqueImageName =  time().'-'.$request->name. '.' .$request->image->extension();

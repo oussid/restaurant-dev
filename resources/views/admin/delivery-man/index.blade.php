@@ -8,7 +8,7 @@
             Delivery Men
         </div>
         <div class="resource-index-top-right">
-            <a href="{{route('customer.create')}}">Add New</a>
+            <a href="{{route('delivery.create')}}">Add New</a>
         </div>
     </div>
 

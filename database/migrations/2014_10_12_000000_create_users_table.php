@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('mobile')->unique()->nullable();
+            $table->string('mobile')->nullable();
             $table->string('profile_pic')->nullable();
             $table->string('password');
             $table->integer('role')->default(0);  // 0=>customer 1=>delivery_man 2=>admin

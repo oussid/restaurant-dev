@@ -7,7 +7,7 @@
     </div>
     <div class="admin-nav-right">
         <div id="navProfile" class="admin-nav-right-profile">
-            <img src="{{asset('images/admin.jpeg')}}" alt="Profile Picture" class="admin-nav-right-profile-pic"/>
+            <img src="{{Auth::user()->profile_pic ? asset(Auth::user()->profile_pic) : asset('images/profile_placeholder.jpg')}}" alt="Profile Picture" class="admin-nav-right-profile-pic"/>
             <div class="admin-nav-right-profile-name">
                 {{Auth::user()->name}} 
                 <i class="fa-solid fa-caret-down"></i>

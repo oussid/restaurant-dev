@@ -22,7 +22,7 @@ class OrdersTable extends Component
             ->orWhere('order_number', 'like', '%'.$this->search.'%')
             ->orWhere('total', 'like', '%'.$this->search.'%')
             ->orWhere('users.name', 'like', '%'.$this->search.'%')
-            ->leftJoin('users', 'orders.user_id', '=', 'users.id')
+            ->leftJoin('users', 'orders.customer_id', '=', 'users.id')
             ->paginate(10)
         ]);
     }
