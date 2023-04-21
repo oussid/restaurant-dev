@@ -23,11 +23,28 @@
                 @forelse ($products as $product)
                     <tr>
                         <td> {{$product->id}} </td>
-                        <td> {{$product->image}} </td>
+                        <td><img class="mini-square-img" src="{{asset($product->image)}}" alt="Category Image"></td>
                         <td> {{$product->name}} </td>
-                        <td> {{$product->category->label}} </td>
+                        <td> {{$product->category->name}} </td>
                         <td> No </td>
-                        <td> actions </td>
+                        <td>
+                            <div class="col-action-btns">
+                                <a href="{{route("product.edit", ["product"=>$product->id])}}">
+                                    <button class="edit-resource-btn" >
+                                        <i class="fa-solid fa-pen-to-square"></i>   
+                                    </button>
+                                </a>
+    
+                                <form action="{{route("product.destroy", ["product"=>$product->id])}}" method="POST">
+                                    @method("DELETE")
+                                    @csrf
+    
+                                <button class="delete-resource-btn">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button> 
+                                </form>
+                            </div>
+                        </td>
                     </tr>
                 @empty
                     <tr><td colspan='6'>No products to show</td></tr>

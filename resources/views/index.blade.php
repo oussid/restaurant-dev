@@ -7,7 +7,7 @@
     <div class="sample-products-container">
         @forelse ( $products as $product )
         <div onclick="window.location.href='/products/{{ $product->id }}'" class="sample-product">
-            <div class="sample-product-img" style="background-image:url({{$product->img }})"></div>
+            <div class="sample-product-img" style="background-image:url({{$product->image }})"></div>
         </div>
         @empty
         <div class="empty-data">
@@ -24,7 +24,7 @@
         <div class="categories">
             @forelse ($categories as $category )
             <div class="category">
-                <div class="category-img" style="background-image:url({{ $category->img }})"></div>
+                <div class="category-img" style="background-image:url({{ $category->image }})"></div>
                 <div class="category-name">{{ $category->name }}</div>
             </div>
             @empty
@@ -45,7 +45,7 @@
         <div class="sample-products-container">
             @forelse ( $sampleProducts as $product )
             <div style="height:270px"  onclick="window.location.href='/products/{{ $product->id }}'" class="sample-product">
-                <div class="sample-product-img" style="background-image:url({{$product->img }})"></div>
+                <div class="sample-product-img" style="background-image:url({{$product->image }})"></div>
             </div>
             @empty
             <div class="empty-data">

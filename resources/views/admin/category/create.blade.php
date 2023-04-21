@@ -28,7 +28,7 @@
 
             <div>
                 <div class="form-label">
-                    Image (250x250) <span class="required">*</span>
+                    Image (5mb Max) <span class="required">*</span>
                 </div>
                 <div class="form-error">
                     @error('image')

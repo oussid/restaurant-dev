@@ -33,8 +33,9 @@ a{
     height: 50px;
     object-fit: cover;
     border-radius: 6px;
-    box-shadow: var(--main-boxshadow);
+    box-shadow: var(--main-boxshadow); 
 }
+
 
 
 /* ADMIN LAYOUT START */
@@ -513,6 +514,10 @@ a{
     padding: 2rem;
 }
 
+.full-width-resource-field{
+    grid-column: 1/-1;
+}
+
 .required{
     color: var(--admin-red);
 }
@@ -551,6 +556,31 @@ a{
 .resource-form .form-label{
     color: var(--text);
     margin-bottom: .5rem;
+}
+
+.resource-form select{
+    width: 100%;
+    border-radius: 6px;
+    outline: none;
+    border: var(--light-border) solid 1px;
+    padding: .55rem .8rem;
+    color: var(--text);
+}
+
+.resource-form select:focus{
+    box-shadow: var(--focus-outline);
+}
+
+textarea{
+    width: 100%;
+    border-radius: 6px;
+    outline: none;
+    border: var(--light-border) solid 1px;
+    padding: 1.2rem .8rem;
+}
+
+textarea:focus{
+    box-shadow: var(--focus-outline);
 }
 
 .resource-form input:not([type="file"]){
