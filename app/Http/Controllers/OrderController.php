@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\OrderProduct;
+use Auth;
+use Str;
+use Cart;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -28,7 +32,22 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $order = Order::create([
+            "user_id"=>Auth::user()->id,
+            "order_number"=>Str::uuid(),
+            "total"=>Cart::total(),
+            "status"=>"pending",
+            "delivery_type"=>$request->type
+        ]);
+
+        foreach(Cart::content()as $product){
+            OrderProduct::create([
+                "order_id"=>$order->id,
+                "product_id"=>$product->id,
+                "quantity" =>$product->qty
+            ]);
+        }
+        return redirect()->back()->with('order_created','Order created successfully');
     }
 
     /**

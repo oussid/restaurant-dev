@@ -10,6 +10,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Order extends Model
 {
     use HasFactory;
+    protected $fillable=[
+        "user_id",
+        "order_number",
+        "total",
+        "status",
+        "delivery_type"
+    ];
 
 
     public function products()
@@ -22,5 +29,5 @@ class Order extends Model
         return $this->belongsTo(User::class);
     }
 
-    
+
 }

@@ -30,6 +30,7 @@ Route::post('/contact',[userController::class, 'contact']);
 Route::get('/cart',[cartController::class, 'cartPage']);
 Route::post('/cart_store',[cartController::class, 'store']);
 Route::post('/cart_remove_item',[cartController::class, 'removeItem']);
+Route::post('/cart_bill_continue',[cartController::class, 'cartBillContinue']);
 
 // admin doesn't have to be authenticated
 Route::get('admin/login', [AdminController::class, 'loginForm']);

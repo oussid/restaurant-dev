@@ -19,4 +19,7 @@ class cartController extends Controller
         Cart::remove($req->rowId);
         return redirect()->back();
     }
+    public function cartBillContinue(Request $req){
+        return redirect()->back()->with('bill_continue','yeah');
+    }
 }
