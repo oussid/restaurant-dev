@@ -44,6 +44,23 @@ a{
     box-shadow: var(--main-boxshadow); 
 }
 
+.medium-round-img{
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: var(--main-boxshadow); 
+}
+
+.large-round-img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: var(--main-boxshadow); 
+}
+
+
 
 
 /* ADMIN LAYOUT START */
@@ -191,12 +208,6 @@ a{
     position: relative;
 }
 
-.admin-nav-right-profile-pic{
-    width: 50px;
-    height: auto;
-    border-radius: 50%;
-}
-
 .admin-nav-right-profile-name{
     color: var(--light-text);
     font-weight: 500;
@@ -209,7 +220,6 @@ a{
     border-radius: 6px;
     top: 4rem;
     right: 0;
-    display: flex;
     flex-direction: column;
     min-width: 15.5rem;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
@@ -552,6 +562,80 @@ a{
     border-radius: 6px;
     box-shadow: var(--main-boxshadow);
     gap: 1rem;
+}
+
+.profile-pic-container{
+    padding: 0;
+    border-radius: 50%;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader-container{
+    position: absolute;
+    
+}
+
+.profile-pic-edit{
+    position: absolute;
+    display: flex;
+    border: #fff solid 2px;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    background: var(--light-hover);
+    border-radius: 50%;
+    right: -10px;
+    top:60%;
+    cursor: pointer;
+    transition: .3s all ease-in-out;
+}
+
+.profile-pic-edit:hover{
+    background: var(--light-bg);
+}
+
+.profile-pic-dropdown{
+    position: absolute;
+    width: 200px;
+    background-color: #fff;
+    bottom: -7rem;
+    left: 3rem;
+    border-radius: 6px;
+    border: 1px solid var(--light-border);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    display: none;
+}
+
+.profile-pic-dropdown.show{
+    display: block;
+}
+
+.profile-pic-dropdown-tab{
+    padding: .8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.profile-pic-dropdown-tab:hover{
+    background-color: var(--light-hover);
+}
+
+.profile-pic-dropdown-tab:not(:last-child){
+    border-bottom: 1px solid var(--light-border);
+}
+
+.resource-form-head{
+    font-size: 1.2rem;
+    color: var(--text);
 }
 
 .resource-grid-inputs{

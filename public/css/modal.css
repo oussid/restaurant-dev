@@ -1,0 +1,41 @@
+#img-upload{
+    display: none;
+}
+
+.modal-container{
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: -500; 
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+    transition: all ease-in-out .3s;
+}
+
+.modal-box{
+    position: absolute;
+    top: 0;
+    border-radius: 6px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;    /* background: #000; */
+    transition: all ease-in-out .2s;
+    transform: translateY(-50%);
+    top: -50%;
+}
+
+.modal-container.show-modal{
+    visibility: visible;
+    opacity: 1;
+    z-index: 9;
+}
+
+.modal-container.show-modal .modal-box{
+    top: 50%;
+}
+
