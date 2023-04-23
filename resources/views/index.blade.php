@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<x-loader/>
+
     <x-navbar/>
     <x-carousel />
     <div class="sample-products-container">

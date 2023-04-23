@@ -16,9 +16,9 @@
 @endif
 <x-navbar/>
 <div class="contact-container">
-    <div class="booking-header">
-        <h1>Help <span>&</span> contact</h1>
-    </div>
+    <x-banner>
+        <h1>Help <span style="color: var(--secondary)">and</span> contact</h1>
+    </x-banner>
     <div class="contact-content-container">
 
         <div class="contact-infos">
