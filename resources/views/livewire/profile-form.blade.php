@@ -76,7 +76,7 @@
         <div class="left"></div>
         <div class="middle"></div>
         <div class="right">
-            <button wire:click.prevent="clear" onclick="hideModel()" type="reset" class="resource-form-cancel-btn">Cancel</button>
+            <button wire:click.prevent="clear" onclick="hideModal('{{$modalId}}')" type="reset" class="resource-form-cancel-btn">Cancel</button>
             <button  type="submit" class="resource-form-submit-btn">Save</button>
         </div>
     </div>

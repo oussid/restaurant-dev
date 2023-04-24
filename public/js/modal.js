@@ -1,37 +1,34 @@
-const modal = document.getElementById('modal')
+const modals = document.querySelectorAll('.modal')
 const editProfileBtn = document.getElementById('editProfile')
 const EditPfpBtn = document.getElementById('adminEditPfp')
 const PfpDropdown = document.getElementById('adminPfpDropdown')
 const fileInp = document.getElementById('img-upload')
 
-const hideModel = ()=>{
+const hideModal = (id)=>{
+    let modal = document.getElementById(id)
+    
     modal.classList.remove('show-modal')
 }
 
-const showModel = ()=>{
+const showModal = (id)=>{
+    console.log('ran');
+    const modal = document.getElementById(id)
     modal.classList.add('show-modal')
 }
 
-const toggleModel = ()=>{
+const toggleModal = (id)=>{
+    const modal = document.getElementById(id)
+    console.log(modal);
     modal.classList.toggle('show-modal')
 }
 
 editProfileBtn.addEventListener('click', (e)=>{
     if(e.target == editProfileBtn){
-        toggleModel()
+        toggleModal(editProfileBtn.id)
     }
 })
 
-modal.addEventListener('click', (e)=>{
-    if(e.target != EditPfpBtn && !EditPfpBtn.contains(e.target) && !PfpDropdown.contains(e.target) ){
-        console.log('clicked outside cam ');
-        PfpDropdown.classList.remove('show')
-    }
-    if(e.target == modal){
-        console.log('modal clicked');
-        toggleModel()
-    }
-})
+
 
 EditPfpBtn.addEventListener('click', (e)=>{
         console.log('edit pfp clicked');
@@ -39,11 +36,25 @@ EditPfpBtn.addEventListener('click', (e)=>{
     
 })
 
-fileInp.addEventListener('change', ()=>{
-    console.log('change');
-    if (!modal.classList.contains('show-modal')) {
-        showModel()
-    }
-})
 
 
+modals.forEach(modal => {
+    modal.addEventListener('click', (e)=>{
+        if(e.target != EditPfpBtn && !EditPfpBtn.contains(e.target) && !PfpDropdown.contains(e.target) ){
+            PfpDropdown.classList.remove('show')
+        }
+        if(e.target == modal){
+            toggleModal(modal.id)
+        }
+    })
+
+    modal.addEventListener('click', (e)=>{
+        if(e.target != EditPfpBtn && !EditPfpBtn.contains(e.target) && !PfpDropdown.contains(e.target) ){
+            PfpDropdown.classList.remove('show')
+        }
+        if(e.target == modal){
+            console.log('id from eventlis:', modal.id);
+            hideModal(modal.id)
+        }
+    })
+});

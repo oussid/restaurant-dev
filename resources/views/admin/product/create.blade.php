@@ -48,7 +48,7 @@
                         {{$message}}
                     @enderror
                 </div>
-                <input type="number" id="numberInp" name="price" placeholder="Product price" value="{{old('price')}}">
+                <input type="text" id="numberInp" name="price" placeholder="Product price" value="{{old('price')}}">
             </div>
 
             <div>

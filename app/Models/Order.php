@@ -11,7 +11,7 @@ class Order extends Model
 {
     use HasFactory;
     protected $fillable=[
-        "user_id",
+        "customer_id",
         "order_number",
         "total",
         "status",
@@ -26,8 +26,12 @@ class Order extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'customer_id');
     }
-
+    
+    public function deliveryMan()
+    {
+        return $this->belongsTo(User::class, 'delivery_man_id');
+    }
 
 }

@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('customer_id');
             $table->foreign('customer_id')->references('id')->on('users')->onDelete('cascade');
-            $table->unsignedBigInteger('delivery_man_id')->nullable()->default(null);
+            $table->unsignedBigInteger('delivery_man_id')->default(null)->nullable();
             $table->foreign('delivery_man_id')->references('id')->on('users')->onDelete('set null');
             $table->string('order_number');
             $table->double('total',255,2);
-            $table->integer('status')->default(1); //1=>preparing, 2=>On the way, 3=>completed, 0=>canceled
+            $table->string('status')->default('preparing'); //1=>preparing, 2=>On the way, 3=>completed, 0=>canceled
             $table->timestamps();
         });
     }

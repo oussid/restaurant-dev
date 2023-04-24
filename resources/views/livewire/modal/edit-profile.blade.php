@@ -74,7 +74,7 @@
                     <div class="left"></div>
                     <div class="middle"></div>
                     <div class="right">
-                        <button wire:click.prevent="" type="reset" class="resource-form-cancel-btn">Cancel</button>
+                        <button wire:click.prevent type="reset" class="resource-form-cancel-btn">Cancel</button>
                         <button wire:click.stop.prevent="save" type="submit" class="resource-form-submit-btn">Save</button>
                     </div>
                 </div>

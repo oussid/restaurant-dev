@@ -15,6 +15,7 @@ class ProfileForm extends Component
     public $email;
     public $image;
     public $tempImage;
+    public $modalId;
     
     function mount(){
         $this->name = Auth::user()->name;

@@ -33,7 +33,7 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         $order = Order::create([
-            "user_id"=>Auth::user()->id,
+            "customer_id"=>Auth::user()->id,
             "order_number"=>Str::uuid(),
             "total"=>Cart::total(),
             "status"=>"pending",

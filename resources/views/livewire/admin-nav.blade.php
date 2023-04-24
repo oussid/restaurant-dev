@@ -1,3 +1,8 @@
+<?php 
+    $dropdownId = uniqid();
+    $editProfileModalId = uniqid();
+?>
+
 <div>
    <div class="admin-nav">
     <div class="admin-nav-left">
@@ -8,18 +13,18 @@
     </div>
     <div class="admin-nav-right">
         {{-- {{dd(Auth::user()->profile_pic)}} --}}
-        <div id="navProfile" class="admin-nav-right-profile">
+        <div  class="admin-nav-right-profile dropdownBtn" onclick="toggleDropdown('{{$dropdownId}}')">
             <img src="{{ Auth::user()->profile_pic ? asset('storage/' . Auth::user()->profile_pic) : asset('images/profile_placeholder.jpg') }}" alt="Profile Picture" class="mini-round-img"/>
             <div class="admin-nav-right-profile-name">
                 {{Auth::user()->name}} 
                 <i class="fa-solid fa-caret-down"></i>
             </div>
 
-            <div id="dropdown" class="admin-nav-right-profile-dropdown">
+            <div id="{{$dropdownId}}" class="admin-nav-right-profile-dropdown dropdown">
                 <a href="/" class="admin-nav-right-profile-dropdown-tab">
                     <i class="fa-solid fa-arrow-pointer"></i> Visit site
                 </a>
-                <div id="editProfile" class="admin-nav-right-profile-dropdown-tab">
+                <div onclick="toggleModal('{{$editProfileModalId}}')"  id="editProfile" class="admin-nav-right-profile-dropdown-tab">
                     <i class="fa-solid fa-user"></i> Edit profile
                 </div>
                 <div class="admin-nav-right-profile-dropdown-tab">
@@ -33,28 +38,28 @@
     </div>
 </div>
 
-<x-modal>
-    @livewire('profile-form')
+<x-modal :modalId="$editProfileModalId">
+    @livewire('profile-form', ['modalId' => $editProfileModalId])
 </x-modal>
 
 <script>
     // profile dropdown
-    const dorpdown = document.getElementById('dropdown')
-    const navProfile = document.getElementById('navProfile')
-    let visiblity = false   
+    // const dorpdown = document.getElementById('dropdown')
+    // const navProfile = document.getElementById('navProfile')
+    // let visiblity = false   
 
-    navProfile.addEventListener('click', ()=>{
-        visiblity = !visiblity
-        dorpdown.style.display = visiblity ? 'flex' : 'none'
-    })
+    // navProfile.addEventListener('click', ()=>{
+    //     visiblity = !visiblity
+    //     dorpdown.style.display = visiblity ? 'flex' : 'none'
+    // })
 
-    document.addEventListener('click', (event) => {
-        if (!dorpdown.contains(event.target) && !navProfile.contains(event.target)) {
+    // document.addEventListener('click', (event) => {
+    //     if (!dorpdown.contains(event.target) && !navProfile.contains(event.target)) {
             
-            visiblity = false
-            dorpdown.style.display = 'none';
-        }
-        });
+    //         visiblity = false
+    //         dorpdown.style.display = 'none';
+    //     }
+    //     });
 </script> 
 
 </div>

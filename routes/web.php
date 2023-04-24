@@ -33,10 +33,12 @@ Route::post('/cart_remove_item',[cartController::class, 'removeItem']);
 Route::post('/cart_bill_continue',[cartController::class, 'cartBillContinue']);
 
 // admin doesn't have to be authenticated
-Route::get('admin/login', [AdminController::class, 'loginForm']);
-Route::get('admin/signup', [AdminController::class, 'signupForm']);
-Route::post('admin/signup', [AdminController::class, 'signup'])->name('admin.signup');
-Route::post('admin/login', [AdminController::class, 'login'])->name('admin.login');
+Route::middleware(['guest'])->group(function () {
+    Route::get('admin/login', [AdminController::class, 'loginForm']);
+    Route::get('admin/signup', [AdminController::class, 'signupForm']);
+    Route::post('admin/signup', [AdminController::class, 'signup'])->name('admin.signup');
+    Route::post('admin/login', [AdminController::class, 'login'])->name('admin.login');
+});
 
 // admin routes
 Route::group(['prefix'=> 'admin', 'namespace'=> 'App\Http\Controllers', 'middleware'=>['admin']], function (){

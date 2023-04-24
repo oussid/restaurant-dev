@@ -60,6 +60,14 @@ a{
     box-shadow: var(--main-boxshadow); 
 }
 
+.dropdown{
+    display: none;
+}
+
+.dropdown.show{
+    display: block;
+}
+
 
 
 
@@ -374,7 +382,10 @@ a{
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: .5rem;
+    justify-content: center;
+    gap: .5rem; 
+    border: none;
+    position: relative;
 }
 
 .table-container-main .col-action-btns button{
@@ -383,11 +394,57 @@ a{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    flex-direction: row;
     padding: .4rem;
     font-size: 1.02rem;
     border-radius: 6px;
     transition: .3s all ease-in-out;
     cursor: pointer;
+}
+
+.table-container-main .col-action-btns .action-resource-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    font-size: .8rem;
+    padding: .3rem;
+    border: 1px solid var(--admin-primary);
+    color: #fff;
+    gap: .5rem;
+    background-color: var(--admin-primary);
+}
+
+.action-resource-btn-dropdown{
+    padding: .5rem 0;
+    position: absolute;
+    background-color: #fff;
+    border-radius: 6px;
+    top: 100%;
+    right: 0;
+    flex-direction: column;
+    min-width: 12rem;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    transition: all ease-in-out 0.3s;
+    z-index: 9;
+}
+
+.action-resource-btn-dropdown-tab{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: .5rem;
+    font-size: .9rem;
+    color: var(--text);
+    padding: .4rem 0;
+    justify-content: center;
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.action-resource-btn-dropdown-tab:hover{
+    background: var(--main-hover);
 }
 
 .delete-resource-btn{
