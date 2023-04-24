@@ -79,18 +79,7 @@
 
 <div class="products-container">
     @forelse ($products as $product )
-        <form class="product-card" action="/cart_store" method="POST">
-            @csrf
-            <input type="number" hidden value="{{ $product->id }}" name="id"/>
-            <div class="product-image" style="background-image:url('{{ $product->image }}')"></div>
-            <div class="product-name"> {{ $product->name }}</div>
-            <div class="product-category">{{ $product->category->name }}</div>
-            <div class="card-footer">
-                <div class="product-price">${{ $product->price }}</div>
-                <input type="number" min="1" class="quantity" name="quantity"  value="1"/>
-                <button class="card-button" type="submit">ADD</button>
-            </div>
-        </form>
+    @livewire("product-card", ["productCard"=>$product], key($product->id))
         @empty
         <div class="empty-data">
             <h2>No products yet</h2>
