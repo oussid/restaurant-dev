@@ -12,6 +12,24 @@ class OrdersTable extends Component
     use WithPagination;
     public $search;
     public $title;
+    public $statusMap = [
+        0 => [
+            'label'=>'Canceled',
+            'class'=>'red',
+        ],
+        1 => [
+            'label'=>'Preparing',
+            'class'=>'purple',
+        ],
+        2 => [
+            'label'=>'On the way',
+            'class'=>'blue',
+        ],
+        3 => [
+            'label'=>'Completed',
+            'class'=>'green',
+        ],
+    ];
 
     
     public function updateStatus ($id, $status, $deliveryManId = null) {
@@ -20,27 +38,27 @@ class OrdersTable extends Component
 
         if($status == 1){
             $order->delivery_man_id = null;
-            $order->status = 'Preparing';
+            $order->status = 1;
             $order->save();
             return session()->flash('table-success', 'Status successfully updated.');
             
         }
         elseif($status == 2){
             $order->delivery_man_id = $deliveryManId;
-            $order->status = 'On the way';
+            $order->status = 2;
             $order->save();
             return session()->flash('table-success', 'Status successfully updated.');
             
         }
         elseif($status == 3){
             $order->delivery_man_id = null;
-            $order->status = 'Completed';
+            $order->status = 3;
             $order->save();
             return session()->flash('table-success', 'Status successfully updated.');
 
         }else{
             $order->delivery_man_id = null;
-            $order->status = 'Canceled';
+            $order->status = 0;
             $order->save();
             return session()->flash('table-success', 'Status successfully updated.');
         }

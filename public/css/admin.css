@@ -7,6 +7,9 @@
     --light-text: #6F7483;
     --light-border: #cad1e2;
     --admin-red: #f82647;
+    --admin-green: #149606;
+    --admin-purple: #a31f96;
+    --admin-blue: #1227e0;
     --text: #495067;
     --focus-outline: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
     --main-hover: #e3e3ff;
@@ -68,6 +71,21 @@ a{
     display: block;
 }
 
+table td.red{
+    color: var(--admin-red);
+}
+
+table td.blue{
+    color: var(--admin-blue);
+}
+
+table td.purple{
+    color: var(--admin-purple);
+}
+
+table td.green{
+    color: var(--admin-green);
+}
 
 
 

@@ -36,7 +36,6 @@ class OrderController extends Controller
             "customer_id"=>Auth::user()->id,
             "order_number"=>Str::uuid(),
             "total"=>Cart::total(),
-            "status"=>"pending",
             "delivery_type"=>$request->type
         ]);
 

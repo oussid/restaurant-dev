@@ -27,7 +27,9 @@
                         <td> {{$order->created_at}} </td>
                         <td> {{$order->name}} <br> {{$order->mobile}} <br> {{$order->email}} </td>
                         <td> ${{$order->total}} </td>
-                        <td> {{$order->status}} </td>
+                        <td class="{{$statusMap[$order->status]['class']}} ">
+                            {{$statusMap[$order->status]['label']}}
+                        </td>
                         <td class="col-action-btns"> 
                             {{-- {{dd($order);}} --}}
                             <button onclick="toggleDropdown('{{$order->order_number}}')" class="action-resource-btn dropdownBtn"> 
