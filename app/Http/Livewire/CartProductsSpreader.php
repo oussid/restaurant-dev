@@ -23,5 +23,6 @@ class CartProductsSpreader extends Component
     public function emptyCart(){
         Cart::destroy();
         $this->updateCartSpreaderContent();
+        $this->emit('cartPayUpdate');
     }
 }
