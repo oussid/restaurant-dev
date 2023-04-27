@@ -17,7 +17,7 @@ class ProductCard extends Component
     }
     public function addToCart($product_id){
         $prd = Product::where("id",'=',$product_id)->first();
-        Cart::add($prd->id,$prd->name,$this->quantity, $prd->price,['image'=>$prd->image]);
+        Cart::add($prd->id,$prd->name,$this->quantity, $prd->price,['image'=>$prd->image,'description'=>$prd->description]);
         $this->emit("updateCartCount");
     }
 }

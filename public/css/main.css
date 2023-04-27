@@ -1162,6 +1162,32 @@ border-radius: 3px;
     background-color: var(--secondary);
     color: white;
 }
+.empty-cart-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    gap: 1rem;
+    border-radius:3px ;
+    border: 1px solid var(--secondary);
+    padding: .3rem 1rem;
+    color: var(--secondary);
+    background: none;
+    transition: .3s ease-in-out;
+    cursor: pointer;
+}
+.empty-cart-btn:hover{
+    background-color: var(--secondary);
+    color: white;
+}
+.empty-cart-btn> i{
+    transition: .3s ease-in-out;
+}
+.empty-cart-btn:hover i{
+    color: white;
+    transform: rotateZ(90deg);
+
+}
 .order-confirmation-container{
     display: flex;
     justify-content: center;

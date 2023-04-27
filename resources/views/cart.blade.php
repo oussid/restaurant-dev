@@ -65,8 +65,8 @@
 </x-banner>
 
 <div class="cart-container">
-    
-        @livewire('cart-product')
+        @livewire('cart-products-spreader')
+
         @livewire('bill')
 </div>
 <x-services/>

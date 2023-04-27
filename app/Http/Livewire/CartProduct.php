@@ -8,28 +8,27 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 
 class CartProduct extends Component
 {
-    public $cartProducts;
+    public $cartProduct;
     public $qty;
     public function updateCartContent(){
-        $this->cartProducts = Cart::content() ;
+        $this->cartProduct = json_decode(json_encode($this->cartProduct),true);
     }
     public function mount(){
         $this->updateCartContent();
+        $this->qty = $this->cartProduct['qty'];
     }
     public function render()
     {
-        return view('livewire.cart-product',['cartProducts'=>$this->cartProducts]);
+        return view('livewire.cart-product');
     }
     public function updateItem($rowId){
         Cart::update($rowId,$this->qty);
-        $this->emit('updateCartCount');
         $this->emit('cartPayUpdate');
-        $this->updateCartContent();
     }
     public function removeItem($rowId){
         Cart::remove($rowId);
         $this->emit('updateCartCount');
         $this->emit('cartPayUpdate');
-        $this->updateCartContent();
+        $this->emit('updateCartSpreaderContent');
     }
 }
