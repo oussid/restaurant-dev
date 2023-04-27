@@ -12,6 +12,7 @@ class OrdersTable extends Component
     use WithPagination;
     public $search;
     public $title;
+    public $orderId;
     public $statusMap = [
         0 => [
             'label'=>'Canceled',
@@ -40,35 +41,30 @@ class OrdersTable extends Component
             $order->delivery_man_id = null;
             $order->status = 1;
             $order->save();
-            return session()->flash('table-success', 'Status successfully updated.');
-            
-        }
-        elseif($status == 2){
-            $order->delivery_man_id = $deliveryManId;
-            $order->status = 2;
-            $order->save();
-            return session()->flash('table-success', 'Status successfully updated.');
-            
+            return session()->flash('success', 'Status successfully updated.');
         }
         elseif($status == 3){
             $order->delivery_man_id = null;
             $order->status = 3;
             $order->save();
-            return session()->flash('table-success', 'Status successfully updated.');
-
-        }else{
+            return session()->flash('success', 'Status successfully updated.');
+            
+        }
+        elseif($status == 0){
             $order->delivery_man_id = null;
             $order->status = 0;
             $order->save();
-            return session()->flash('table-success', 'Status successfully updated.');
+            return session()->flash('success', 'Status successfully updated.');
         }
+        
+    }
 
-        dd('wrong');
+    public function setOrderId ($id) {
+        $orderId = $id;
     }
     
     public function render()
     {
-        
         return view('livewire.orders-table', [
             'orders' => Order::where('orders.id', 'like', '%'.$this->search.'%')
             ->orWhere('order_number', 'like', '%'.$this->search.'%')

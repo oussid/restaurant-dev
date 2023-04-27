@@ -9,7 +9,7 @@
                 @if ($image || $tempImage)
                 <img class="large-round-img" src="{{asset($tempImage)}}">
                 @elseif(Auth::user()->profile_pic)
-                <img class="large-round-img" src="{{asset('storage/'.Auth::user()->profile_pic)}}">
+                <img class="large-round-img" src="{{asset(Auth::user()->profile_pic)}}">
                 @else
                 <img class="large-round-img" src="{{asset('images/profile_placeholder.jpg')  }}">
                 @endif

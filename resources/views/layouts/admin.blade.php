@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />        {{-- fontawesome --}}
         <script src="{{asset('js/dropdown.js')}}"></script>
         <script src="https://kit.fontawesome.com/ea7913d8a3.js" crossorigin="anonymous"></script>
+        
         @livewireStyles
         <title>Restaurant</title>
     </head>
@@ -31,17 +32,13 @@
             </div>
         </div>
 
-{{-- toastr notifications --}}
-@if (Session::has('success'))
-    <script>
-        toastr.options = {
-            progressBar: true,
-            closeButton: true,
-        }
-        toastr.success("{{Session::get('success')}}")
-    </script>
-@endif
+        {{-- toastr notifications --}}
+        @livewire('session-listener')
 
+        {{-- livewire --}}
         @livewireScripts
+
+        {{-- modal script --}}
+        <script src="{{asset('js/modal.js')}}"></script> 
     </body>
 </html>

@@ -14,7 +14,7 @@
     <div class="admin-nav-right">
         {{-- {{dd(Auth::user()->profile_pic)}} --}}
         <div  class="admin-nav-right-profile dropdownBtn" onclick="toggleDropdown('{{$dropdownId}}')">
-            <img src="{{ Auth::user()->profile_pic ? asset('storage/' . Auth::user()->profile_pic) : asset('images/profile_placeholder.jpg') }}" alt="Profile Picture" class="mini-round-img"/>
+            <img src="{{ Auth::user()->profile_pic ? asset(Auth::user()->profile_pic) : asset('images/profile_placeholder.jpg') }}" alt="Profile Picture" class="mini-round-img"/>
             <div class="admin-nav-right-profile-name">
                 {{Auth::user()->name}} 
                 <i class="fa-solid fa-caret-down"></i>

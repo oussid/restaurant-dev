@@ -6,4 +6,3 @@
         {{$slot}}
     </div>
 </div>
-<script src="{{asset('js/modal.js')}}"></script> 

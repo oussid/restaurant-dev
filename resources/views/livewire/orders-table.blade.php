@@ -1,3 +1,7 @@
+@php
+    $assignDriverModalId = uniqid();
+@endphp
+
 <div class="table-container">
     <div class="table-container-top">
         <div class="table-container-top-title">
@@ -11,6 +15,7 @@
         <table>
             <thead>
                 <tr>
+                    <th>#</th>
                     <th>Order Number</th>
                     <th>Date</th>
                     <th>User Details</th>
@@ -24,6 +29,7 @@
                 @forelse ($orders as $order)
                     <tr>
                         <td> {{$order->id}} </td>
+                        <td> {{$order->order_number}} </td>
                         <td> {{$order->created_at}} </td>
                         <td> {{$order->name}} <br> {{$order->mobile}} <br> {{$order->email}} </td>
                         <td> ${{$order->total}} </td>
@@ -39,13 +45,13 @@
                                 <div wire:click="updateStatus({{$order->id}},1)" class="action-resource-btn-dropdown-tab">
                                     Preparing
                                 </div>
-                                <div wire:click="updateStatus({{$order->id}}, 2, 1)"   class="action-resource-btn-dropdown-tab">
+                                <div wire:click="setOrderId" onclick="toggleModal('{{$assignDriverModalId}}')"   class="action-resource-btn-dropdown-tab">
                                     Assign to delivery man
                                 </div>
                                 <div  wire:click="updateStatus({{$order->id}},3)" class="action-resource-btn-dropdown-tab">
                                     Completed
                                 </div>
-                                <div wire:click="updateStatus({{$order->id}},4)"  class="action-resource-btn-dropdown-tab">
+                                <div wire:click="updateStatus({{$order->id}},0)"  class="action-resource-btn-dropdown-tab">
                                     Cancel
                                 </div>
                             </div>
@@ -61,6 +67,9 @@
         {{$orders->links('pagination-links')}}
     </div>
 
+    <x-modal modalId="{{$assignDriverModalId}}">
+        @livewire('assign-delivery-man', ['orderId'=>$orderId, 'modalId'=>$assignDriverModalId])
+    </x-modal>
 </div>  
 
 
