@@ -22,7 +22,7 @@
              </a>
              <a href="/cart" class="main-navbar-right-left-item">
                  <i class="fa-solid fa-cart-shopping"></i>
-                 <h4 class="badge">{{ Cart::content()->count() }}</h4>
+                 @livewire('cart-count')
              </a>
          </div>
          @if (Auth::check())
