@@ -17,7 +17,7 @@
     </div>
     <div class="main-navbar-right">
          <div class="main-navbar-right-left">
-             <a href="#" class="main-navbar-right-left-item border-right">
+             <a href="/products" class="main-navbar-right-left-item border-right">
                  <i class="fa-solid fa-magnifying-glass"></i>
              </a>
              <a href="/cart" class="main-navbar-right-left-item">

@@ -160,4 +160,7 @@ class userController extends Controller
         ]);
         return redirect()->back()->with('success','Message sent');
     }
+    public function searchPage(){
+        return view('products');
+    }
 }

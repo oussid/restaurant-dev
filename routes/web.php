@@ -29,6 +29,7 @@ Route::get('/contact',[userController::class, 'contactPage']);
 Route::post('/contact',[userController::class, 'contact']);
 Route::get('/cart',[cartController::class, 'cartPage']);
 Route::post('/cart_bill_continue',[cartController::class, 'cartBillContinue']);
+Route::get('/products',[userController::class, 'searchPage']);
 
 // admin doesn't have to be authenticated
 Route::middleware(['guest'])->group(function () {

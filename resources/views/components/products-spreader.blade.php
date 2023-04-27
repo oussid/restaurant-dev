@@ -78,11 +78,14 @@
 </style>
 
 <div class="products-container">
-    @forelse ($products as $product )
-    @livewire("product-card", ["productCard"=>$product], key($product->id))
+
+
+        @forelse ($products as $product )
+            @livewire("product-card", ["productCard"=>$product], key($product->id))
         @empty
-        <div class="empty-data">
-            <h2>No products yet</h2>
-        </div>
-    @endforelse
+            <div class="empty-data">
+                <h2>No products yet</h2>
+            </div>
+        @endforelse
+
 </div>
