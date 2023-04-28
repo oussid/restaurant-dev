@@ -5,6 +5,7 @@ use App\Http\Controllers\userController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TableController;
 use App\Http\Controllers\cartController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,8 @@ Route::get('/cart',[cartController::class, 'cartPage']);
 Route::post('/cart_bill_continue',[cartController::class, 'cartBillContinue']);
 Route::get('/products',[userController::class, 'searchPage']);
 Route::get('/myorders',[userController::class,'myordersPage']);
+Route::post('/create_order',[OrderController::class, 'store']);
+Route::post('/cancel_order',[OrderController::class, 'cancelOrder']);
 
 
 // admin doesn't have to be authenticated

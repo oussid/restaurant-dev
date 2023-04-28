@@ -345,35 +345,6 @@ body{
 }
 /* TESTIMONIALS STYLE END */
 
-
-
-.banner{
-    height: 550px;
-    background-image: url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-}
-.banner-text{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
-    backdrop-filter: brightness(50%);
-    text-align: center;
-    text-shadow: 3px 3px black;
-}
-.banner-text>h1{
-    color: white;
-    font-size: 50px;
-
-}
-.banner-text>h2{
-    font-size: 30px;
-    color: var(--secondary)
-}
 .sample-products-container{
     display: flex;
     justify-content: center;
@@ -797,7 +768,7 @@ footer{
     width: 100%;
 }
 .banner{
-    margin-top: 5.5rem;
+    margin-top: 4rem;
     height: 250px;
     width: 100%;
     display: flex;
@@ -807,6 +778,7 @@ footer{
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     backdrop-filter: invert(3%);
 
 }
@@ -1325,3 +1297,76 @@ border-radius: 3px;
     background: rebeccapurple;
 }
 /*Search page end*/
+/*My orders page start*/
+.myorders-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:3rem;
+    flex-direction: column;
+    gap: 2rem;
+}
+.myorders-order{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0px 0px 3px var(--border);
+    width: 80%;
+    border-radius: 3px;
+    padding: 1rem;
+    gap: 1rem;
+}
+.myorders-order-code,.myorders-order-products-table,.myorders-order-footer{
+    width: 80%;
+}
+.myorders-order-code>span{
+    color: var(--secondary);
+}
+.myorders-order-products-table>table{
+    width: 100%;
+    border: 2px solid var(--border);
+}
+.my-order-header-row>th{
+    padding: 1rem;
+    width: 100%;
+    text-align: center;
+}
+
+.my-order-data-row>td{
+    padding: .3rem;
+    text-align: center;
+}
+.myorders-order-products-table>table, .my-order-data-row>td,.my-order-header-row>th{
+    border: 1px solid var(--border);
+    border-collapse: collapse;
+}
+.myorders-order-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.myorders-order-footer>button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--secondary);
+    gap: .3rem;
+    padding: .3rem .5rem;
+    outline: none;
+    border: none;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: ease-in-out .3s;
+}
+.myorders-order-footer>button>i{
+    transition: ease-in-out .3s;
+}
+.myorders-order-footer>button:hover{
+    background-color: var(--secondary-hover);
+}
+.myorders-order-footer>button:hover>i{
+    transform: rotate(135deg);
+}
+/*My orders page end*/

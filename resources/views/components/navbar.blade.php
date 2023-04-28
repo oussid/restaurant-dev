@@ -14,6 +14,11 @@
        <div href="#" class="main-navbar-center-item">
          <a href="/contact">CONTACT</a>
        </div>
+       @if (Auth::check())
+       <div href="#" class="main-navbar-center-item">
+        <a href="/myorders">MY ORDERS</a>
+      </div>
+       @endif
     </div>
     <div class="main-navbar-right">
          <div class="main-navbar-right-left">

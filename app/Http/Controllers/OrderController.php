@@ -35,7 +35,7 @@ class OrderController extends Controller
         $order = Order::create([
             "customer_id"=>Auth::user()->id,
             "order_number"=>uniqid('#'),
-            "total"=>Cart::total(),
+            "total"=>Cart::subtotal(),
             "delivery_type"=>$request->type
         ]);
 
@@ -80,5 +80,14 @@ class OrderController extends Controller
     public function destroy(Order $order)
     {
         //
+    }
+    public function cancelOrder(Request $req){
+        Order::where('id','=',$req->order_id)
+                ->update(
+                    [
+                        "status"=> 0
+                    ]
+                );
+        return redirect()->back()->with('success','Order canceled successfully');
     }
 }
