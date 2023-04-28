@@ -3,6 +3,7 @@ const editProfileBtn = document.getElementById('editProfile')
 const EditPfpBtn = document.getElementById('adminEditPfp')
 const PfpDropdown = document.getElementById('adminPfpDropdown')
 const fileInp = document.getElementById('img-upload')
+const orderId = null;
 
 const hideModal = (id)=>{
     let modal = document.getElementById(id)

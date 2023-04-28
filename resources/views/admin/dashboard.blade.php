@@ -59,7 +59,7 @@
         </div>
     </div>
     <div class="admin-dashboard-orders">
-        @livewire('orders-table', ['title'=>"Today's Orders"])
+        @livewire('orders-table', ['title' => "Today's orders"])
     </div>
 </div>
 

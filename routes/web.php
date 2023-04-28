@@ -30,6 +30,8 @@ Route::post('/contact',[userController::class, 'contact']);
 Route::get('/cart',[cartController::class, 'cartPage']);
 Route::post('/cart_bill_continue',[cartController::class, 'cartBillContinue']);
 Route::get('/products',[userController::class, 'searchPage']);
+Route::get('/myorders',[userController::class,'myordersPage']);
+
 
 // admin doesn't have to be authenticated
 Route::middleware(['guest'])->group(function () {
@@ -52,4 +54,6 @@ Route::group(['prefix'=> 'admin', 'namespace'=> 'App\Http\Controllers', 'middlew
     Route::resource('table', TableController::class);
     Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');
 });
+
+
 

@@ -9,6 +9,8 @@ use App\Models\TodaySpecials;
 use App\Models\Booking;
 use App\Models\Table;
 use App\Models\Inbox;
+use App\Models\Order;
+use App\Models\OrderProduct;
 use DB;
 use Auth;
 use Carbon\Carbon;
@@ -162,5 +164,19 @@ class userController extends Controller
     }
     public function searchPage(){
         return view('products');
+    }
+    public function myordersPage(){
+        $user = Auth::user();
+        $orders = DB::select('
+        SELECT
+            products.name, products.price, order_product.quantity, orders.total, orders.status, orders.order_number
+        FROM 
+            products, orders, order_product
+        WHERE 
+            orders.customer_id = ? AND products.id = order_product.product_id
+            AND order_product.order_id = orders.id 
+        ', [$user->id]);
+        
+        return view('myorders',['orders'=>$orders]);
     }
 }

@@ -34,7 +34,7 @@ class OrderController extends Controller
     {
         $order = Order::create([
             "customer_id"=>Auth::user()->id,
-            "order_number"=>Str::uuid(),
+            "order_number"=>uniqid('#'),
             "total"=>Cart::total(),
             "delivery_type"=>$request->type
         ]);
@@ -46,6 +46,7 @@ class OrderController extends Controller
                 "quantity" =>$product->qty
             ]);
         }
+        Cart::destroy();
         return redirect()->back()->with('order_created','Order created successfully');
     }
 

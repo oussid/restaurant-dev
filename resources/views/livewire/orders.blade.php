@@ -1,11 +1,6 @@
-@php
-    $assignDriverModalId = uniqid();
-@endphp
-
 <div class="table-container">
     <div class="table-container-top">
         <div class="table-container-top-title">
-            {{$title}}
         </div>
         <div  class="table-container-top-search">
             <input wire:model='search' type="text" placeholder="Search">
@@ -28,17 +23,16 @@
             <tbody>
                 @forelse ($orders as $order)
                     <tr>
-                        <td> {{$order->id}} </td>
+                        <td> {{$order->order_number}} </td>
                         <td> {{$order->order_number}} </td>
                         <td> {{$order->created_at}} </td>
                         <td> {{$order->name}} <br> {{$order->mobile}} <br> {{$order->email}} </td>
                         <td> ${{$order->total}} </td>
-                        <td class="{{$this->convertStatus($order->status)['class']}} ">
-                            {{$this->convertStatus($order->status)['label']}}
+                        <td class="{{$statusMap[$order->status]['class']}} ">
+                            {{$statusMap[$order->status]['label']}}
                         </td>
                         <td class="col-action-btns"> 
-                            {{-- {{dd($order);}} --}}
-                            <button onclick="toggleDropdown('{{$order->order_number}}')" class="action-resource-btn dropdownBtn"> 
+                            {{-- <button onclick="toggleDropdown('{{$order->order_number}}')" class="action-resource-btn dropdownBtn"> 
                                 Actions <i class="fa-solid fa-chevron-down"></i>
                             </button> 
                             <div id="{{$order->order_number}}" class="action-resource-btn-dropdown dropdown">
@@ -56,7 +50,10 @@
                                 <div wire:click="updateStatus({{$order->id}},0)"  class="action-resource-btn-dropdown-tab">
                                     Cancel
                                 </div>
-                            </div>
+                            </div> --}}
+                            <button wire:click='test'>
+                                test
+                            </button>
                         </td>
                     </tr>
                     @empty
@@ -68,11 +65,4 @@
         <div class="table-container-bottom">
             {{$orders->links('pagination-links')}}
         </div>
-        
-        <x-modal modalId="{{$assignDriverModalId}}">
-            @livewire('assign-delivery-man', ['orderId'=> $orderId, 'modalId'=>$assignDriverModalId])
-        </x-modal>
-</div>  
-
-
-
+</div>

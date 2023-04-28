@@ -87,6 +87,10 @@ table td.green{
     color: var(--admin-green);
 }
 
+table td.gray{
+    color: var(--light-text);
+}
+
 
 
 /* ADMIN LAYOUT START */
