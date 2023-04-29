@@ -33,11 +33,6 @@
                 <div class="login-form-button">
                     <button type="submit">Login</button>
                 </div>
-                <p class="or">---------------------------- OR ----------------------------</p>
-                <div class="social-login">
-                    <div class="google-login"></div>
-                    <div class="facebook-login"></div>
-                </div>
                 <div class="login-form-footer">
                     Don't have an account? <a href="/signup">Signup</a>
                 </div>

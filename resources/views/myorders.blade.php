@@ -17,7 +17,7 @@
 
 
 <div class="myorders-container">
-    @foreach ($orders as $order )
+    @forelse ($orders as $order )
     <form action="/cancel_order"  method="POST"  class="myorders-order">
         @csrf
         <input type="number" name="order_id" value="{{ $order->id }}" hidden/>
@@ -63,8 +63,12 @@
         </div>
     </form>
 
-
-    @endforeach
+    @empty
+    <div class="cart-no-items">
+        <h3> You haven't ordered anything yet</h3>
+         <a href="/" class="go-shopping-btn">Order Now<i class="fa-solid fa-right-to-bracket"></i></a>
+      </div>
+    @endforelse
 
 
 </div>

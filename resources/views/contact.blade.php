@@ -62,17 +62,14 @@
                     <div class="contact-form-input-box">
                         <input type="text" placeholder="First Name" name="first_name" required
                         @if (Auth::check())
-                            value= {{explode(' ',Auth::user()->name)[0] }}
+                            value= {{Auth::user()->name }}
                         @endif>
                         @error('first_name')
                             <p class="error">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="contact-form-input-box">
-                        <input type="text" placeholder="Last Name" name="last_name" required
-                        @if (Auth::check())
-                            value= {{explode(' ',Auth::user()->name)[1] }}
-                        @endif/>
+                        <input type="text" placeholder="Last Name" name="last_name" required>
                         @error('last_name')
                             <p class="error">{{ $message }}</p>
                         @enderror

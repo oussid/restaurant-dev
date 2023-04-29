@@ -1,6 +1,5 @@
 <style>
     .cta-container{
-
         height: 425px;
         width: 100%;
         gap: 2rem;
@@ -16,6 +15,7 @@
     }
     .cta-text-section>h1{
         font-size: 80px;
+        text-align: center
     }
     .cta-text-section>a{
         text-decoration: none;
