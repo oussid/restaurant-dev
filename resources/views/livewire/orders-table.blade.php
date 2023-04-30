@@ -36,11 +36,16 @@
                         <td class="{{$this->convertStatus($order->status)['class']}} ">
                             {{$this->convertStatus($order->status)['label']}}
                         </td>
-                        <td class="col-action-btns"> 
+                        <td class="col-action-btns vertical"> 
                             {{-- {{dd($order);}} --}}
                             <button onclick="toggleDropdown('{{$order->order_number}}')" class="action-resource-btn dropdownBtn"> 
                                 Actions <i class="fa-solid fa-chevron-down"></i>
                             </button> 
+                            <a href="{{route('order.show', ['order'=>$order->id])}}">
+                                <button class="details-resource-btn">
+                                    <i class="fa-solid fa-list"></i>
+                                </button>
+                            </a>
                             <div id="{{$order->order_number}}" class="action-resource-btn-dropdown dropdown">
                                 <div wire:click="updateStatus({{$order->id}},1)" class="action-resource-btn-dropdown-tab">
                                     Preparing
@@ -73,6 +78,3 @@
             @livewire('assign-delivery-man', ['orderId'=> $orderId, 'modalId'=>$assignDriverModalId])
         </x-modal>
 </div>  
-
-
-

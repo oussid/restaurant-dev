@@ -2,49 +2,84 @@
 
 @section('content')
 
-<div class="order-show">
+<div class="show-container">
+    <div class="show-top">
+        <div class="show-top-part">
+            Order Details
+        </div>
+        
+        <div class="show-top-part">
+            <button>
+                Print
+            </button>
+            
+            <button>
+                Actions
+            </button>
+        </div>
+    </div>
+   <div class="order-show">
     <div class="order-show-left">
         {{-- order details --}}
         <div class="order-show-block">
-            <table>
-                <thead>
-                    <tr>
-                        <th colspan="2" class="centered full-width">#SDLK5SDF6S</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Order type</td>
-                        <td>Delivery</td>
-                    </tr>
-                    <tr>
-                        <td>Payment type</td>
-                        <td>Cash</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="block-details-container">
+                <div class="block-details">
+                    <div class="block-details-row header">
+                        #sdjsd1f6s
+                    </div>
+                    <div class="block-details-row">
+                        <div class="block-details-col">
+                            block Type 
+                        </div>
+                        <div class="block-details-col">
+                            Takeaway
+                        </div>
+                    </div>
+                    <div class="block-details-row">
+                        <div class="block-details-col">
+                            Payment Type
+                        </div>
+                        <div class="block-details-col">
+                            Cash
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         {{-- customer details --}}
         <div class="order-show-block">
-            <table>
-                <tbody>
-                    <tr>
-                        <td><img src="{{asset('images/profile_placeholder.jpg')}}" alt=""></td>
-                    </tr>
-                    <tr>
-                        <td>+2154654665</td>
-                    </tr>
-                    <tr>
-                        <td>user@gmail.com</td>
-                    </tr>
-                    <tr>
-                        <td>20 Cooper Square, New York, NY 10003, USA</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="block-details-container">
+                <div class="block-details">
+                    <div class="block-details-row">
+                        <div class="block-details-col">
+                            <img class="mini-round-img" src="{{asset('images/profile_placeholder.jpg')}}" alt="Profile picture">
+                        </div>
+                        <div class="block-details-col">
+                            User name
+                        </div>
+                    </div>
+                    <div class="block-details-row">
+                        <div class="block-details-col">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div class="block-details-col">
+                            +14686494654
+                        </div>
+                    </div>
+                    <div class="block-details-row">
+                        <div class="block-details-col">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div class="block-details-col">
+                            user@mail.com
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
     <div class="order-show-right">
         <div class="order-show-block">
     
@@ -53,6 +88,8 @@
     
         </div>
     </div>
+</div> 
 </div>
+
 
 @endsection

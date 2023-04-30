@@ -424,6 +424,10 @@ table td.gray{
     cursor: pointer;
 }
 
+.table-container-main .col-action-btns.vertical{
+    flex-direction: column;
+}
+
 .table-container-main .col-action-btns .action-resource-btn{
     display: flex;
     align-items: center;
@@ -437,12 +441,26 @@ table td.gray{
     background-color: var(--admin-primary);
 }
 
+.table-container-main .col-action-btns .details-resource-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    font-size: 1.2rem;
+    padding: .3rem;
+    border: #fff solid 1px;
+    color: #fff;
+    gap: .5rem;
+    background-color: #fff;
+    color: var(--admin-primary);
+}
+
 .action-resource-btn-dropdown{
     padding: .5rem 0;
     position: absolute;
     background-color: #fff;
     border-radius: 6px;
-    top: 100%;
+    top: 50%;
     right: 0;
     flex-direction: column;
     min-width: 12rem;
@@ -827,4 +845,66 @@ textarea:focus{
     background: var(--admin-primary);
     color: #fff;
 }
+
+.show-container{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 2rem;
+}
+
+.show-top{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding:  1rem 0 ;
+}
 /* RESOURCES STYLE END*/
+
+/* ORDER-SHOW STYLE START*/
+
+.order-show{
+    display: grid;
+    grid-template-columns: 1fr 2fr
+}
+
+.order-show-left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.block-details-container{
+    background: #fff;
+    padding: .5rem;
+    width: 100%;
+    border-radius: 6px;
+}
+
+.block-details{
+    display: flex;
+    flex-direction: column;
+}
+
+.block-details-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: .5rem 0;
+    align-items: center;
+}
+
+.block-details-row:not(:last-child){
+    border-bottom: 1px solid var(--light-border);
+}
+
+.block-details-row.header{
+    justify-content: center;
+    background: var(--light-hover);
+    border-radius: 6px 6px 0 0;
+    font-size: 1.3rem;
+    color: var(--text);
+    font-weight: 500;
+}
+/* ORDER-SHOW STYLE END*/

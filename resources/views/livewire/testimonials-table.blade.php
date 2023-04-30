@@ -10,7 +10,7 @@
         <table>
             <thead>
                 <tr>
-                    <th>Testimonial ID</th>
+                    <th>#</th>
                     <th>Image</th>
                     <th>Name</th>
                     <th>Date</th>                   
