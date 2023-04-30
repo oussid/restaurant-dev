@@ -4,8 +4,7 @@
 
 @if (session()->has('bill_continue'))
 <div class="order-confirmation-container">
-    <form class="order-confirmation-form" action={{ route('order.store') }} method="POST">
-
+    <form class="order-confirmation-form" action='/create_order' method="POST">
         @csrf
         <div class="order-confirmation-form-header">
             <h3>Delivery option</h3>
@@ -56,6 +55,7 @@
     setTimeout(() => {
         let successFlash = document.querySelector('.flash-message-container')
         successFlash.style.display = "none";
+        window.location.href = "/myorders"
     }, 5000);
 </script>
 @endif

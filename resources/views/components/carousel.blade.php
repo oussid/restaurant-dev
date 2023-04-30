@@ -4,7 +4,7 @@
             <h2>Flat 20% Discount</h2>
             <h1>Stay Home & Delivered Your Foods</h1>
         </div>
-        <button class="home-carousel-slide-btn">
+        <button onclick="window.location.href ='/products' " class="home-carousel-slide-btn">
             Explore <i class="fa-solid fa-arrow-right"></i>
         </button>
     </div>
@@ -13,7 +13,7 @@
             <h2>Flat 20% Discount</h2>
             <h1>Stay Home & Delivered Your Foods</h1>
         </div>
-        <button class="home-carousel-slide-btn">
+        <button onclick="window.location.href ='/products' " class="home-carousel-slide-btn">
             Explore <i class="fa-solid fa-arrow-right"></i>
         </button>
     </div>
@@ -22,7 +22,7 @@
             <h2>Flat 20% Discount</h2>
             <h1>Stay Home & Delivered Your Foods</h1>
         </div>
-        <button class="home-carousel-slide-btn">
+        <button onclick="window.location.href ='/products' " class="home-carousel-slide-btn">
             Explore <i class="fa-solid fa-arrow-right"></i>
         </button>
     </div>

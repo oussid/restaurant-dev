@@ -167,16 +167,27 @@ class userController extends Controller
     }
     public function myordersPage(){
         $user = Auth::user();
-        $orders = DB::select('
-        SELECT
-            products.name, products.price, order_product.quantity, orders.total, orders.status, orders.order_number
-        FROM 
-            products, orders, order_product
-        WHERE 
-            orders.customer_id = ? AND products.id = order_product.product_id
-            AND order_product.order_id = orders.id 
-        ', [$user->id]);
-        
+        $orders = DB::table('orders')
+        ->select('orders.id', 'orders.order_number', 'orders.total', 'orders.status', 'products.name', 'products.price', 'order_product.quantity')
+        ->join('order_product', 'orders.id', '=', 'order_product.order_id')
+        ->join('products', 'order_product.product_id', '=', 'products.id')
+        ->where('orders.customer_id', '=', 1)
+        ->orderBy('orders.created_at','desc')
+        ->get()
+        ->groupBy('id')
+        ->map(function ($items) {
+            $order = $items->first();
+            $order->products = $items->map(function ($item) {
+                return [
+                    'name' => $item->name,
+                    'price' => $item->price,
+                    'quantity' => $item->quantity
+                ];
+            })->toArray();
+            return $order;
+        })
+        ->values();
+
         return view('myorders',['orders'=>$orders]);
     }
 }
