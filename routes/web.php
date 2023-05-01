@@ -30,7 +30,7 @@ Route::get('/contact',[userController::class, 'contactPage']);
 Route::post('/contact',[userController::class, 'contact']);
 Route::get('/cart',[cartController::class, 'cartPage']);
 Route::post('/cart_bill_continue',[cartController::class, 'cartBillContinue']);
-Route::get('/products',[userController::class, 'searchPage']);
+Route::get('/products/{category?}',[userController::class, 'searchPage']);
 Route::get('/myorders',[userController::class,'myordersPage']);
 Route::post('/create_order',[OrderController::class, 'store']);
 Route::post('/cancel_order',[OrderController::class, 'cancelOrder']);

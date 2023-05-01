@@ -21,7 +21,7 @@
     <form action="/cancel_order"  method="POST"  class="myorders-order">
         @csrf
         <input type="number" name="order_id" value="{{ $order->id }}" hidden/>
-        <h3 class="myorders-order-code">Order code: <span>#{{ substr($order->order_number,9) }}</span></h3>
+        <h3 class="myorders-order-code">Order code: <span>#{{ strtoupper(substr($order->order_number,9)) }}</span></h3>
         <div class="myorders-order-products-table">
             <table>
                 <tr class="my-order-header-row">

@@ -5,9 +5,14 @@
             <input wire:model="name" wire:input="updateProducts" type="text" placeholder="Name"/>
         </div>
         <select type="text" wire:model="category" wire:change="updateProducts">
-            <option selected value="All">All</option>
+            <option value="All">All</option>
             @foreach ($categories as $ctg )
-            <option value="{{ $ctg->name }}">{{ $ctg->name }}</option>
+            @if ($ctg->name == $paramCategory)
+                <option selected value="{{$ctg->name }}">{{ $ctg->name }}</option>
+            @else
+                <option value="{{$ctg->name }}">{{ $ctg->name }}</option>
+            @endif
+
             @endforeach
         </select>
     </div>
