@@ -171,7 +171,7 @@ class userController extends Controller
         ->select('orders.id', 'orders.order_number', 'orders.total', 'orders.status', 'products.name', 'products.price', 'order_product.quantity')
         ->join('order_product', 'orders.id', '=', 'order_product.order_id')
         ->join('products', 'order_product.product_id', '=', 'products.id')
-        ->where('orders.customer_id', '=', 1)
+        ->where('orders.customer_id', '=', $user->id)
         ->orderBy('orders.created_at','desc')
         ->get()
         ->groupBy('id')

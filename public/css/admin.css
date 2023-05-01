@@ -865,13 +865,13 @@ textarea:focus{
 
 .order-show{
     display: grid;
-    grid-template-columns: 1fr 2fr
+    grid-template-columns: 1fr 2fr;
+    gap: 1rem;
 }
 
-.order-show-left{
+.order-show-part{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     gap: 1rem;
 }
 
@@ -880,6 +880,7 @@ textarea:focus{
     padding: .5rem;
     width: 100%;
     border-radius: 6px;
+    box-shadow: var(--main-boxshadow);
 }
 
 .block-details{
@@ -891,8 +892,25 @@ textarea:focus{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: .5rem 0;
+    padding: .7rem 0;
     align-items: center;
+}
+
+.block-details-col{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem ;
+    color: var(--admin-primary);
+}
+
+.block-details-col .title{
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.block-details-col i{
+    font-size: 1.3rem;
 }
 
 .block-details-row:not(:last-child){
@@ -907,4 +925,123 @@ textarea:focus{
     color: var(--text);
     font-weight: 500;
 }
-/* ORDER-SHOW STYLE END*/
+
+.order-progress-container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background: #fff;
+    justify-content: space-around;
+    padding: 1.5rem 0;
+    border-radius: 6px;
+    box-shadow: var(--main-boxshadow);
+}
+
+.order-progress-status{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--light-text);
+    position: relative;
+    z-index: 4;
+}
+
+
+.order-progress-status-circle{
+    border: 1px solid var(--light-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.3rem;
+    height: 2.3rem;
+    border-radius: 50%;
+    background-color: #fff;
+    position: relative;
+}
+
+.order-progress-status-label{
+    position: absolute;
+    bottom: -50%;
+    font-size: .8rem;
+}
+
+
+.order-progress-status:not(:first-child)::before{
+    content: '';
+    background: var(--light-text);
+    position: absolute;
+    width: calc(100% - 1.15rem);
+    height: 2px;
+    right: 50%;
+}
+
+.order-progress-status:first-child::before{
+    content: '';
+    background: var(--light-text);
+    position: absolute;
+    width: calc(50% - 1.15rem);
+    height: 2px;
+    right: 50%;
+}
+
+.order-progress-status:last-child::after{
+    content: '';
+    background: var(--light-text);
+    position: absolute;
+    width: calc(50% - 2.3rem);
+    height: 2px;
+    left: calc(50% + 1.15rem);
+}
+
+.order-progress-status.active .order-progress-status-circle{
+    border: 1px solid var(--admin-blue);
+    color: var(--admin-blue);
+}
+
+.order-progress-status.active::before{
+    background: var(--admin-blue);
+}
+
+.order-progress-status.active:last-child::after{
+    background: var(--admin-blue);
+}
+
+
+.order-progress-status.active .order-progress-status-label{
+    color: var(--admin-blue);
+}
+
+table.regular-table{
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+}
+
+table.regular-table tr{
+    border: none;
+}
+
+table.regular-table tr:not(:last-child){
+    border-bottom: 1px solid var(--light-border);
+}
+
+table.regular-table td, table.regular-table th {
+    padding: .5rem;
+    border: none;
+}
+
+table.regular-table td {
+    color: var(--light-text);
+}
+
+table.regular-table th {
+    text-align: left;
+    color: var(--text);
+}
+
+table.regular-table th.right {
+    text-align: right;
+}
+
+    /* ORDER-SHOW STYLE END*/

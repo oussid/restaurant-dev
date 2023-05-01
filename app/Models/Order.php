@@ -23,7 +23,7 @@ class Order extends Model
 
     public function products()
     {
-        return $this->belongsToMany(Product::class);
+        return $this->belongsToMany(Product::class)->withPivot('quantity');;
     }
 
     public function user()
@@ -35,7 +35,8 @@ class Order extends Model
     {
         return $this->belongsTo(User::class, 'delivery_man_id');
     }
-    public function orderProduct(){
+
+    public function OrderProduct(){
         return $this->belongsTo(OrderProduct::class, 'product_id');
     }
 
