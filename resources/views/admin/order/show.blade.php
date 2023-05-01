@@ -112,8 +112,6 @@
                         </tr>
                         
                         @foreach ($order->products as $product)
-                            
-                        @endforeach
                         <tr>
                             <td>
                                 <img class="mini-square-img" src="{{asset($product->image)}}">
@@ -131,6 +129,7 @@
                                 ${{$product->pivot->quantity * $product->price}}
                             </td>
                         </tr>
+                        @endforeach
                         <tr>
                             <th colspan="4" class="right">
                                 Total pay
