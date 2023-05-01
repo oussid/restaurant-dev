@@ -17,6 +17,7 @@ class Order extends Model
         "order_number",
         "total",
         "status",
+        "address",
         "delivery_type"
     ];
 
@@ -30,7 +31,7 @@ class Order extends Model
     {
         return $this->belongsTo(User::class, 'customer_id');
     }
-    
+
     public function deliveryMan()
     {
         return $this->belongsTo(User::class, 'delivery_man_id');

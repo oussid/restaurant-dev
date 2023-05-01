@@ -6,7 +6,7 @@
     <x-carousel />
     <div class="sample-products-container">
         @forelse ( $products as $product )
-        <div onclick="window.location.href='/products/{{ $product->id }}'" class="sample-product">
+        <div onclick="window.location.href='/products'" class="sample-product">
             <div class="sample-product-img" style="background-image:url({{$product->image }})"></div>
         </div>
         @empty
@@ -19,11 +19,11 @@
         <x-sections-header>
             <x-slot name="title">Categories</x-slot>
             <x-slot name="button">View All</x-slot>
-            <x-slot name="buttonUrl">/categories</x-slot>
+            <x-slot name="buttonUrl">/products</x-slot>
         </x-sections-header>
         <div class="categories">
             @forelse ($categories as $category )
-            <div class="category">
+            <div onclick="window.location.href ='products/{{ $category->name }}'" class="category">
                 <div class="category-img" style="background-image:url({{ $category->image }})"></div>
                 <div class="category-name">{{ $category->name }}</div>
             </div>

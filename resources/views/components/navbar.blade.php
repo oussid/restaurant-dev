@@ -5,8 +5,28 @@
         <div href="#" class="main-navbar-center-item">
             <a href="/">HOME</a>
         </div>
-        <div href="#" class="main-navbar-center-item">
-            <a href="#">MENU</a>
+        <div href="#" class="main-navbar-center-item ">
+            <a  class="dropdown-tab">MENU <i class="fa-solid fa-caret-down dropdown-tab-arrow"></i></a>
+            <div class="dropdown-menu" style="display: none">
+                @foreach (App\Models\Category::all() as $ctg)
+                    <div onclick="window.location.href = '/products/{{ $ctg->name }}'">{{ $ctg->name }}</div>
+                @endforeach
+            </div>
+            <script>
+                let dropdownTab = document.querySelector('.dropdown-tab');
+                let dropdownMenu = document.querySelector('.dropdown-menu');
+                let dropdownTabArrow = document.querySelector('.dropdown-tab-arrow');
+                dropdownTab.addEventListener('click',()=>{
+                    if(dropdownMenu.style.display == 'none'){
+                        dropdownMenu.style.display = 'flex'
+                        dropdownTabArrow.className = 'fa-solid fa-caret-up dropdown-tab-arrow'
+                    }
+                    else{
+                        dropdownMenu.style.display = 'none'
+                        dropdownTabArrow.className = 'fa-solid fa-caret-down dropdown-tab-arrow'
+                    }
+                })
+            </script>
         </div>
         <div href="#" class="main-navbar-center-item">
             <a href="/booking">BOOK A TABLE</a>
@@ -49,12 +69,13 @@
         <div></div>
         <div></div>
     </div>
+
                     <div class="mobile-navbar">
                         <div href="#" class="main-navbar-center-item ">
                             <a href="/">HOME</a>
                         </div>
                         <div href="#" class="main-navbar-center-item">
-                            <a href="#">MENU</a>
+                            <a href="/products">MENU</a>
                         </div>
                         <div href="#" class="main-navbar-center-item">
                             <a href="/booking">BOOK A TABLE</a>

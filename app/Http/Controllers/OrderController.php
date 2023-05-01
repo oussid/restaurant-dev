@@ -32,12 +32,23 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        $order = Order::create([
-            "customer_id"=>Auth::user()->id,
-            "order_number"=>uniqid('#'),
-            "total"=>Cart::subtotal(),
-            "delivery_type"=>$request->type
-        ]);
+        if($request->address ==null){
+            $order = Order::create([
+                "customer_id"=>Auth::user()->id,
+                "order_number"=>uniqid('#'),
+                "total"=>Cart::subtotal(),
+                "delivery_type"=>$request->type
+            ]);
+        }
+        else{
+            $order = Order::create([
+                "customer_id"=>Auth::user()->id,
+                "order_number"=>uniqid('#'),
+                "total"=>Cart::subtotal(),
+                "address"=>$request->address,
+                "delivery_type"=>$request->type
+            ]);
+        }
 
         foreach(Cart::content()as $product){
             OrderProduct::create([

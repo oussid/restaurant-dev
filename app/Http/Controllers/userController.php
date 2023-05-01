@@ -162,8 +162,8 @@ class userController extends Controller
         ]);
         return redirect()->back()->with('success','Message sent');
     }
-    public function searchPage(){
-        return view('products');
+    public function searchPage($category = null){
+        return view('products',['category'=>$category]);
     }
     public function myordersPage(){
         $user = Auth::user();
