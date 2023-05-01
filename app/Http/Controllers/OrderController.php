@@ -66,7 +66,6 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        dd($order->products);
         return view ('admin.order.show', ['order' => $order]);
     }
 

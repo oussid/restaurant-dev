@@ -25,22 +25,22 @@
             <div class="block-details-container">
                 <div class="block-details">
                     <div class="block-details-row header">
-                        #sdjsd1f6s
+                        {{$order->order_number}}
                     </div>
                     <div class="block-details-row">
                         <div class="block-details-col">
-                            block Type 
+                            Order Type 
                         </div>
                         <div class="block-details-col">
-                            Takeaway
+                            {{$order->delivery_type}}
                         </div>
                     </div>
                     <div class="block-details-row">
                         <div class="block-details-col">
-                            Payment Type
+                            Order Date
                         </div>
                         <div class="block-details-col">
-                            Cash
+                            {{$order->created_at}}
                         </div>
                     </div>
                 </div>
@@ -54,27 +54,31 @@
                     <div class="block-details-row">
                         <div class="block-details-col">
                             <img class="mini-round-img" src="{{asset('images/profile_placeholder.jpg')}}" alt="Profile picture"> 
-                            <p class="title">User name</p>
+                            <p class="title">{{$order->user->name}}</p>
                         </div>
                     </div>
+                    @if ($order->user->mobile)
                     <div class="block-details-row">
                         <div class="block-details-col">
                             <i class="fa-solid fa-phone"></i>
-                            <p >+14686494654</p>
+                            <p >{{$order->user->mobile}}</p>
                         </div>
                     </div>
+                    @endif
                     <div class="block-details-row">
                         <div class="block-details-col">
                             <i class="fa-solid fa-envelope"></i>
-                            <p >user@mail.com</p>
+                            <p >{{$order->user->email}}</p>
                         </div>
                     </div>
+                    @if($order->address)
                     <div class="block-details-row">
                         <div class="block-details-col">
                             <i class="fa-solid fa-location-dot"></i>
-                            <p >20 Cooper Square, New York, NY 10003, USA</p>
+                            <p >{{$order->address}}</p>
                         </div>
                     </div>
+                    @endif
                 </div>
             </div>
         </div>
@@ -82,8 +86,9 @@
 
     <div class="order-show-part">
         <div class="order-show-block">
-            @livewire('order-progress')
+            @livewire('order-progress', ['order' => $order])
         </div>
+
         <div class="order-show-block">
             <div class="block-details-container">
 
@@ -106,21 +111,24 @@
                             </th>
                         </tr>
                         
+                        @foreach ($order->products as $product)
+                            
+                        @endforeach
                         <tr>
                             <td>
-                                <img class="mini-square-img" src="{{asset('images/profile_placeholder.jpg')}}">
+                                <img class="mini-square-img" src="{{asset($product->image)}}">
                             </td>
                             <td>
-                                The Ultimate Veggie Burger
+                                {{$product->name}}
                             </td>
                             <td>
-                                $50
+                                ${{$product->price}}
                             </td>
                             <td>
-                                1
+                                {{$product->pivot->quantity}}
                             </td>
                             <td>
-                                $50
+                                ${{$product->pivot->quantity * $product->price}}
                             </td>
                         </tr>
                         <tr>
@@ -128,7 +136,7 @@
                                 Total pay
                             </th>
                             <td>
-                                $50.00
+                                ${{$order->total}}
                             </td>
                         </tr>
                 </table>

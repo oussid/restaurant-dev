@@ -6,7 +6,8 @@ use Livewire\Component;
 
 class OrderProgress extends Component
 {
-    public $status = 0;
+    public $order;
+    
     public function render()
     {
         return view('livewire.order-progress');

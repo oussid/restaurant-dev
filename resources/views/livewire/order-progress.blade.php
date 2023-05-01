@@ -1,14 +1,24 @@
 <div class="order-progress-container">
-    <div class="order-progress-status {{$status >= 0 ? 'active' : ''}}">
+    @if ($order->status == 0)
+    <div class="order-progress-status">
         <div class="order-progress-status-circle">
             <i class="fa-solid fa-bell"></i>
+        </div>
+        <div class="order-progress-status-label">
+            Canceled
+        </div>
+    </div>
+    @else
+    <div class="order-progress-status {{$order->status >= -1 ? 'active' : ''}}">
+        <div class="order-progress-status-circle">
+            <i class="fa-solid fa-fire"></i>
         </div>
         <div class="order-progress-status-label">
             Placed
         </div>
     </div>
 
-    <div class="order-progress-status {{$status >= 1 ? 'active' : ''}}">
+    <div class="order-progress-status {{$order->status >= 1 ? 'active' : ''}}">
         <div class="order-progress-status-circle">
             <i class="fa-solid fa-fire"></i>
         </div>
@@ -17,7 +27,7 @@
         </div>
     </div>
 
-    <div class="order-progress-status  {{$status >= 2 ? 'active' : ''}}">
+    <div class="order-progress-status  {{$order->status >= 2 ? 'active' : ''}}">
         <div class="order-progress-status-circle">
             <i class="fa-solid fa-motorcycle"></i>
         </div>
@@ -26,7 +36,7 @@
         </div>
     </div>
 
-    <div class="order-progress-status  {{$status >= 3 ? 'active' : ''}}">
+    <div class="order-progress-status  {{$order->status >= 3 ? 'active' : ''}}">
         <div class="order-progress-status-circle">
             <i class="fa-solid fa-check"></i>
         </div>
@@ -34,5 +44,7 @@
             Completed
         </div>
     </div>
+    @endif
+
     
 </div>
