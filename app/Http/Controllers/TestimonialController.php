@@ -12,7 +12,7 @@ class TestimonialController extends Controller
      */
     public function index()
     {
-        return view('admin.testimonials.index');
+        return view('admin.testimonial.index');
     }
 
     /**
@@ -20,7 +20,7 @@ class TestimonialController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.testimonial.create');
     }
 
     /**
@@ -28,7 +28,21 @@ class TestimonialController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $fields = $request->validate([
+            'name' => 'required|max:16',
+            'date' => 'required|date',
+            'text' => 'required|max:256',
+            'url' => 'required|url',
+            'image' => 'required|mimes:png,jpg,jpeg|max:5000',
+        ]);
+
+        $uniqueImageName =  time().'-'.$request->name. '.' .$request->image->extension();
+        $request->image->move(public_path('uploads'), $uniqueImageName);
+        $fields['image'] = 'uploads/' . $uniqueImageName;
+
+        Testimonial::create($fields);
+        
+        return redirect()->back()->with('success', 'Testimonial successfully added ');
     }
 
     /**

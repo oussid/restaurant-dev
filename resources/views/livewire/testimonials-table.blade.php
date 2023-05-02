@@ -11,10 +11,10 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Image</th>
-                    <th>Name</th>
+                    <th>Author Photo</th>
+                    <th>Author Name</th>
                     <th>Date</th>                   
-                    <th>Text</th>                   
+                    <th>Testimonial</th>                   
                     <th>Action</th>                    
                 </tr>
 
@@ -23,11 +23,17 @@
                 @forelse ($testimonials as $testimonial)
                     <tr>
                         <td> {{$testimonial->id}} </td>
-                        <td> {{$testimonial->image}} </td>
+                        <td>
+                            <img class="mini-round-img" src="{{asset($testimonial->image)}}" alt="Testimonial photo">
+                        </td>
                         <td> {{$testimonial->name}} </td>
                         <td> {{$testimonial->created_at}} </td>
                         <td> {{$testimonial->text}} </td>
-                        <td> actions </td>
+                        <td class="col-action-btns">
+                            <a href="{{route('testimonial.show', ['testimonial'=>$testimonial->id])}}">
+                                <button class="details-resource-btn"><i class="fa-solid fa-list"></i></button>
+                            </a>
+                        </td>
                     </tr>
                 @empty
                     <tr><td colspan='6'>No testimonials to show</td></tr>

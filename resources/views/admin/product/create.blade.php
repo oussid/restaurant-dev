@@ -3,8 +3,13 @@
 @section('content')
 
 <div class="resource-create">
-    <div class="resource-breadcrum">
-        Products / Add new
+    <div class="breadcrum">
+        <a href="{{route('product.index')}}" class="breadcrum-link">
+            Products
+        </a> / 
+        <a href="{{route('product.create')}}" class="breadcrum-link">
+            Create Product
+        </a>
     </div>
 
     <form action="{{route('product.store')}}" method="POST" class="resource-form" enctype="multipart/form-data">

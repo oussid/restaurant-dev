@@ -648,6 +648,7 @@ table td.gray{
     flex-direction: column;
     width: 100%;
     padding: 2rem;
+    gap: 1rem;
 }
 
 .full-width-resource-field{

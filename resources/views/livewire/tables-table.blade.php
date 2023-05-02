@@ -10,7 +10,7 @@
         <table>
             <thead>
                 <tr>
-                    <th>Table ID</th>
+                    <th>#</th>
                     <th>Table Number</th>
                     <th>Table Position</th>
                     <th>Table Floor</th>                   
