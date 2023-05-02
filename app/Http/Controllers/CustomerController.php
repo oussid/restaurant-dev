@@ -34,9 +34,11 @@ class CustomerController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(User $user)
+    public function show(User $customer)
     {
-        //
+        return view ('admin.customer.show', [
+            'customer'=>$customer
+        ]);
     }
 
     /**

@@ -51,6 +51,7 @@ Route::group(['prefix'=> 'admin', 'namespace'=> 'App\Http\Controllers', 'middlew
     Route::resource('product', ProductController::class);
     Route::resource('customer', CustomerController::class);
     Route::resource('order', OrderController::class);
+    Route::put('order/update-status', [OrderController::class, 'updateStatus'])->name('order.updateStatus');
     Route::resource('delivery', DeliveryManController::class);
     Route::resource('testimonial', TestimonialController::class);
     Route::resource('booking', BookingController::class);

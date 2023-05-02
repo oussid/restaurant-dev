@@ -3,8 +3,10 @@
 @section('content')
 <div class="resource-index">
     <div class="resource-index-top">
-        <div class="resource-index-top-left">
-            Products
+        <div class="breadcrum">
+            <a href="{{route('product.index')}}" class="breadcrum-link">
+                Products
+            </a>
         </div>
         <div class="resource-index-top-right">
             <a href="{{route('product.create')}}">Add New</a>

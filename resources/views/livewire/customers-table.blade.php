@@ -25,7 +25,11 @@
                         <td> {{$customer->name}} </td>
                         <td> {{$customer->email}} </td>
                         <td> {{$customer->mobile}} </td>
-                        <td> actions </td>
+                        <td class="col-action-btns">
+                            <a href="{{route('customer.show', ['customer'=>$customer->id])}}">
+                                <button class="details-resource-btn"><i class="fa-solid fa-list"></i></button>
+                            </a>
+                        </td>
                     </tr>
                 @empty
                     <tr><td colspan='7'>No customers to show</td></tr>

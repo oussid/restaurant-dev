@@ -13,6 +13,8 @@ class OrdersTable extends Component
     public $search;
     public $title;
     public $orderId;
+    public $customer = null;
+    protected $listeners = ['updateStatus' => 'updateStatus'];
 
 
     public function convertStatus ($status) {
@@ -68,6 +70,23 @@ class OrdersTable extends Component
     
     public function render()
     {
+        if($this->customer){
+            return view('livewire.orders-table', [
+                'orders' => Order::where(function ($query) {
+                    $query->where('customer_id', $this->customer->id);
+
+                })
+                ->where(function ($query) {
+                    $query->where('order_number', 'like', '%'.$this->search.'%')
+                    ->orWhere('order_number', 'like', '%'.$this->search.'%')
+                    ->orWhere('total', 'like', '%'.$this->search.'%')
+                    ->orWhere('users.name', 'like', '%'.$this->search.'%');
+                })
+                ->leftJoin('users', 'orders.customer_id', '=', 'users.id')
+                ->select('orders.id', 'orders.order_number', 'orders.created_at', 'orders.total', 'orders.status', 'orders.delivery_type','users.name', 'users.email', 'users.mobile')
+                ->paginate(10)
+            ]);
+        }
         return view('livewire.orders-table', ['orders' => Order::where('orders.id', 'like', '%'.$this->search.'%')
         ->orWhere('order_number', 'like', '%'.$this->search.'%')
         ->orWhere('total', 'like', '%'.$this->search.'%')

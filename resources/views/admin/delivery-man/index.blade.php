@@ -4,8 +4,10 @@
 
 <div class="resource-index">
     <div class="resource-index-top">
-        <div class="resource-index-top-left">
-            Delivery Men
+        <div class="breadcrum">
+            <a href="{{route('delivery.index')}}" class="breadcrum-link">
+                Delivery Men
+            </a>
         </div>
         <div class="resource-index-top-right">
             <a href="{{route('delivery.create')}}">Add New</a>

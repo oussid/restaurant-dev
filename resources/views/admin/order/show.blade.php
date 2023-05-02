@@ -4,18 +4,20 @@
 
 <div class="show-container">
     <div class="show-top">
-        <div class="show-top-part">
-            Order Details
+        <div class="breadcrum">
+            <a href="{{route('order.index')}}" class="breadcrum-link">
+                Orders
+            </a> / 
+            <a href="{{route('order.show', ['order' => $order->id])}}" class="breadcrum-link">
+                Order Details
+            </a>
         </div>
         
-        <div class="show-top-part">
-            <button>
+        <div class="show-top-part col-action-btns ">
+            <button class="action-resource-btn secondary" >
                 Print
             </button>
-            
-            <button>
-                Actions
-            </button>
+            @livewire('update-order-status', ['order' => $order])
         </div>
     </div>
    <div class="order-show">

@@ -4,8 +4,10 @@
 
 <div class="resource-index">
     <div class="resource-index-top">
-        <div class="resource-index-top-left">
-            Testimonials
+        <div class="breadcrum">
+            <a href="{{route('testimonial.index')}}" class="breadcrum-link">
+                Testimonials
+            </a>
         </div>
         <div class="resource-index-top-right">
             <a href="{{route('testimonial.create')}}">Add New</a>

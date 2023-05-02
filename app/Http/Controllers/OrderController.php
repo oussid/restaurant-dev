@@ -92,6 +92,7 @@ class OrderController extends Controller
     {
         //
     }
+
     public function cancelOrder(Request $req){
         Order::where('id','=',$req->order_id)
                 ->update(
@@ -100,5 +101,28 @@ class OrderController extends Controller
                     ]
                 );
         return redirect()->back()->with('success','Order canceled successfully');
+    }
+
+    public function updateStatus (Order $order, $status, $deliveryManId = null) {
+        //1=>preparing, 2=>On the way, 3=>completed, 0=>canceled, -1=>placed
+        if($status == 1){
+            $order->delivery_man_id = null;
+            $order->status = 1;
+            $order->save();
+            return session()->flash('success', 'Status successfully updated.');
+        }
+        elseif($status == 3){
+            $order->delivery_man_id = null;
+            $order->status = 3;
+            $order->save();
+            return session()->flash('success', 'Status successfully updated.');
+            
+        }
+        elseif($status == 0){
+            $order->delivery_man_id = null;
+            $order->status = 0;
+            $order->save();
+            return session()->flash('success', 'Status successfully updated.');
+        }
     }
 }

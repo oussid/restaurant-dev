@@ -4,8 +4,10 @@
 
 <div class="resource-index">
     <div class="resource-index-top">
-        <div class="resource-index-top-left">
-            Table Bookings
+        <div class="breadcrum">
+            <a href="{{route('booking.index')}}" class="breadcrum-link">
+                Bookings
+            </a>
         </div>
 
     </div>

@@ -4,8 +4,10 @@
 
 <div class="resource-index">
     <div class="resource-index-top">
-        <div class="resource-index-top-left">
-            Tables
+        <div class="breadcrum">
+            <a href="{{route('table.index')}}" class="breadcrum-link">
+                Tables
+            </a>
         </div>
         <div class="resource-index-top-right">
             <a href="{{route('table.create')}}">Add New</a>
