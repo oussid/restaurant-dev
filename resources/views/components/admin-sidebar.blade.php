@@ -50,7 +50,7 @@
             Testimonials
         </a >
 
-        <a href="#" class="admin-sidebar-tab">
+        <a href="{{route('admin.list')}}" class="admin-sidebar-tab {{getPageName(Request::url()) === 'list' ? 'active' : ''}}">
             <i class="fa-solid fa-user"></i>
             Admins
         </a >

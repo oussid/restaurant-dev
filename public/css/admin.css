@@ -7,7 +7,9 @@
     --light-text: #6F7483;
     --light-border: #cad1e2;
     --admin-red: #f82647;
+    --admin-red-hover: #fc7c8f;
     --admin-green: #149606;
+    --admin-green-hover: #98fd8d;
     --admin-purple: #a31f96;
     --admin-blue: #1227e0;
     --text: #495067;
@@ -471,12 +473,23 @@ table td.gray{
     gap: .5rem;
     background-color: #fff;
     color: var(--admin-primary);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     transition: .3s all ease-in-out;
 }
 
 .details-resource-btn:hover{
     background: var(--light-border);
     border: 1px solid var(--light-border);
+}
+
+.details-resource-btn.danger:hover{
+    background: var(--admin-red);
+    border: 1px solid var(--admin-red-hover);
+}
+
+.details-resource-btn.success:hover{
+    background: var(--admin-green-hover);
+    border: 1px solid var(--admin-green-hover);
 }
 
 .action-resource-btn-dropdown{

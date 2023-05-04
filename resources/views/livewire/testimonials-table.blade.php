@@ -33,6 +33,12 @@
                             <a href="{{route('testimonial.show', ['testimonial'=>$testimonial->id])}}">
                                 <button class="details-resource-btn"><i class="fa-solid fa-list"></i></button>
                             </a>
+
+                            <form action="{{route('testimonial.destroy', ['testimonial'=> $testimonial->id])}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button class="details-resource-btn danger"><i class="fa-solid fa-trash"></i></button>
+                            </form>
                         </td>
                     </tr>
                 @empty

@@ -1,87 +1,21 @@
-{{-- <div class="testimonials-container swiper">
-    <div class="testimonials-wrapper swiper-wrapper">
-        <div class="testimonial swiper-slide">
-            <img class="testimonial-profile" src="images/testimonial1.png" alt="Profile image">
-            <div class="testimonial-details">
-                <span class="testimonial-details-name">John Doe</span>
-            </div>
-            <div class="testimonial-text"> 
-                <i class="fa-solid fa-quote-left"></i>  
-                I really like the place somehow idk hoaef alojfa ljaef aj aldjfn ale aflnjalofen.
-                <i class="fa-solid fa-quote-right"></i>
-            </div>
-        </div>
-        <div class="testimonial swiper-slide">
-            <img class="testimonial-profile" src="images/testimonial1.png" alt="Profile image">
-            <div class="testimonial-details">
-                <span class="testimonial-details-name">John Doe</span>
-            </div>
-            <div class="testimonial-text"> 
-                <i class="fa-solid fa-quote-left"></i>  
-                I really like the place somehow idk hoaef alojfa ljaef aj aldjfn ale aflnjalofen.
-                <i class="fa-solid fa-quote-right"></i>
-            </div>
-        </div>
-        <div class="testimonial swiper-slide">
-            <img class="testimonial-profile" src="images/testimonial1.png" alt="Profile image">
-            <div class="testimonial-details">
-                <span class="testimonial-details-name">John Doe</span>
-            </div>
-            <div class="testimonial-text"> 
-                <i class="fa-solid fa-quote-left"></i>  
-                I really like the place somehow idk hoaef alojfa ljaef aj aldjfn ale aflnjalofen.
-                <i class="fa-solid fa-quote-right"></i>
-            </div>
-        </div>
-    </div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-
-</div>
- --}}
-<style>
-
-</style>
- <div class="swiper">
+@if ($testimonials->count() > 0)
+<div class="swiper">
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
       <!-- Slides -->
+      @foreach ($testimonials as $testimonial)
         <div class="testimonial swiper-slide">
-            <img class="testimonial-profile" src="images/testimonial1.png" alt="Profile image">
+            <a href="{{$testimonial->url}}"> <img class="testimonial-profile" src="{{$testimonial->image}}" alt="Profile image"></a>
             <div class="testimonial-details">
-                <a href="#" class="testimonial-details-name">John Doe</a>
+                <a href="{{$testimonial->url}}" class="testimonial-details-name">{{$testimonial->name}}</a>
             </div>
             <div class="testimonial-text"> 
                 <i class="fa-solid fa-quote-left"></i>  
-                I really like the place somehow idk hoaef alojfa ljaef aj aldjfn ale aflnjalofen.
+                {{$testimonial->text}}
                 <i class="fa-solid fa-quote-right"></i>
             </div>
         </div>
-
-        <div class="testimonial swiper-slide">
-            <img class="testimonial-profile" src="images/testimonial2.png" alt="Profile image">
-            <div class="testimonial-details">
-                <span class="testimonial-details-name">John Doe</span>
-            </div>
-            <div class="testimonial-text"> 
-                <i class="fa-solid fa-quote-left"></i>  
-                I really like the place somehow idk hoaef alojfa ljaef aj aldjfn ale aflnjalofen.
-                <i class="fa-solid fa-quote-right"></i>
-            </div>
-        </div>
-
-        <div class="testimonial swiper-slide">
-            <img class="testimonial-profile" src="images/testimonial3.png" alt="Profile image">
-            <div class="testimonial-details">
-                <span class="testimonial-details-name">John Doe</span>
-            </div>
-            <div class="testimonial-text"> 
-                <i class="fa-solid fa-quote-left"></i>  
-                I really like the place somehow idk hoaef alojfa ljaef aj aldjfn ale aflnjalofen.
-                <i class="fa-solid fa-quote-right"></i>
-            </div>
-        </div>
-    
+      @endforeach
     </div>
     <!-- If we need pagination -->
     <div class="swiper-pagination"></div>
@@ -89,5 +23,6 @@
     <!-- If we need navigation buttons -->
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
-
   </div>
+@endif
+

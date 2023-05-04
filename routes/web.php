@@ -53,9 +53,10 @@ Route::group(['prefix'=> 'admin', 'namespace'=> 'App\Http\Controllers', 'middlew
     Route::resource('order', OrderController::class);
     Route::put('order/update-status', [OrderController::class, 'updateStatus'])->name('order.updateStatus');
     Route::resource('delivery', DeliveryManController::class);
-    Route::resource('testimonial', TestimonialController::class);
     Route::resource('booking', BookingController::class);
+    Route::resource('testimonial', TestimonialController::class);
     Route::resource('table', TableController::class);
+    Route::get('list', [AdminController::class, 'list'])->name('admin.list');
     Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');
 });
 

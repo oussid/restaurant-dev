@@ -10,9 +10,10 @@
         <table>
             <thead>
                 <tr>
-                    <th>Category ID</th>
+                    <th>#</th>
                     <th>Image</th>
-                    <th>Category Label</th>                   
+                    <th>Name</th>                   
+                    <th>Description</th>                   
                     <th>Action</th>                    
                 </tr>
 
@@ -25,27 +26,24 @@
                             <img class="mini-square-img" src="{{asset($category->image)}}" alt="Category Image">
                         </td>
                         <td> {{$category->name}} </td>
-                        <td>
-                            <div class="col-action-btns">
-                                <a href="{{route("category.edit", ["category"=>$category->id])}}">
-                                    <button class="edit-resource-btn" >
-                                        <i class="fa-solid fa-pen-to-square"></i>   
-                                    </button>
-                                </a>
-    
-                                <form action="{{route("category.destroy", ["category"=>$category->id])}}" method="POST">
-                                    @method("DELETE")
-                                    @csrf
-    
-                                <button class="delete-resource-btn">
-                                    <i class="fa-solid fa-trash"></i>
-                                </button> 
-                                </form>
-                            </div>
+                        <td> {{$category->description}} </td>
+                        
+                        <td class="col-action-btns">
+                            <a href="{{route('category.edit', ['category'=>$category->id])}}" >
+                                @csrf
+                                @method('DELETE')
+                                <button class="details-resource-btn success"><i class="fa-solid fa-pen-to-square"></i></i></button>
+                            </a>
+
+                            <form action="{{route('category.destroy', ['category'=> $category->id])}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button class="details-resource-btn danger"><i class="fa-solid fa-trash"></i></button>
+                            </form>
                         </td>
                     </tr>
                 @empty
-                    <tr><td colspan='7'>No categories to show</td></tr>
+                    <tr><td colspan='70'>No categories to show</td></tr>
                 @endforelse
             </tbody>
         </table>

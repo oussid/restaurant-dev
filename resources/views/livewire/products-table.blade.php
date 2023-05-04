@@ -10,7 +10,7 @@
         <table>
             <thead>
                 <tr>
-                    <th>Product ID</th>
+                    <th>#</th>
                     <th>Image</th>
                     <th>Name</th>
                     <th>Category</th>                   
@@ -27,23 +27,16 @@
                         <td> {{$product->name}} </td>
                         <td> {{$product->category->name}} </td>
                         <td> No </td>
-                        <td>
-                            <div class="col-action-btns">
-                                <a href="{{route("product.edit", ["product"=>$product->id])}}">
-                                    <button class="edit-resource-btn" >
-                                        <i class="fa-solid fa-pen-to-square"></i>   
-                                    </button>
-                                </a>
-    
-                                <form action="{{route("product.destroy", ["product"=>$product->id])}}" method="POST">
-                                    @method("DELETE")
-                                    @csrf
-    
-                                <button class="delete-resource-btn">
-                                    <i class="fa-solid fa-trash"></i>
-                                </button> 
-                                </form>
-                            </div>
+                        <td class="col-action-btns">
+                            <a href="{{route('product.edit', ['product'=>$product->id])}}">
+                                <button class="details-resource-btn success"><i class="fa-solid fa-pen-to-square"></i></i></button>
+                            </a>
+
+                            <form action="{{route('product.destroy', ['product'=> $product->id])}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button class="details-resource-btn danger"><i class="fa-solid fa-trash"></i></button>
+                            </form>
                         </td>
                     </tr>
                 @empty

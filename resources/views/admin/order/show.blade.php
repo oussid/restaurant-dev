@@ -54,10 +54,12 @@
             <div class="block-details-container">
                 <div class="block-details">
                     <div class="block-details-row">
-                        <div class="block-details-col">
-                            <img class="mini-round-img" src="{{asset('images/profile_placeholder.jpg')}}" alt="Profile picture"> 
-                            <p class="title">{{$order->user->name}}</p>
-                        </div>
+                        <a href="{{route('customer.show', ['customer' => $order->user->id])}}">
+                            <div class="block-details-col">
+                                <img class="mini-round-img" src="{{asset('images/profile_placeholder.jpg')}}" alt="Profile picture"> 
+                                <p class="title">{{$order->user->name}}</p>
+                            </div>
+                        </a>
                     </div>
                     @if ($order->user->mobile)
                     <div class="block-details-row">

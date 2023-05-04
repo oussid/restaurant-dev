@@ -3,17 +3,20 @@
 namespace App\View\Components;
 
 use Closure;
-use Illuminate\Contracts\View\View;
+use App\Models\Testimonial;
 use Illuminate\View\Component;
+use Illuminate\Contracts\View\View;
 
 class Testimonials extends Component
 {
     /**
      * Create a new component instance.
      */
+    public $testimonials;
+
     public function __construct()
     {
-        //
+        $this->testimonials = Testimonial::all();
     }
 
     /**
@@ -21,6 +24,6 @@ class Testimonials extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.testimonials');
+        return view('components.testimonials', ['testimonials' => $this->testimonials]);
     }
 }

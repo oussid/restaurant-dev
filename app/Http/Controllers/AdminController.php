@@ -105,4 +105,8 @@ class AdminController extends Controller
         }
         return redirect()->back();
     }
+
+    public function list () {
+        return view('admin.auth.list');
+    }
 }
