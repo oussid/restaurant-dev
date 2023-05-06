@@ -8,7 +8,7 @@
             Products
         </a> / 
         <a href="{{route('product.create')}}" class="breadcrum-link">
-            Create Product
+            Add New
         </a>
     </div>
 

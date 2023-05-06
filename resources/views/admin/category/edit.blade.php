@@ -3,8 +3,13 @@
 @section('content')
 
 <div class="resource-create">
-    <div class="resource-breadcrum">
-        Categories / Update
+    <div class="breadcrum">
+        <a href="{{route('category.index')}}" class="breadcrum-link">
+            Categories
+        </a> / 
+        <a href="{{route('category.edit')}}" class="breadcrum-link">
+            Update
+        </a>
     </div>
 
     <form action="{{route('category.update', ['category'=> $category->id])}}" method="POST" class="resource-form" enctype="multipart/form-data">

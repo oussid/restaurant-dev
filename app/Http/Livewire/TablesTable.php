@@ -16,6 +16,7 @@ class TablesTable extends Component
         return view('livewire.tables-table', [
             'tables' => Table::where('id', 'like', '%'.$this->search.'%')
                                     ->orWhere('position', 'like', '%'.$this->search.'%')
+                                    ->orderBy('tables.id', 'desc')
                                     ->paginate(10)
         ]);
     }

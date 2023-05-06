@@ -8,7 +8,7 @@
             Tables
         </a> / 
         <a href="{{route('table.create')}}" class="breadcrum-link">
-            Create Table
+            Add New
         </a>
     </div>
 

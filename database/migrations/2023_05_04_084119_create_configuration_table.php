@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('configuration', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('logo')->nullable()->default(null);
             $table->string('address');
             $table->string('city');
-            $table->string('logo');
             $table->string('slogan');
-            $table->string('description');
+            $table->string('description')->nullable()->default(null);
             $table->string('phone');
             $table->string('email');
             $table->string('working_days');
@@ -26,6 +27,21 @@ return new class extends Migration
             $table->string('secondary_color');
             $table->timestamps();
         });
+
+        DB::table('configuration')->insert([
+            'name' => 'Restaurant',
+            'address' => 'Avenue M5, Rabat, Agdal, Morocco',
+            'email' => 'default@example.com',
+            'phone' => '1234567890',
+            'city' => 'Rabat',
+            'slogan' => 'Bringing the world to your plate',
+            'working_days' => 'Monday to Sunday',
+            'working_hours' => '07:00AM to 22:00PM',
+            'primary_color' => '#F82647',
+            'secondary_color' => '#000',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
     }
 
     /**

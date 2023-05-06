@@ -16,6 +16,7 @@ class ProductsTable extends Component
         return view('livewire.products-table', [
             'products' => Product::where('id', 'like', '%'.$this->search.'%')
                                     ->orWhere('name', 'like', '%'.$this->search.'%')
+                                    ->orderBy('products.id', 'desc')
                                     ->paginate(10)
         ]);
     }

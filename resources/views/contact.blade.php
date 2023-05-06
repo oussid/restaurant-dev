@@ -28,12 +28,12 @@
                 <div class="contact-infos-square">
                     <i class="fa-solid fa-envelope"></i>
                     <h2>Email</h2>
-                    <p>justbotbeats@gmail.com</p>
+                    <p>{{$config->email}}</p>
                 </div>
                 <div class="contact-infos-square">
                     <i class="fa-solid fa-phone"></i>
                     <h2>Mobile</h2>
-                    <p>+212 645626182</p>
+                    <p>{{$config->phone}}</p>
                 </div>
             </div>
 
@@ -42,13 +42,13 @@
                 <div class="contact-infos-square">
                     <i class="fa-solid fa-location-dot"></i>
                     <h2>Address</h2>
-                    <p>Avenue M5, Rabat, Agdal, Morocco</p>
+                    <p>{{$config->address}}</p>
                 </div>
                 <div class="contact-infos-square">
                     <i class="fa-solid fa-business-time"></i>
-                    <h2>Working hours</h2>
-                    <p>From 09:00</p>
-                    <p>To 00:00</p>
+                    <h2>Schedule</h2>
+                    <p>{{$config->working_days}}</p>
+                    <p>{{$config->working_hours}}</p>
 
                 </div>
             </div>

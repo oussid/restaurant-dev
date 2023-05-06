@@ -14,9 +14,13 @@
         </div>
         
         <div class="show-top-part col-action-btns ">
-            <button class="action-resource-btn secondary" >
-                Print
-            </button>
+            <form action="{{route('order.print', ['order'=>$order])}}" method="post">
+                @csrf
+                <button class="action-resource-btn secondary" >
+                    Print
+                </button>
+            </form>
+            
             @livewire('update-order-status', ['order' => $order])
         </div>
     </div>

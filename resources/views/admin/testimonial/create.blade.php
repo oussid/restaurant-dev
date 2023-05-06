@@ -8,7 +8,7 @@
             Testimonials
         </a> / 
         <a href="{{route('testimonial.create')}}" class="breadcrum-link">
-            Add New Testimonial
+            Add New 
         </a>
     </div>
 

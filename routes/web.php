@@ -35,6 +35,7 @@ Route::get('/myorders',[userController::class,'myordersPage']);
 Route::post('/create_order',[OrderController::class, 'store']);
 Route::post('/cancel_order',[OrderController::class, 'cancelOrder']);
 
+Route::get('/pdf',[OrderController::class,'test']);
 
 // admin doesn't have to be authenticated
 Route::middleware(['guest'])->group(function () {
@@ -47,17 +48,21 @@ Route::middleware(['guest'])->group(function () {
 // admin routes
 Route::group(['prefix'=> 'admin', 'namespace'=> 'App\Http\Controllers', 'middleware'=>['admin']], function (){
     Route::get('/', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+    Route::get('list', [AdminController::class, 'list'])->name('admin.list');
+    Route::get('configuration', [AdminController::class, 'config'])->name('admin.config');
+    Route::get('logout', [AdminController::class, 'logout'])->name('admin.logout');
+    Route::post('order/{order}/print', [OrderController::class, 'print'])->name('order.print');
+    Route::put('configuration', [AdminController::class, 'configure'])->name('admin.configure');
+    Route::put('order/update-status', [OrderController::class, 'updateStatus'])->name('order.updateStatus');
     Route::resource('category', CategoryController::class);
     Route::resource('product', ProductController::class);
     Route::resource('customer', CustomerController::class);
     Route::resource('order', OrderController::class);
-    Route::put('order/update-status', [OrderController::class, 'updateStatus'])->name('order.updateStatus');
     Route::resource('delivery', DeliveryManController::class);
     Route::resource('booking', BookingController::class);
     Route::resource('testimonial', TestimonialController::class);
     Route::resource('table', TableController::class);
-    Route::get('list', [AdminController::class, 'list'])->name('admin.list');
-    Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');
+    Route::resource('banner', BannerController::class);
 });
 
 

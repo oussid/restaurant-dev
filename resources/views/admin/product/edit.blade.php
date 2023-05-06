@@ -3,8 +3,13 @@
 @section('content')
 
 <div class="resource-create">
-    <div class="resource-breadcrum">
-        Products / Update
+    <div class="breadcrum">
+        <a href="{{route('product.index')}}" class="breadcrum-link">
+            Products
+        </a> / 
+        <a href="{{route('product.edit')}}" class="breadcrum-link">
+            Update
+        </a>
     </div>
 
     <form action="{{route('product.update', ['product'=> $product->id])}}" method="POST" class="resource-form" enctype="multipart/form-data">

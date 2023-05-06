@@ -93,6 +93,7 @@ class OrdersTable extends Component
         ->orWhere('users.name', 'like', '%'.$this->search.'%')
         ->leftJoin('users', 'orders.customer_id', '=', 'users.id')
         ->select('orders.id', 'orders.order_number', 'orders.created_at', 'orders.total', 'orders.status', 'orders.delivery_type','users.name', 'users.email', 'users.mobile')
+        ->orderBy('orders.id', 'desc')
         ->paginate(10)]);
     }
 }

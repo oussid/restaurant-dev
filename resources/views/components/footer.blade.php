@@ -3,13 +3,17 @@
     <div class="footer-main">
         <div class="footer-main-identity">
             <div class="footer-main-identity-logo">
-                <img width="120px" src="{{asset('images/burger-logo.png')}}" alt="">
+                @if ($config->logo)
+                    <img width="100px"  src="{{asset($config->logo)}}" alt="Logo" >
+                @else
+                    <h2>[LOGO]</h2>    
+                @endif
             </div>
             <div class="footer-main-identity-slogan">
-                Bringing the world to your plate
+                {{$config->slogan}}
             </div>
             <div class="footer-main-identity-description">
-                Lorem ipsum dolor sit amet, ectetur adipiscing elit. Pharetra, a phasellus mattis mi arcu urna Pharetra, a phasellu.
+                {{$config->description}}
             </div>
         </div>
         <div class="footer-main-links">
@@ -48,7 +52,7 @@
         </div>
     </div>
     <div class="footer-bottom">
-        <p class="footer-copyright">Awesome Restaurant © 2023. All rights reserved</p>
+        <p class="footer-copyright">{{$config->name}} © 2023. All rights reserved</p>
     </div>
 </footer> 
 </div>

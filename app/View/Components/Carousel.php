@@ -3,8 +3,9 @@
 namespace App\View\Components;
 
 use Closure;
-use Illuminate\Contracts\View\View;
+use App\Models\Banner;
 use Illuminate\View\Component;
+use Illuminate\Contracts\View\View;
 
 class Carousel extends Component
 {
@@ -22,9 +23,11 @@ class Carousel extends Component
             ]
         ]
     ];
+    public $banners;
+
     public function __construct()
     {
-        //
+        $this->banners = Banner::all();
     }
 
     /**
@@ -32,6 +35,6 @@ class Carousel extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.carousel');
+        return view('components.carousel', ['banners'=>$this->banners]);
     }
 }

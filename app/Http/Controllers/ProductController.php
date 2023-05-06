@@ -50,7 +50,7 @@ class ProductController extends Controller
 
         Product::create($fields);
         
-        return redirect()->back()->with('success', 'Product added');
+        return redirect()->back()->with('success', 'Product successfully added');
     }
 
     /**

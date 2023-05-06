@@ -25,24 +25,18 @@
                         <td> {{$table->number}} </td>
                         <td> {{$table->position}} </td>
                         <td> {{$table->floor}} </td>
-                        <td>
-                            <div class="col-action-btns">
-                                <a href="{{route("table.edit", ["table"=>$table->id])}}">
-                                    <button class="edit-resource-btn" >
-                                        <i class="fa-solid fa-pen-to-square"></i>   
-                                    </button>
-                                </a>
-    
-                                <form action="{{route("table.destroy", ["table"=>$table->id])}}" method="POST">
-                                    @method("DELETE")
-                                    @csrf
-    
-                                <button class="delete-resource-btn">
-                                    <i class="fa-solid fa-trash"></i>
-                                </button> 
-                                </form>
-                            </div>
+                        <td class="col-action-btns">
+                            <a href="{{route('table.edit', ['table'=>$table->id])}}">
+                                <button class="details-resource-btn success"><i class="fa-solid fa-pen-to-square"></i></i></button>
+                            </a>
+
+                            <form action="{{route('table.destroy', ['table'=>$table->id])}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button class="details-resource-btn danger"><i class="fa-solid fa-trash"></i></button>
+                            </form>
                         </td>
+                        
                     </tr>
                 @empty
                     <tr><td colspan='6'>No tables to show</td></tr>

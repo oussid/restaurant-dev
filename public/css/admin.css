@@ -78,12 +78,21 @@ a{
     box-shadow: var(--main-boxshadow); 
 }
 
+.mini-rectangle-img{
+    width: 100px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: var(--main-boxshadow); 
+}
+
 .dropdown{
     display: none;
 }
 
 .dropdown.show{
     display: block;
+    z-index: 999999;
 }
 
 table td.red{
@@ -214,6 +223,7 @@ table td.gray{
     text-decoration: none;
     border-radius: 8px;
     transition: .2s ease-in-out all;
+    margin: 3px 0;
 }
 
 .admin-sidebar-tab.active{
@@ -224,6 +234,12 @@ table td.gray{
 .admin-sidebar-tab:hover{
     color: var(--admin-primary);
     background: #fff;
+}
+
+.admin-sidebar-tabs-group-title{
+    color: var(--light-text);
+    font-size: .95rem;
+    margin-bottom: .2rem ;
 }
 /* ADMIN SIDEBAR END */
 
@@ -270,6 +286,7 @@ table td.gray{
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
     display: none;
     transition: all ease-in-out 0.3s;
+    z-index: 99999;
 }
 
 .admin-nav-right-profile-dropdown-tab{
@@ -283,7 +300,7 @@ table td.gray{
     padding-left: 2rem;
     text-decoration: none;
     font-weight: 500;
-    z-index: 4;
+    /* z-index: 4; */
     /* background-color: #01112B; */
 }
 
@@ -848,6 +865,7 @@ textarea:focus{
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
 }
 
 .resource-form-bottom button{
@@ -894,6 +912,28 @@ textarea:focus{
     justify-content: space-between;
     padding:  1rem 0 ;
 }
+
+.custom input[type=color]{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 0;
+    width: 100px;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+.custom input[type=color]::-webkit-color-swatch {
+    box-shadow: var(--main-boxshadow);
+    border-radius: 6px;
+    border: none;
+}
+.custom input[type=color]::-moz-color-swatch {
+    box-shadow: var(--main-boxshadow);
+    border-radius: 6px;
+    border: none;
+  }
 /* RESOURCES STYLE END*/
 
 /* ORDER-SHOW STYLE START*/
@@ -978,8 +1018,7 @@ textarea:focus{
     align-items: center;
     justify-content: center;
     color: var(--light-text);
-    position: relative;
-    z-index: 4;
+    position: relative; 
 }
 
 

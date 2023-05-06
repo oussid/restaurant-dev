@@ -8,7 +8,7 @@
             Categories
         </a> / 
         <a href="{{route('category.create')}}" class="breadcrum-link">
-            Create Category
+            Add New
         </a>
     </div>
 

@@ -43,7 +43,7 @@ const prevSlide = ()=>{
 
 // auto slide
 function startInterval() {
-    intervalId = setInterval(nextSlide, 3000);
+    intervalId = setInterval(nextSlide, 5000);
   }
 
 startInterval()

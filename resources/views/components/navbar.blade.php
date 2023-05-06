@@ -1,6 +1,10 @@
 
 <nav class="main-navbar" >
-    <img class="navbar-logo" src="{{asset('images/logo_white.png')}}" alt="Logo" >
+    @if ($config->logo)
+        <img width="50px" class="navbar-logo" src="{{asset($config->logo)}}" alt="Logo" >
+    @else
+        <h2>[LOGO]</h2>    
+    @endif
     <div class="main-navbar-center">
         <div href="#" class="main-navbar-center-item">
             <a href="/">HOME</a>

@@ -8,7 +8,7 @@
             Delivery Men
         </a> / 
         <a href="{{route('delivery.create')}}" class="breadcrum-link">
-            Add Delivery Man
+            Add New
         </a>
     </div>
 

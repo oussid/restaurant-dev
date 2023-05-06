@@ -8,6 +8,7 @@ use Auth;
 use Str;
 use Cart;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class OrderController extends Controller
 {
@@ -124,5 +125,16 @@ class OrderController extends Controller
             $order->save();
             return session()->flash('success', 'Status successfully updated.');
         }
+    }
+
+    public function test () {
+        return view('pdf');
+    }
+
+    // DOWNLOAD ORDER DETAILS IN PDF FORMAT
+    public function print (Order $order) {
+        // dd($order);
+        $pdf = Pdf::loadView('pdf.order', compact('order'));
+        return $pdf->download('order.pdf');
     }
 }

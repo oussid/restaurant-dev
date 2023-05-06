@@ -187,6 +187,62 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2023-05-04 17:54:36',
                 'updated_at' => '2023-05-04 17:54:36',
             ),
+            12 => 
+            array (
+                'id' => 13,
+                'name' => 'Fat Brad',
+                'email' => 'fatbrad@mail.com',
+                'mobile' => '0682159060',
+                'profile_pic' => NULL,
+                'password' => '$2y$10$3kQuabrJDXxu1M7x6Lb.SOLw6ca3DHRs23tcuSPNU1AvJmmZg88eq',
+                'role' => 0,
+                'email_verified_at' => NULL,
+                'remember_token' => NULL,
+                'created_at' => '2023-05-06 12:13:39',
+                'updated_at' => '2023-05-06 12:13:39',
+            ),
+            13 => 
+            array (
+                'id' => 14,
+                'name' => 'Lina',
+                'email' => 'lina@gmail.com',
+                'mobile' => '0682359011',
+                'profile_pic' => NULL,
+                'password' => '$2y$10$RT5fMMWfQAIGpoxjxGoXbefeLZYZ7zuf8eGMDKPBNxng6p/hKvmJW',
+                'role' => 0,
+                'email_verified_at' => NULL,
+                'remember_token' => NULL,
+                'created_at' => '2023-05-06 12:15:50',
+                'updated_at' => '2023-05-06 12:15:50',
+            ),
+            14 => 
+            array (
+                'id' => 15,
+                'name' => 'Marques',
+                'email' => 'marques@gmail.com',
+                'mobile' => '0629359060',
+                'profile_pic' => NULL,
+                'password' => '$2y$10$2xAuN.R9Qkwf.roqJO3SSex6gS7JETws0hwL5txF7A7.S2nzQChKu',
+                'role' => 0,
+                'email_verified_at' => NULL,
+                'remember_token' => NULL,
+                'created_at' => '2023-05-06 12:17:40',
+                'updated_at' => '2023-05-06 12:17:40',
+            ),
+            15 => 
+            array (
+                'id' => 16,
+                'name' => 'John',
+                'email' => 'john@gmail.com',
+                'mobile' => '0682359055',
+                'profile_pic' => NULL,
+                'password' => '$2y$10$6COXVWtuAG24DRONh3l6AOcRKmjSRQPUXQPQbAdvT40puf9Xl7vLe',
+                'role' => 0,
+                'email_verified_at' => NULL,
+                'remember_token' => NULL,
+                'created_at' => '2023-05-06 12:19:09',
+                'updated_at' => '2023-05-06 12:19:09',
+            ),
         ));
         
         

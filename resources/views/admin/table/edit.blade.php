@@ -3,8 +3,13 @@
 @section('content')
 
 <div class="resource-create">
-    <div class="resource-breadcrum">
-        Tables / Update
+    <div class="breadcrum">
+        <a href="{{route('table.index')}}" class="breadcrum-link">
+            Tables
+        </a> / 
+        <a href="{{route('table.edit', ['table'=>$table->id])}}" class="breadcrum-link">
+            Update 
+        </a>
     </div>
 
     <form action="{{route('table.update', ['table' => $table->id])}}" method="POST" class="resource-form">

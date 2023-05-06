@@ -6,11 +6,14 @@ use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use App\Models\Configuration;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class AdminController extends Controller
 {
+    // DASHBOARD
     public function dashboard(){
         $ordersForChart = DB::table('orders')
             ->whereRaw('YEAR(created_at) = YEAR(CURRENT_DATE())')
@@ -44,10 +47,12 @@ class AdminController extends Controller
         ]);
     }
 
+    // SHOW LOGIN FORM
     public function loginForm(){
         return view('admin.auth.login');
     }
 
+    // SHOW SIGNUP FORM
     public function signupForm () {
         return view('admin.auth.signup');
     }
@@ -106,7 +111,54 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
+    // LIST OF ADMINS
     public function list () {
         return view('admin.auth.list');
+    }
+
+    // WEBSITE CONFIGURATION
+    public function config () {
+        return view('admin.auth.config');
+    }
+
+    // SAVE CONFIGURATION
+    public function configure (Request $request) {
+        $logo = DB::table('configuration')->pluck('logo')->first();
+        $config = Configuration::first();
+
+        $fields = $request->validate([
+            'name'=> 'required|max:32|min:2',
+            'city'=> 'required|max:28|min:3',
+            'address'=> 'required|max:128|min:3',
+            'email'=> 'required|email',
+            'phone'=> 'required|max:12',
+            'primary_color'=> 'required',
+            'secondary_color'=> 'required',
+            'slogan'=> 'required|max:128|min:3',
+            'description'=> 'max:256',
+            'logo' => 'mimes:png,jpg,jpeg|max:5000',
+        ], [
+            'logo.mimes' => 'Please upload an image of type png, jpg or jpeg.',
+        ]);
+
+        // making sure not to set logo to null in db if the user didn't upload it
+        if($logo && !$request->logo){
+            $fields['logo'] = $logo;
+        }
+
+        // update the logo in the public folder with the new one
+        if($request->logo){
+            // check public folder for the file if exists to delete it 
+            if(File::exists($config->logo)){
+                File::delete($config->logo);
+            }
+            $uniqueLogoName =  time().'-'.$request->name. '.' .$request->logo->extension();
+            $request->logo->move(public_path('uploads'), $uniqueLogoName);
+            $fields['logo'] = 'uploads/' . $uniqueLogoName;
+        }
+
+        $config->update($fields);
+
+        return redirect()->back()->with('success', 'Infomations successfully updated');
     }
 }
