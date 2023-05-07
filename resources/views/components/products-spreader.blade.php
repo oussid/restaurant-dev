@@ -15,7 +15,6 @@
         border-radius:5px;
         box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
         transition: ease-in-out .3s;
-        cursor: pointer;
     }
     .product-card:hover{
         box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 8px 4px;
@@ -52,7 +51,7 @@
     .card-price{
         font-weight: bold;
     }
-    .card-button{
+    .card-button, .card-button-added{
         background:none;
         outline: none;
         border : rgba(0, 0, 0, 0.16) solid 1px;
@@ -65,6 +64,10 @@
     }
     .card-button:hover{
         color: red;
+    }
+    .card-button-added{
+        color: green;
+        cursor: default;;
     }
     .card-footer >.quantity{
         text-align: center;

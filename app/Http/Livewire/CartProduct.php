@@ -6,6 +6,7 @@ use Livewire\Component;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
 
+
 class CartProduct extends Component
 {
     public $cartProduct;
@@ -29,6 +30,6 @@ class CartProduct extends Component
         Cart::remove($rowId);
         $this->emit('updateCartCount');
         $this->emit('cartPayUpdate');
-        $this->emit('updateCartSpreaderContent');
+        $this->emit('updateCartContent');
     }
 }

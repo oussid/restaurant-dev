@@ -7,7 +7,7 @@
     <div class="sample-products-container">
         @forelse ( $products as $product )
         <div onclick="window.location.href='/products'" class="sample-product">
-            <div class="sample-product-img" style="background-image:url({{$product->image }})"></div>
+            <div class="sample-product-img" style="background-image:url('/{{$product->image }}')"></div>
         </div>
         @empty
         <div class="empty-data">

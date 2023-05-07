@@ -6,7 +6,7 @@
                 @if ($config->logo)
                     <img width="100px"  src="{{asset($config->logo)}}" alt="Logo" >
                 @else
-                    <h2>[LOGO]</h2>    
+                    <h2>[LOGO]</h2>
                 @endif
             </div>
             <div class="footer-main-identity-slogan">
@@ -54,5 +54,5 @@
     <div class="footer-bottom">
         <p class="footer-copyright">{{$config->name}} © 2023. All rights reserved</p>
     </div>
-</footer> 
+</footer>
 </div>
