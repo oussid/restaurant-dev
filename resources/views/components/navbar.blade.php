@@ -1,9 +1,8 @@
-
 <nav class="main-navbar" >
     @if ($config->logo)
         <img width="50px" class="navbar-logo" src="{{asset($config->logo)}}" alt="Logo" >
     @else
-        <h2>[LOGO]</h2>    
+        <h2>[LOGO]</h2>
     @endif
     <div class="main-navbar-center">
         <div href="#" class="main-navbar-center-item">

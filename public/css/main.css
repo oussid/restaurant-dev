@@ -1539,3 +1539,36 @@ border-radius: 3px;
     transform: rotate(135deg);
 }
 /*My orders page end*/
+/*404 page start*/
+.error-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    gap: 2rem;
+    background-image: url('https://single-restaurant.gravityinfotech.net/storage/app/public/admin-assets/images/about/booknow_bg_image-637393cd7c886.png');
+    width: 100%;
+}
+@keyframes shake {
+    from{ transform: rotateX(90deg);}
+    to{ transform: rotateX(0deg);}
+}
+.error-container>h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+    animation: shake 1s forwards;
+}
+.error-code, .error-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Dancing script', cursive;
+    padding: 0rem 2rem;
+}
+.error-text{
+    border-left: 2px solid var(--secondary);
+}
+/*404 page end*/

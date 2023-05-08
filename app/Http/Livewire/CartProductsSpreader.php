@@ -9,7 +9,9 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 class CartProductsSpreader extends Component
 {
     public $cartProducts;
-    public $listeners = ['updateCartSpreaderContent'=>"updateCartSpreaderContent"];
+    public $listeners = [
+        'updateCartContent'=>'updateCartSpreaderContent'
+    ];
     public function render()
     {
         return view('livewire.cart-products-spreader');
@@ -22,8 +24,8 @@ class CartProductsSpreader extends Component
     }
     public function emptyCart(){
         Cart::destroy();
-        $this->updateCartSpreaderContent();
         $this->emit('cartPayUpdate');
         $this->emit('updateCartCount');
+        $this->updateCartSpreaderContent();
     }
 }

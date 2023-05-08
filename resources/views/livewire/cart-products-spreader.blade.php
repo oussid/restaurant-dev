@@ -1,6 +1,6 @@
 <div class="order-items-container">
     @forelse ($cartProducts as $cartProduct )
-        @livewire('cart-product',['cartProduct'=>$cartProduct])
+        @livewire('cart-product',['cartProduct'=>$cartProduct],key($cartProduct->id))
     @empty
     <div class="cart-no-items">
       <h3> No items in the cart yet</h3>
