@@ -88,7 +88,7 @@ class ProductController extends Controller
          }
  
          $fields = $request->validate([
-            'name' => 'required|max:16',
+            'name' => 'required|max:64',
             'category_id' => 'required|max:16',
             'price' => 'required|numeric',
             'description' => 'max:256',

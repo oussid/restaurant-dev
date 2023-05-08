@@ -1,5 +1,7 @@
 @extends('layouts.admin-unauthenticated')
 
+@section('content')
+    
 <div class="login-form-container">
     {{session('error')}}
     {{session('message')}}
@@ -17,7 +19,9 @@
         </div>
 
         <div class="login-form-bottom">
-            <a href="#"> <i class="fa-solid fa-lock"></i>  Forgot password?</a>
+            <a href="{{route('forgotPasswordForm')}}"> <i class="fa-solid fa-lock"></i>  Forgot password?</a>
         </div>
     </form>
 </div>
+
+@endsection

@@ -90,7 +90,7 @@ class BannerController extends Controller
             'subtitle' => 'max:64',
             'cta_button' => $ctaValidation.'max:32',
             'cta_url' => $ctaValidation.'max:256',
-            'image' => 'required|mimes:png,jpg,jpeg|max:5000',
+            'image' => $imageValidation,
         ], [
             'cta_button.required' => 'Please fill this field or leave both CTA Button & CTA URL empty.',
             'cta_url.required' => 'Please fill this field or leave both CTA Button & CTA URL empty.',
@@ -109,7 +109,7 @@ class BannerController extends Controller
 
         $banner->update($fields);
         
-        return redirect()->back()->with('success', 'Banner updated');
+        return redirect()->back()->with('success', 'Banner successfully updated');
     }
 
     /**

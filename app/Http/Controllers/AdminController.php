@@ -5,11 +5,15 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Order;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\Configuration;
+use App\Mail\PasswordResetMail;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class AdminController extends Controller
 {
@@ -150,7 +154,8 @@ class AdminController extends Controller
         if($request->logo){
             // check public folder for the file if exists to delete it 
             if(File::exists($config->logo)){
-                File::delete($config->logo);
+                File::delete($config->logo
+        );
             }
             $uniqueLogoName =  time().'-'.$request->name. '.' .$request->logo->extension();
             $request->logo->move(public_path('uploads'), $uniqueLogoName);
@@ -160,5 +165,92 @@ class AdminController extends Controller
         $config->update($fields);
 
         return redirect()->back()->with('success', 'Infomations successfully updated');
+    }
+
+    // shows a form to send to enter the email
+    public function forgotPasswordForm (){
+        return view('password.forgot-password');
+    }
+    
+    // send the email with the link to reset password
+    public function sendResetPasswordMail (Request $request) {
+        
+        $request->validate([
+            'email' => 'required|email'
+        ]);
+
+        $user = DB::table('users')->where('email', $request->email)->first();
+
+        if(!$user){
+            return redirect()->back()->with('error', 'Email was not found');
+        }
+        // delete token if it has already been created then create a new one
+        $token = DB::table('password_reset_tokens')->where('email', $request->email)->first();
+        if($token){
+            DB::table('password_reset_tokens')->where('email', $request->email)->delete();
+        }
+
+        $token = Str::random(60);
+        
+        DB::table('password_reset_tokens')->insert([
+            'email' => $user->email,
+            'token' => $token,
+            'created_at' => Carbon::now(),
+        ]);
+
+        Mail::to($request->email)->send(new PasswordResetMail($token));
+
+        return redirect()->back()->with('success', 'a password reset link was sent to your email');
+    }
+
+    // show the form to reset password
+    public function resetPasswordForm ($token){
+        $reset = DB::table('password_reset_tokens')->where('token', $token)->first();
+
+        if(!$reset){
+            abort(404);
+        }
+
+        return view('password.reset-password', ['token' => $token]);
+    }
+
+    // reset the password
+    public function resetPassword (Request $request){
+        // validate the request data
+        $request->validate([
+            'token' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|confirmed'
+        ]);
+
+        $reset = DB::table('password_reset_tokens')
+                ->where('email', $request->email)
+                ->where('token', $request->token)
+                ->first();
+
+        if (!$reset) {
+            abort(404);
+        }
+
+        $user = User::where('email', $request->email)->first();
+
+        // verify the user
+        if (!$user) {
+            return redirect()->back()->with('error', 'No user was found with that email address');
+        }
+
+        // verify the password reset token
+        if ($reset->token != $request->token) {
+            return redirect()->back()->with('error', 'Invalid password reset token.');
+        }
+
+        // reset the user's password
+        $user->update(['password' => Hash::make($request->password)]);
+
+        // delete password reset token after reset
+        DB::table('password_reset_tokens')->where('email', $request->email)->delete();
+
+        // redirect to the login page with a success message
+        return redirect()->route('admin.login')->with('success', 'Your password has been reset!');
     }
 }

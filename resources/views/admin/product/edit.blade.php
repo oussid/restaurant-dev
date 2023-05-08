@@ -7,7 +7,7 @@
         <a href="{{route('product.index')}}" class="breadcrum-link">
             Products
         </a> / 
-        <a href="{{route('product.edit')}}" class="breadcrum-link">
+        <a href="{{route('product.edit',  ['product'=>$product->id])}}" class="breadcrum-link">
             Update
         </a>
     </div>

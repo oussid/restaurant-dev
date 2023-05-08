@@ -1,11 +1,13 @@
 <?php
 
+use App\Mail\TestMail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\cartController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\TableController;
-use App\Http\Controllers\cartController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\TableController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +19,10 @@ use App\Http\Controllers\OrderController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/test', function () {
+    return view('mail.password-reset');
+});
+
 
 Route::get('/', [userController::class, 'index']);
 Route::get('/signup', [userController::class, 'signupPage']);
@@ -37,12 +43,17 @@ Route::post('/cancel_order',[OrderController::class, 'cancelOrder']);
 
 Route::get('/pdf',[OrderController::class,'test']);
 
-// admin doesn't have to be authenticated
+// user must not be authenticated
 Route::middleware(['guest'])->group(function () {
     Route::get('admin/login', [AdminController::class, 'loginForm']);
     Route::get('admin/signup', [AdminController::class, 'signupForm']);
-    Route::post('admin/signup', [AdminController::class, 'signup'])->name('admin.signup');
+    Route::post('admin/signup', [AdminController::class, 'signup'])->name('admin.signup'); // route for development purposes only
     Route::post('admin/login', [AdminController::class, 'login'])->name('admin.login');
+    // password reset routes
+    Route::get('/admin/forgot-password', [AdminController::class, 'forgotPasswordForm'])->name('forgotPasswordForm');
+    Route::post('/admin/forgot-password', [AdminController::class, 'sendResetPasswordMail'])->name('sendForgotPasswordEmail');
+    Route::get('/admin/forgot-password/{token}', [AdminController::class, 'resetPasswordForm'])->name('resetPasswordForm');
+    Route::post('/admin/reset-password', [AdminController::class, 'resetPassword'])->name('resetPassword');
 });
 
 // admin routes
