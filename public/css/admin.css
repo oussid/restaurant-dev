@@ -46,6 +46,25 @@ a{
     text-decoration: none;
 }
 
+.custom-check-box{
+    border: 2px solid var(--admin-primary);
+    border-radius: 3px;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: transparent;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.custom-check-box.active{
+    background: var(--admin-primary);
+    color: #fff;
+}
+
 .mini-square-img{
     width: 50px;
     height: 50px;
@@ -86,6 +105,18 @@ a{
     box-shadow: var(--main-boxshadow); 
 }
 
+.error-message{
+    font-size: .9rem;
+    color: #b4313a;
+    width: 100%;
+    background: #ffccd0;
+    padding: .2rem .3rem;
+    border-radius: 3px;
+    border: 1px solid #ffc3c9;
+    margin-bottom: .4rem;
+    font-weight: 500;
+}
+
 .dropdown{
     display: none;
 }
@@ -114,6 +145,8 @@ table td.green{
 table td.gray{
     color: var(--light-text);
 }
+
+
 
 
 

@@ -18,8 +18,9 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
     
-    public function todaySpecials(){
-        return $this->belongsTo(TodaySpecials::class);
+    public function todaySpecial()
+    {
+        return $this->hasOne(TodaySpecials::class);
     }
 
 

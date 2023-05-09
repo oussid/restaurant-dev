@@ -21,7 +21,7 @@
                 </div>
                 <div class="form-error">
                     @error('category_id')
-                        {{$message}}
+                        <p class="error-message">{{$message}}</p>
                     @enderror
                 </div>
                 <select name="category_id" >
@@ -39,7 +39,7 @@
                 </div>
                 <div class="form-error">
                     @error('name')
-                        {{$message}}
+                        <p class="error-message">{{$message}}</p>
                     @enderror
                 </div>
                 <input type="text" name="name" placeholder="Product name" value="{{old('name')}}">
@@ -50,7 +50,7 @@
                 </div>
                 <div class="form-error">
                     @error('price')
-                        {{$message}}
+                        <p class="error-message">{{$message}}</p>
                     @enderror
                 </div>
                 <input type="text" id="numberInp" name="price" placeholder="Product price" value="{{old('price')}}">
@@ -62,7 +62,7 @@
                 </div>
                 <div class="form-error">
                     @error('image')
-                        {{$message}}
+                        <p class="error-message">{{$message}}</p>
                     @enderror
                 </div>
                 <input type="file" name="image" >
@@ -74,7 +74,7 @@
                 </div>
                 <div class="form-error">
                     @error('description')
-                        {{$message}}
+                        <p class="error-message">{{$message}}</p>
                     @enderror
                 </div>
                 <textarea name="description"  rows="5" placeholder="Short description">{{old('description')}}</textarea>

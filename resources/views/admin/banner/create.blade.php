@@ -21,7 +21,7 @@
                 </div>
                 <div class="form-error">
                     @error('image')
-                        {{$message}}
+                        <p class="error-message">{{$message}}</p>
                     @enderror
                 </div>
                 <input type="file" name="image" >
@@ -33,7 +33,7 @@
                 </div>
                 <div class="form-error">
                     @error('title')
-                        {{$message}}
+                        <p class="error-message">{{$message}}</p>
                     @enderror
                 </div>
                 <input type="text" name="title" placeholder="Banner title" value="{{old('title')}}">
@@ -45,7 +45,7 @@
                 </div>
                 <div class="form-error">
                     @error('subtitle')
-                        {{$message}}
+                        <p class="error-message">{{$message}}</p>
                     @enderror
                 </div>
                 <input type="text" name="subtitle" placeholder="Banner subtitle" value="{{old('subtitle')}}">
@@ -57,7 +57,7 @@
                 </div>
                 <div class="form-error">
                     @error('cta_button')
-                        {{$message}}
+                        <p class="error-message">{{$message}}</p>
                     @enderror
                 </div>
                 <input type="text" id="numberInp" name="cta_button" placeholder="Button Text" value="{{old('cta_button')}}">
@@ -69,7 +69,7 @@
                 </div>
                 <div class="form-error">
                     @error('cta_url')
-                        {{$message}}
+                        <p class="error-message">{{$message}}</p>
                     @enderror
                 </div>
                 <input type="text" id="numberInp" name="cta_url" placeholder="Call to action link" value="{{old('cta_url')}}">

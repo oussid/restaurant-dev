@@ -13,8 +13,23 @@
         </div>
 
         <div class="login-form-main">
-            <input type="email" placeholder="Email address" name="email" value="{{old('email')}}">
-            <input type="text" placeholder="Password" name="password" value="{{old('password')}}"> 
+            <div>
+                <div class="form-error">
+                    @error('email')
+                       <p class="error-message">{{$message}}</p> 
+                    @enderror
+                </div>
+                <input type="email" placeholder="Email address" name="email" value="{{old('email')}}">
+            </div>
+
+            <div>
+                <div class="form-error">
+                    @error('password')
+                       <p class="error-message">{{$message}}</p> 
+                    @enderror
+                </div>
+                <input type="text" placeholder="Password" name="password" value="{{old('password')}}"> 
+            </div>
             <button type="submit">Login</button>
         </div>
 

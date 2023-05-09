@@ -254,11 +254,4 @@ class AdminController extends Controller
         return redirect()->route('admin.login')->with('success', 'Your password has been reset!');
     }
 
-    // CHANGE PASSWORD
-    public function changePassword (Request $request) {
-        $fields = $request->validate([
-            'password' => 'required',
-            'new_password' => 'required|min:8|max:32|confirmed',
-        ]);
-    }
 }

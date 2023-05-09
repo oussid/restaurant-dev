@@ -22,7 +22,7 @@ class userController extends Controller
        $categories = DB::table('categories')->get();
        $products =Product::take(3)->get();
        $sampleProducts =Product::skip(3)->take(4)->get();
-       $todaySpecialProducts =Product::with('todaySpecials')->get();
+       $todaySpecialProducts =Product::with('todaySpecial')->get();
         return view('index',[
             'categories'=> $categories,
             'products'=>$products,

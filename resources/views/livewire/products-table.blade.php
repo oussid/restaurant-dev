@@ -26,7 +26,11 @@
                         <td><img class="mini-square-img" src="{{asset($product->image)}}" alt="Category Image"></td>
                         <td> {{$product->name}} </td>
                         <td> {{$product->category->name}} </td>
-                        <td> No </td>
+                        <td class="center">
+                            <div wire:click="special({{$product->id}})" class="custom-check-box {{$product->todaySpecial ? 'active' : ''}}">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                        </td>
                         <td class="col-action-btns">
                             <a href="{{route('product.edit', ['product'=>$product->id])}}">
                                 <button class="details-resource-btn success"><i class="fa-solid fa-pen-to-square"></i></i></button>

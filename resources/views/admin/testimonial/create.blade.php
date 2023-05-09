@@ -21,7 +21,7 @@
                 </div>
                 <div class="form-error">
                     @error('image')
-                        {{$message}}
+                        <p class="error-message">{{$message}}</p>
                     @enderror
                 </div>
                 <input type="file" name="image" >
@@ -32,7 +32,7 @@
                 </div>
                 <div class="form-error">
                     @error('name')
-                        {{$message}}
+                        <p class="error-message">{{$message}}</p>
                     @enderror
                 </div>
                 <input type="text" name="name" placeholder="Author name" value="{{old('name')}}">
@@ -44,7 +44,7 @@
                 </div>
                 <div class="form-error">
                     @error('created_at')
-                        {{$message}}
+                        <p class="error-message">{{$message}}</p>
                     @enderror
                 </div>
                 <input type="date" name="created_at" placeholder="Product price" value="{{old('created_at')}}">
@@ -56,7 +56,7 @@
                 </div>
                 <div class="form-error">
                     @error('url')
-                        {{$message}}
+                        <p class="error-message">{{$message}}</p>
                     @enderror
                 </div>
                 <input type="text" name="url" placeholder="Testimonial URL" value="{{old('url')}}">
@@ -69,7 +69,7 @@
                 </div>
                 <div class="form-error">
                     @error('text')
-                        {{$message}}
+                        <p class="error-message">{{$message}}</p>
                     @enderror
                 </div>
                 <textarea name="text"  rows="5" placeholder="Testimonial text">{{old('text')}}</textarea>

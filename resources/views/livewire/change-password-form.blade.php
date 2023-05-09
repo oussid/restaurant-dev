@@ -10,7 +10,7 @@
             </div>
             <div class="form-error">
                 @error('password')
-                    {{$message}}
+                    <p class="error-message">{{$message}}</p>
                 @enderror
             </div>
             <input type="text" wire:model="password"  placeholder="Password" value="{{old('password')}}">
@@ -21,7 +21,7 @@
             </div>
             <div class="form-error">
                 @error('newPassword')
-                    {{$message}}
+                    <p class="error-message">{{$message}}</p>
                 @enderror
             </div>
             <input type="text" wire:model="newPassword"  placeholder="New Password" value="{{old('newPassword')}}">
@@ -32,7 +32,7 @@
             </div>
             <div class="form-error">
                 @error('newPasswordConfirmation')
-                    {{$message}}
+                    <p class="error-message">{{$message}}</p>
                 @enderror
             </div>
             <input type="text" wire:model="newPasswordConfirmation"  placeholder="Repeat New Password" value="{{old('newPasswordConfirmation')}}">

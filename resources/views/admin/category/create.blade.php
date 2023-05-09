@@ -21,7 +21,7 @@
                 </div>
                 <div class="form-error">
                     @error('name')
-                        {{$message}}
+                        <p class="error-message">{{$message}}</p>
                     @enderror
                 </div>
                 <input type="text" name="name" placeholder="Category Name" value="{{old('name')}}">
@@ -37,7 +37,7 @@
                 </div>
                 <div class="form-error">
                     @error('image')
-                        {{$message}}
+                        <p class="error-message">{{$message}}</p>
                     @enderror
                 </div>
                 <input type="file" name="image" >

@@ -21,7 +21,7 @@
                 </div>
                 <div class="form-error">
                     @error('number')
-                        {{$message}}
+                        <p class="error-message">{{$message}}</p>
                     @enderror
                 </div>
                 <input type="text" name="number" placeholder="Table number" value="{{old('number')}}">
@@ -32,7 +32,7 @@
                 </div>
                 <div class="form-error">
                     @error('floor')
-                        {{$message}}
+                        <p class="error-message">{{$message}}</p>
                     @enderror
                 </div>
                 <input type="text" name="floor" placeholder="Table floor" value="{{old('floor')}}">
@@ -43,7 +43,7 @@
                 </div>
                 <div class="form-error">
                     @error('position')
-                        {{$message}}
+                        <p class="error-message">{{$message}}</p>
                     @enderror
                 </div>
                 <input type="text" name="position" placeholder="Table postion" value="{{old('position')}}">
