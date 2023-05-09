@@ -25,11 +25,11 @@ Route::get('/test', function () {
 
 
 Route::get('/', [userController::class, 'index']);
-Route::get('/signup', [userController::class, 'signupPage']);
-Route::post('/signup', [userController::class, 'signup']);
-Route::get('/login', [userController::class, 'loginPage']);
-Route::post('/login', [userController::class, 'login']);
-Route::post('/logout',[userController::class, 'logout']);
+Route::get('/signup', [userController::class, 'signupPage'])->middleware('guest');
+Route::post('/signup', [userController::class, 'signup'])->middleware('guest');
+Route::get('/login', [userController::class, 'loginPage'])->middleware('guest');
+Route::post('/login', [userController::class, 'login'])->middleware('guest');
+Route::post('/logout',[userController::class, 'logout'])->middleware('auth');
 Route::get('/booking', [userController::class, 'bookingPage']);
 Route::post('/booking',[userController::class, 'booking']);
 Route::get('/contact',[userController::class, 'contactPage']);

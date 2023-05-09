@@ -30,11 +30,11 @@ class TestimonialController extends Controller
     {
         $fields = $request->validate([
             'name' => 'required|max:16',
-            'date' => 'required|date',
+            'created_at' => 'required|date',
             'text' => 'required|max:256',
-            'url' => 'required|url',
+            'url' => 'required',
             'image' => 'required|mimes:png,jpg,jpeg|max:5000',
-        ]);
+        ], ['created_at.required' => 'The date field is required.']);
 
         $uniqueImageName =  time().'-'.$request->name. '.' .$request->image->extension();
         $request->image->move(public_path('uploads'), $uniqueImageName);
@@ -50,7 +50,7 @@ class TestimonialController extends Controller
      */
     public function show(Testimonial $testimonial)
     {
-        //
+        
     }
 
     /**
@@ -58,7 +58,7 @@ class TestimonialController extends Controller
      */
     public function edit(Testimonial $testimonial)
     {
-        //
+        return view('admin.testimonial.edit', ['testimonial' => $testimonial]);
     }
 
     /**
@@ -66,7 +66,39 @@ class TestimonialController extends Controller
      */
     public function update(Request $request, Testimonial $testimonial)
     {
-        //
+         // image is not required if it's already in the db
+         $imageValidation;
+
+         if($testimonial->image){
+             $imageValidation = 'mimes:png,jpg,jpeg|max:5000';
+             
+            }else{
+                $imageValidation = 'required|mimes:png,jpg,jpeg|max:5000';
+                
+         }
+
+         $fields = $request->validate([
+             'name' => 'required|max:32',
+             'text' => 'required|max:256',
+             'created_at' => 'required|date',
+             'url' => 'required',
+             'image' => $imageValidation,
+            ], ['created_at.required' => 'The date field is required.']);
+          
+         // update the image in the public folder with the new one
+         if($request->image){
+             // check public folder for the file if exists to delete it 
+             if(File::exists($testimonial->image)){
+                 File::delete($testimonial->image);
+             }
+             $uniqueImageName =  time().'-'.$request->name. '.' .$request->image->extension();
+             $request->image->move(public_path('uploads'), $uniqueImageName);
+             $fields['image'] = 'uploads/' . $uniqueImageName;
+         }
+ 
+         $testimonial->update($fields);
+         
+         return redirect()->back()->with('success', 'Testimonial successfully updated');
     }
 
     /**

@@ -30,8 +30,8 @@
                         <td> {{$testimonial->created_at}} </td>
                         <td> {{$testimonial->text}} </td>
                         <td class="col-action-btns">
-                            <a href="{{route('testimonial.show', ['testimonial'=>$testimonial->id])}}">
-                                <button class="details-resource-btn"><i class="fa-solid fa-list"></i></button>
+                            <a href="{{route('testimonial.edit', ['testimonial'=>$testimonial->id])}}">
+                                <button class="details-resource-btn success"><i class="fa-solid fa-pen-to-square"></i></i></button>
                             </a>
 
                             <form action="{{route('testimonial.destroy', ['testimonial'=> $testimonial->id])}}" method="POST">

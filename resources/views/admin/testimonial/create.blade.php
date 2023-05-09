@@ -43,11 +43,11 @@
                     Date <span class="required">*</span>
                 </div>
                 <div class="form-error">
-                    @error('date')
+                    @error('created_at')
                         {{$message}}
                     @enderror
                 </div>
-                <input type="date" name="date" placeholder="Product price" value="{{old('date')}}">
+                <input type="date" name="created_at" placeholder="Product price" value="{{old('created_at')}}">
             </div>
             
             <div>
@@ -59,7 +59,7 @@
                         {{$message}}
                     @enderror
                 </div>
-                <input type="url" name="url" placeholder="Testimonial URL" value="{{old('url')}}">
+                <input type="text" name="url" placeholder="Testimonial URL" value="{{old('url')}}">
             </div>
             
 
@@ -68,7 +68,7 @@
                     Testimonial <span class="required">*</span>
                 </div>
                 <div class="form-error">
-                    @error('test')
+                    @error('text')
                         {{$message}}
                     @enderror
                 </div>

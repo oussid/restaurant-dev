@@ -108,7 +108,7 @@ class ProductController extends Controller
  
          $product->update($fields);
          
-         return redirect()->back()->with('success', 'Product updated');
+         return redirect()->back()->with('success', 'Product successfully updated');
     }
 
     /**
