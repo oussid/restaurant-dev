@@ -14,7 +14,7 @@
         <div class="login-form-main">
             <div>
                 @error('email')
-                    {{$message}}
+                <p class="error-message">{{$message}}</p> 
                 @enderror
                 <input type="email" placeholder="Email address" name="email" value="{{old('email')}}">
             </div>

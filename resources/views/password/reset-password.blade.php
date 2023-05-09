@@ -16,19 +16,19 @@
             <input type="text" name="token" hidden value="{{$token}}">
             <div>
                 @error('email')
-                    {{$message}}
+                   <p class="error-message">{{$message}}</p> 
                 @enderror
                 <input type="email" placeholder="Email address" name="email" value="{{old('email')}}">
             </div>
             <div>
                 @error('password')
-                    {{$message}}
+                    <p class="error-message">{{$message}}</p> 
                 @enderror
                 <input type="password" placeholder="New Password" name="password" value="{{old('password')}}">
             </div>
             <div>
                 @error('password_confirmation')
-                    {{$message}}
+                    <p class="error-message">{{$message}}</p> 
                 @enderror
                 <input type="password" placeholder="New Password Confirmation" name="password_confirmation" value="{{old('password_confirmation')}}">
             </div>

@@ -19,6 +19,7 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 class userController extends Controller
 {
     public function index(){
+        // dd();
        $categories = DB::table('categories')->get();
        $products =Product::take(3)->get();
        $sampleProducts =Product::skip(3)->take(4)->get();
