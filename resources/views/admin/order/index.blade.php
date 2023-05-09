@@ -14,6 +14,8 @@
     <div class="resource-index-main">
         @livewire('orders-table')
     </div>
+
+
 </div>
 
 @endsection

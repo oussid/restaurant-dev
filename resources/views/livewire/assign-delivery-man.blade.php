@@ -1,4 +1,4 @@
-<form wire:submit.prevent="save"  action="" method="POST" class="resource-form" >
+<form wire:submit.prevent="save"  action="" method="POST" class="resource-form modal-element" >
     @csrf
     <div class="resource-form-head">
         Assign order to a delivery man
@@ -32,12 +32,12 @@
         </div>
         
         
+    </div>
     <div class="resource-form-bottom">
         <div class="left"></div>
         <div class="middle"></div>
         <div class="right">
-            <button wire:click.prevent="clear" onclick="hideModal('{{$modalId}}')" type="reset" class="resource-form-cancel-btn">Close</button>
+            <button wire:click.prevent onclick="hideModal('{{$modalId}}')" type="reset" class="resource-form-cancel-btn">Close</button>
             <button   type="submit" class="resource-form-submit-btn">Save</button>
         </div>
-    </div>
 </form>

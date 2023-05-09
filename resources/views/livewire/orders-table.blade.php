@@ -1,7 +1,3 @@
-@php
-    $assignDriverModalId = uniqid();
-@endphp
-
 <div class="table-container">
     <div class="table-container-top">
         <div class="table-container-top-title">
@@ -41,6 +37,7 @@
                             <button onclick="toggleDropdown('{{$order->order_number}}')" class="action-resource-btn dropdownBtn"> 
                                 Actions <i class="fa-solid fa-chevron-down"></i>
                             </button> 
+
                             <a href="{{route('order.show', ['order'=>$order->id])}}">
                                 <button class="details-resource-btn">
                                     <i class="fa-solid fa-list"></i>
@@ -51,7 +48,8 @@
                                     Preparing
                                 </div>
                                 @if ($order->delivery_type != 'takeout')
-                                    <div  onclick="toggleModal('{{$assignDriverModalId}}')" wire:click="setOrderId({{$order->id}})"  class="action-resource-btn-dropdown-tab">
+                                
+                                    <div  wire:click="showModal('assign-to-delivery-man', {{$order->id}})"  class="action-resource-btn-dropdown-tab">
                                         Assign to delivery man
                                     </div>
                                 @endif
@@ -61,6 +59,7 @@
                                 <div wire:click="updateStatus({{$order->id}},0)"  class="action-resource-btn-dropdown-tab">
                                     Cancel
                                 </div>
+                                
                             </div>
                         </td>
                     </tr>
@@ -74,7 +73,7 @@
             {{$orders->links('pagination-links')}}
         </div>
         
-        <x-modal modalId="{{$assignDriverModalId}}">
-            @livewire('assign-delivery-man', ['orderId'=> $orderId, 'modalId'=>$assignDriverModalId])
+        <x-modal modalId="assign-to-delivery-man">
+            @livewire('assign-delivery-man', ['orderId'=> $orderId, 'modalId'=>'assign-to-delivery-man'], key($this->orderId))
         </x-modal>
-</div>  
+    </div>  

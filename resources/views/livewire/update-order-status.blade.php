@@ -1,4 +1,7 @@
 <div >
+    @php
+        $assignDriverModalId = uniqid();
+    @endphp
     <button onclick="toggleDropdown('{{$order->order_number}}')" class="action-resource-btn dropdownBtn"> 
         Actions <i class="fa-solid fa-chevron-down"></i>
     </button> 
@@ -8,7 +11,7 @@
             Preparing
         </div>
         @if ($order->delivery_type != 'takeout')
-            <div  wire:click="setOrderId({{$order->id}})"  class="action-resource-btn-dropdown-tab">
+            <div onclick="toggleModal('{{$assignDriverModalId}}')"  class="action-resource-btn-dropdown-tab">
                 Assign to delivery man
             </div>
         @endif
@@ -19,4 +22,7 @@
             Cancel
         </div>
     </div>
+    <x-modal modalId="{{$assignDriverModalId}}">
+        @livewire('assign-delivery-man', ['orderId'=> 1, 'modalId'=>$assignDriverModalId])
+    </x-modal>
 </div>

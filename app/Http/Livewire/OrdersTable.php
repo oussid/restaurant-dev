@@ -12,7 +12,7 @@ class OrdersTable extends Component
     use WithPagination;
     public $search;
     public $title;
-    public $orderId;
+    public $orderId = 0;
     public $customer = null;
     protected $listeners = ['updateStatus' => 'updateStatus'];
 
@@ -60,8 +60,9 @@ class OrdersTable extends Component
         
     }
 
-    public function setOrderId ($id) {
-        $this->orderId = $id;
+    public function showModal ($modalId, $orderId) {
+        $this->orderId = $orderId;
+        $this->dispatchBrowserEvent('livewire-show-modal', ['modalId' => $modalId]);
     }
 
     public function test () {

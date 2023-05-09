@@ -1,7 +1,6 @@
 @extends('layouts.admin')
 
 @section('content')
-
 <div class="show-container">
     <div class="show-top">
         <div class="breadcrum">
@@ -16,14 +15,15 @@
         <div class="show-top-part col-action-btns ">
             <form action="{{route('order.print', ['order'=>$order])}}" method="post">
                 @csrf
-                <button class="action-resource-btn secondary" >
-                    Print
+                <button class="action-resource-btn " >
+                    Print Order
                 </button>
             </form>
             
-            @livewire('update-order-status', ['order' => $order])
         </div>
+       
     </div>
+    
    <div class="order-show">
     <div class="order-show-part">
         {{-- order details --}}

@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\User;
 use App\Models\Order;
 use Livewire\Component;
+use Illuminate\Support\Facades\DB;
 
 class AssignDeliveryMan extends Component
 {
@@ -26,17 +27,22 @@ class AssignDeliveryMan extends Component
             'status' => 2
         ]);
 
-        return redirect()->to(url()->previous())->with('success', 'Order #' . $order->id .  ' assigned to ' . $order->deliveryMan->name . '.');
+        return redirect()->to(url()->previous())->with('success', 'Order ' . $order->order_number .  ' assigned to ' . $order->deliveryMan->name . '.');
         
     }
+
+    
     
     
     public function render()
     {
-    //   dd(User::find(1)->deliveryOrders())  ;
+        $orderNumber = DB::table('orders')
+        ->where('id', $this->orderId)
+        ->value('order_number');
+        //   dd($order->order_number)  ;
     return view('livewire.assign-delivery-man', [
         'deliveryMen'=> User::where('role', 1)->get(),
-        'orderNumber' => $this->orderId,
+        'orderNumber' => $orderNumber
     ]);
     }
 }

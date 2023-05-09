@@ -905,7 +905,7 @@ textarea:focus{
     padding: 1rem 2rem;
 }
 
-.show-top{
+.show-container .show-top{
     display: flex;
     flex-direction: row;
     align-items: center;
