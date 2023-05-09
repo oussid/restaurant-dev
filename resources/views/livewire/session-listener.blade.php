@@ -13,7 +13,7 @@
         progressBar: true,
         closeButton: true,
     }
-    toastr.danger("{{Session::get('error')}}")
+    toastr.error("{{Session::get('error')}}")
 </script>
 @endif
 </div>

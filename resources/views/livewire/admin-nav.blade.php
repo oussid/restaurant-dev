@@ -24,10 +24,10 @@
                 <a href="/" class="admin-nav-right-profile-dropdown-tab">
                     <i class="fa-solid fa-arrow-pointer"></i> Visit site
                 </a>
-                <div onclick="toggleModal('{{$editProfileModalId}}')"  id="editProfile" class="admin-nav-right-profile-dropdown-tab">
+                <div onclick="toggleModal('edit-profile-modal')"  id="editProfile" class="admin-nav-right-profile-dropdown-tab">
                     <i class="fa-solid fa-user"></i> Edit profile
                 </div>
-                <div class="admin-nav-right-profile-dropdown-tab">
+                <div onclick="toggleModal('change-password-modal')" class="admin-nav-right-profile-dropdown-tab">
                     <i class="fa-solid fa-key"></i> Change password
                 </div>
                 <a href="{{route('admin.logout')}}" class="admin-nav-right-profile-dropdown-tab">
@@ -38,28 +38,14 @@
     </div>
 </div>
 
-<x-modal :modalId="$editProfileModalId">
-    @livewire('profile-form', ['modalId' => $editProfileModalId])
+<x-modal modalId="edit-profile-modal">
+    @livewire('profile-form', ['modalId' => 'edit-profile-modal'])
 </x-modal>
 
-<script>
-    // profile dropdown
-    // const dorpdown = document.getElementById('dropdown')
-    // const navProfile = document.getElementById('navProfile')
-    // let visiblity = false   
+<x-modal modalId="change-password-modal">
+    @livewire('change-password-form', ['modalId' => 'change-password-modal'])
+</x-modal>
 
-    // navProfile.addEventListener('click', ()=>{
-    //     visiblity = !visiblity
-    //     dorpdown.style.display = visiblity ? 'flex' : 'none'
-    // })
-
-    // document.addEventListener('click', (event) => {
-    //     if (!dorpdown.contains(event.target) && !navProfile.contains(event.target)) {
-            
-    //         visiblity = false
-    //         dorpdown.style.display = 'none';
-    //     }
-    //     });
-</script> 
+ 
 
 </div>

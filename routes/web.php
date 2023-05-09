@@ -54,6 +54,7 @@ Route::middleware(['guest'])->group(function () {
     Route::post('/admin/forgot-password', [AdminController::class, 'sendResetPasswordMail'])->name('sendForgotPasswordEmail');
     Route::get('/admin/forgot-password/{token}', [AdminController::class, 'resetPasswordForm'])->name('resetPasswordForm');
     Route::post('/admin/reset-password', [AdminController::class, 'resetPassword'])->name('resetPassword');
+    
 });
 
 // admin routes
@@ -65,6 +66,7 @@ Route::group(['prefix'=> 'admin', 'namespace'=> 'App\Http\Controllers', 'middlew
     Route::post('order/{order}/print', [OrderController::class, 'print'])->name('order.print');
     Route::put('configuration', [AdminController::class, 'configure'])->name('admin.configure');
     Route::put('order/update-status', [OrderController::class, 'updateStatus'])->name('order.updateStatus');
+    Route::post('/admin/change-password', [AdminController::class, 'changePassword'])->name('changePassword');
     Route::resource('category', CategoryController::class);
     Route::resource('product', ProductController::class);
     Route::resource('customer', CustomerController::class);
