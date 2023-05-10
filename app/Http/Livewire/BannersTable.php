@@ -16,6 +16,7 @@ class BannersTable extends Component
         return view('livewire.banners-table', [
             'banners' => Banner::where('id', 'like', '%'.$this->search.'%')
                                     ->orWhere('title', 'like', '%'.$this->search.'%')
+                                    ->orWhere('subtitle', 'like', '%'.$this->search.'%')
                                     ->orderBy('banners.id', 'desc')
                                     ->paginate(10)
         ]);

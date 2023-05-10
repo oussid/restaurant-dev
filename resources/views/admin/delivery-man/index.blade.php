@@ -15,7 +15,13 @@
     </div>
 
     <div class="resource-index-main">
-        @livewire('delivery-men-table')
+        @livewire('users-table', [
+            'emptyMessage' => 'No delivery men to show',
+            'role' => 1,
+            'hasImageColumn' => true,
+            'resourceName' => 'delivery',
+            'actions' => ['edit', 'delete'],
+        ])
     </div>
 </div>
 

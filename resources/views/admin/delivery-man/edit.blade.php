@@ -7,7 +7,7 @@
         <a href="{{route('delivery.index')}}" class="breadcrum-link">
             Delivery Men
         </a> / 
-        <a href="{{route('delivery.edit')}}" class="breadcrum-link">
+        <a href="{{route('delivery.edit', ['delivery'=>$deliveryMan->id])}}" class="breadcrum-link">
             Update
         </a>
     </div>

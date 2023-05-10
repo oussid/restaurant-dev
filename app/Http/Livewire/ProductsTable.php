@@ -15,20 +15,12 @@ class ProductsTable extends Component
 
     public function special ($productId) {
         // get the product from db
-        $product = Product::find($productId);
+        $product = Product::findOrFail($productId);
         
-        // check if product is a today's special product
-        if($product->todaySpecial){ 
-            // no longer a today's special 
-            $product->todaySpecial->delete();
-            return;
-        }else{
-            // make it a today's special product
-            $todaySpecials = new TodaySpecials();
-            $todaySpecials->product_id = $product->id;
-            $todaySpecials->save();
-            return;
-        }
+        // toggle today_special value
+        $product->update(['today_special' => !$product->today_special]);
+        return;
+        
     }
 
     public function render()

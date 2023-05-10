@@ -14,7 +14,9 @@
     <div class="resource-index-main">
         @livewire('users-table', [
             'emptyMessage' => 'No customers to show',
-            'role' => 0
+            'role' => 0,
+            'resourceName' => 'customer',
+            'actions' => ['show']
         ])
     </div>
 </div>

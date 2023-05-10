@@ -41,5 +41,7 @@
 
         {{-- modal script --}}
         <script src="{{asset('js/modal.js')}}"></script> 
+        {{-- responsiveness script --}}
+        <script src="{{asset('js/responsive.js')}}"></script> 
     </body>
 </html>

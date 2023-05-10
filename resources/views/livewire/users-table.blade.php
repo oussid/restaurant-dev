@@ -41,9 +41,25 @@
                             @endif
                         </td>
                         <td class="col-action-btns">
-                            <a href="{{route('customer.show', ['customer'=>$user->id])}}">
-                                <button class="details-resource-btn"><i class="fa-solid fa-list"></i></button>
-                            </a>
+                            @foreach ($actions as $action)
+                            @if ($action == 'show')
+                                <a href="{{route($resourceName.'.show', [$resourceName=>$user->id])}}">
+                                    <button class="details-resource-btn"><i class="fa-solid fa-list"></i></button>
+                                </a>
+                            @elseif($action == 'edit')
+                                <a href="{{route($resourceName.'.edit', [$resourceName=>$user->id])}}">
+                                    <button class="details-resource-btn success"><i class="fa-solid fa-pen-to-square"></i></i></button>
+                                </a>
+                            @elseif($action == 'delete')
+                            <form action="{{route($resourceName.'.destroy', [$resourceName=>$user->id])}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button class="details-resource-btn danger"><i class="fa-solid fa-trash"></i></button>
+                            </form>
+                            
+                            @endif
+                                
+                            @endforeach
                         </td>
                     </tr>
                 @empty

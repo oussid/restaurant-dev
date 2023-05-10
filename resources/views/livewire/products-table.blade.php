@@ -27,7 +27,7 @@
                         <td> {{$product->name}} </td>
                         <td> {{$product->category->name}} </td>
                         <td class="center">
-                            <div wire:click="special({{$product->id}})" class="custom-check-box {{$product->todaySpecial ? 'active' : ''}}">
+                            <div wire:click="special({{$product->id}})" class="custom-check-box {{$product->today_special ? 'active' : ''}}">
                                 <i class="fa-solid fa-check"></i>
                             </div>
                         </td>

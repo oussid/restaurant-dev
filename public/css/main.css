@@ -13,7 +13,7 @@
 :root {
 
     --primary:black;
-    --secondary:#f82647;
+    --secondary:#f82648;
     --secondary-hover:#bd1c34;
     --border:rgba(0, 0, 0, 0.16);
     --admin-primary: #01112B;
@@ -801,11 +801,8 @@ footer{
     background-color: rgba(0, 0, 0, 0.6);
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     padding:  0 8rem;
     width: 100%;
-    flex-wrap: wrap;
-
 }
 
 .footer-main{
@@ -813,6 +810,7 @@ footer{
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 2fr;
+    flex-wrap: wrap;
     gap: 3rem;
     border-bottom: 4px solid var(--secondary);
 }
@@ -1147,7 +1145,7 @@ footer{
 .cart-container{
     display: flex;
     justify-content: center;
-    align-items: center;
+
     min-height:400px;
 
 }
@@ -1572,3 +1570,17 @@ border-radius: 3px;
     border-left: 2px solid var(--secondary);
 }
 /*404 page end*/
+
+
+/* ##############################RESPONSIVENES######################## */
+@media only screen and (max-width: 930px){
+    .footer-main{
+        padding: 3rem 0;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        flex-wrap: wrap;
+        gap: 3rem;
+        border-bottom: 4px solid var(--secondary);
+    }
+}

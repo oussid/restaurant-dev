@@ -22,6 +22,8 @@
     --success-blue: #0A98AF;
 }
 
+/* CONSTATNS START */
+
 *{
 margin: 0;
 padding: 0;
@@ -126,6 +128,55 @@ a{
     z-index: 999999;
 }
 
+/* hamburger menu */
+
+.menu-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    padding: 0;
+    display: none;
+    transition: .5s all ease-in-out;
+}
+
+.line {
+fill: none;
+stroke: var(--text);
+stroke-width: 6;
+transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+    stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.line1 {
+stroke-dasharray: 60 207;
+stroke-width: 6;
+}
+.line2 {
+stroke-dasharray: 60 60;
+stroke-width: 6;
+}
+.line3 {
+stroke-dasharray: 60 207;
+stroke-width: 6;
+}
+.opened .line1 {
+stroke-dasharray: 90 207;
+stroke-dashoffset: -134;
+stroke-width: 6;
+}
+.opened .line2 {
+stroke-dasharray: 1 60;
+stroke-dashoffset: -30;
+stroke-width: 6;
+}
+.opened .line3 {
+stroke-dasharray: 90 207;
+stroke-dashoffset: -134;
+stroke-width: 6;
+}
+  
+/* CONSTATNS END */
+
 table td.red{
     color: var(--admin-red);
 }
@@ -216,6 +267,7 @@ table td.gray{
     width: 100%;
     background: var(--admin-primary);
     padding-inline: 1rem;
+    transition: all .5s ease-in-out;
 }
 
 .admin-sidebar-top{
@@ -291,6 +343,11 @@ table td.gray{
     font-size: 1.2rem;
     font-weight: 500;
     color: var(--text);
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    gap: .6rem;
 }
 
 .admin-nav-right-profile{
@@ -408,6 +465,7 @@ table td.gray{
     display: flex;
     flex-direction: column;
     border-radius: 6px;
+    max-width: 100%;
     box-shadow: var(--main-boxshadow);
 }
 
@@ -453,15 +511,19 @@ table td.gray{
     display: flex;
     flex-direction: column;
     padding: .5rem 0;
-}
-
-.table-container-main {
     border-radius: 6px;
+    width: 100%;
+    overflow-x: scroll;
+    /* background: red; */
 }
 
 .table-container-main > table, tr, th, td {
     border: 1px solid var(--light-border);
     border-collapse: collapse;
+}
+
+.table-container-main table {
+    width: 100%;
 }
 
 
@@ -1198,3 +1260,128 @@ table.regular-table th.right {
 }
 
 /* CUSTOMER-SHOW STYLE END*/
+
+
+/* ##########################RESPONSIVENESS################################### */
+@media only screen and (max-width: 1100px){
+    .admin-container{
+        display: grid;
+        grid-template-columns: 1fr ;
+        height: 100vh;
+        width: 100%;
+        overflow: hidden;
+    }
+    
+    .admin-main-side{
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+    }
+
+    .menu-button{
+        display: flex;
+        transition: .5s all ease-in-out;
+    }
+    
+    .admin-sidebar{
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        position: fixed;
+        left: -100%;
+        max-width: 250px;
+        z-index: 5;
+    }
+    
+    .admin-main-side-body{
+        background: var(--light-bg);
+        height: 100%;
+        max-width: 100%;
+        overflow-y: auto;
+    }
+    
+    .admin-main-side-nav{
+        z-index: 3;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+    }
+
+    .admin-dashboard-charts{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-content:center;
+    }
+    .admin-dashboard-charts-orders, .admin-dashboard-charts-earnings{
+        /* height: fit-content; */
+        background-color: #fff;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+        border-radius: 6px;
+        padding: 1rem;
+        width: 100% ;
+    }
+
+
+    .chart-container{
+        /* width: 100%; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    
+.admin-dashboard-cards{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 1rem;
+}
+
+.admin-nav{
+    padding: 0;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: .6rem 1rem;
+    align-items: center;
+}
+    
+}
+
+@media only screen and (max-width: 784px){
+    .admin-dashboard-cards{
+        display: none;
+    } 
+
+    
+    .admin-dashboard-charts{
+        grid-template-columns: 1fr ;
+    }
+
+    .admin-dashboard-charts-orders, .admin-dashboard-charts-earnings{
+        height: fit-content;
+        background-color: #fff;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+        border-radius: 6px;
+        padding: 1rem;
+        width: 100% ;
+    }
+
+
+    .chart-container{
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+}
+
+@media only screen and (max-width: 784px){
+    .resource-grid-inputs{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+}

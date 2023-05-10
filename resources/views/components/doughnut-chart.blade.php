@@ -1,6 +1,5 @@
 
 <div class="chart-container">
-    
     <canvas id="doughnut-chart"></canvas>
 </div>
 

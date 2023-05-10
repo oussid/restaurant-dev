@@ -16,6 +16,7 @@
             'role' => 2, 
             'emptyMessage' => 'No admins to show',
             'hasImageColumn' => true,
+            'resourceName' => 'admin',
         ])
     </div>
 </div>

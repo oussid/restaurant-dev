@@ -81,6 +81,7 @@ class OrdersTable extends Component
                     $query->where('order_number', 'like', '%'.$this->search.'%')
                     ->orWhere('order_number', 'like', '%'.$this->search.'%')
                     ->orWhere('total', 'like', '%'.$this->search.'%')
+                    ->orWhere('orders.created_at', 'like', '%'.$this->search.'%')
                     ->orWhere('users.name', 'like', '%'.$this->search.'%');
                 })
                 ->leftJoin('users', 'orders.customer_id', '=', 'users.id')
@@ -91,6 +92,7 @@ class OrdersTable extends Component
         return view('livewire.orders-table', ['orders' => Order::where('orders.id', 'like', '%'.$this->search.'%')
         ->orWhere('order_number', 'like', '%'.$this->search.'%')
         ->orWhere('total', 'like', '%'.$this->search.'%')
+        ->orWhere('orders.created_at', 'like', '%'.$this->search.'%')
         ->orWhere('users.name', 'like', '%'.$this->search.'%')
         ->leftJoin('users', 'orders.customer_id', '=', 'users.id')
         ->select('orders.id', 'orders.order_number', 'orders.created_at', 'orders.total', 'orders.status', 'orders.delivery_type','users.name', 'users.email', 'users.mobile')

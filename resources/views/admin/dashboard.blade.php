@@ -39,7 +39,7 @@
 
     {{-- DASHBOARD CHARTS --}}
     <div class="admin-dashboard-charts">
-        <div class="admin-dashboard-charts-orders">
+        <div id="admin-chart" class="admin-dashboard-charts-orders">
             <p class="chart-title">Orders</p>
             @if (count($ordersChart)>0)
             <x-doughnut-chart :orders='$ordersChart'/>
@@ -48,7 +48,7 @@
             
             @endif
         </div>
-        <div class="admin-dashboard-charts-earnings">
+        <div id="admin-chart" class="admin-dashboard-charts-earnings  ">
             <p class="chart-title">Earnings</p>
             @if (count($earningsChart)>0)
             <x-bar-chart :earnings='$earningsChart' />

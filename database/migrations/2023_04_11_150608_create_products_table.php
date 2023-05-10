@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('image');
             $table->string('description')->nullable();
             $table->double('price', 255,2);
+            $table->boolean('today_special')->default(false);
             $table->timestamps();
         });
     }

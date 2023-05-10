@@ -5,7 +5,7 @@
     <x-navbar/>
     <x-carousel />
     <div class="sample-products-container">
-        @forelse ( $products as $product )
+        @forelse ( $sampleProducts as $product )
         <div onclick="window.location.href='/products'" class="sample-product">
             <div class="sample-product-img" style="background-image:url('/{{$product->image }}')"></div>
         </div>
@@ -44,8 +44,8 @@
 
         <div class="sample-products-container">
             @forelse ( $sampleProducts as $product )
-            <div style="height:270px"  onclick="window.location.href='/products/{{ $product->id }}'" class="sample-product">
-                <div class="sample-product-img" style="background-image:url({{$product->image }})"></div>
+            <div style="height:270px"  onclick="window.location.href='/products'" class="sample-product">
+                <div class="sample-product-img" style="background-image:url('{{$product->image }}')"></div>
             </div>
             @empty
             <div class="empty-data">
@@ -60,7 +60,7 @@
             <x-slot name="button">View All</x-slot>
             <x-slot name="buttonUrl">//products</x-slot>
         </x-sections-header>
-        <x-products-spreader :products="$todaySpecialProducts" />
+        <x-products-spreader :products="$products" />
     </div>
     <x-cta/>
     <x-services/>
