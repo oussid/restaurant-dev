@@ -191,4 +191,12 @@ class userController extends Controller
 
         return view('myorders',['orders'=>$orders]);
     }
+    public function privacyPolicy(){
+        return view('privacy_policy');
+    }
+    public function refundPolicy(){
+        return view('refund_policy');
+    }    public function termsPolicy(){
+        return view('terms_policy');
+    }
 }

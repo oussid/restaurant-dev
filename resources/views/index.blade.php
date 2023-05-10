@@ -64,7 +64,8 @@
     </div>
     <x-cta/>
     <x-services/>
-    <x-testimonials/>
+    <div id="testimonials"></div>
+    <x-testimonials />
     <x-footer/>
 
 </body>
