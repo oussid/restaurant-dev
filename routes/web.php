@@ -40,6 +40,9 @@ Route::get('/products/{category?}',[userController::class, 'searchPage']);
 Route::get('/myorders',[userController::class,'myordersPage']);
 Route::post('/create_order',[OrderController::class, 'store']);
 Route::post('/cancel_order',[OrderController::class, 'cancelOrder']);
+Route::get('/privacy_policy',[userController::class, 'privacyPolicy']);
+Route::get('/refund_policy',[userController::class, 'refundPolicy']);
+Route::get('/terms_policy',[userController::class, 'termsPolicy']);
 
 Route::get('/pdf',[OrderController::class,'test']);
 
@@ -54,7 +57,7 @@ Route::middleware(['guest'])->group(function () {
     Route::post('/admin/forgot-password', [AdminController::class, 'sendResetPasswordMail'])->name('sendForgotPasswordEmail');
     Route::get('/admin/forgot-password/{token}', [AdminController::class, 'resetPasswordForm'])->name('resetPasswordForm');
     Route::post('/admin/reset-password', [AdminController::class, 'resetPassword'])->name('resetPassword');
-    
+
 });
 
 // admin routes

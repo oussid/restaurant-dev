@@ -22,9 +22,9 @@
                     About
                 </h2>
                 <div class="footer-main-links-section-tabs">
-                    <a href="#">About us</a>
+
                     <a href="#">Our team</a>
-                    <a href="#">Testimonials</a>
+                    <a href="/#testimonials">Testimonials</a>
                 </div>
             </div>
             <div class="footer-main-links-section">
@@ -32,9 +32,9 @@
                     Legal
                 </h2>
                 <div class="footer-main-links-section-tabs">
-                    <a href="#">Privacy policy</a>
-                    <a href="#">Refund policy</a>
-                    <a href="#">Terms and conditions</a>
+                    <a href="privacy_policy">Privacy policy</a>
+                    <a href="refund_policy">Refund policy</a>
+                    <a href="terms_policy">Terms and conditions</a>
                 </div>
             </div>
             <div class="footer-main-links-section">
@@ -42,11 +42,10 @@
                     Pages
                 </h2>
                 <div class="footer-main-links-section-tabs">
-                    <a href="#">Home</a>
-                    <a href="#">Products</a>
-                    <a href="#">Table booking</a>
-                    <a href="#">FAQs</a>
-                    <a href="#">Contact</a>
+                    <a href="/">Home</a>
+                    <a href="products">Products</a>
+                    <a href="booking">Table booking</a>
+                    <a href="contact">Contact</a>
                 </div>
             </div>
         </div>

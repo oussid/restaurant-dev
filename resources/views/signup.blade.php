@@ -51,10 +51,6 @@
                         <h4 class='error'>{{ $message }}</h4>
                     @enderror
                 </div>
-                <div class="signup-form-short-input-grp">
-                    <label for="referral">Referral code</label>
-                    <input type="text" name="referral" placeholder="Referral code (Optional)"/>
-                </div>
             </div>
             {{-- Sign up short inputs row container --}}
             <div class="signup-form-short-inputs-row">

@@ -10,6 +10,9 @@
     75%{transform: rotateZ(-30deg);}
     100%{transform: rotateZ(0deg);}
 }
+html{
+    scroll-behavior: smooth;
+}
 :root {
 
     --primary:black;
@@ -1570,6 +1573,15 @@ border-radius: 3px;
     border-left: 2px solid var(--secondary);
 }
 /*404 page end*/
+/*privacy policy start*/
+.privacy-container{
+    display: flex;
+    justify-content: center;
+}
+.privacy-policy-container{
+    width:80%;
+}
+/* privacy policy end*/
 
 
 /* ##############################RESPONSIVENES######################## */
