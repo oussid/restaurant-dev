@@ -29,7 +29,7 @@
                         <h4 class='error'>{{ session()->get('incorrectP') }}</h4>
                     @endif
                 </div>
-                <div class="login-form-password-recovery"><a href="/forgot-password">Forgot password?</a></div>
+                <div class="login-form-password-recovery"><a href="/contact">Forgot password?</a></div>
                 <div class="login-form-button">
                     <button type="submit">Login</button>
                 </div>

@@ -72,7 +72,7 @@
             <div class="signup-form-terms">
                 <input type="checkbox" class="terms-checkbox" name="terms" required/>
                 <label for="terms">I accept the
-                    <a href="/terms-conditions">Terms and Conditions</a>
+                    <a href="/terms_policy">Terms and Conditions</a>
                 </label>
             </div>
             @error('terms')
