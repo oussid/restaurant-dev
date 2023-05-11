@@ -68,7 +68,6 @@ body{
     z-index: 1;
     animation: loader 2s infinite;
 
-
 }
 /*Loader Style End*/
 
@@ -80,7 +79,7 @@ body{
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    background-color: #000;
+    background-color: var(--primary);
     position: fixed;
     left: 0;
     top: 0;
@@ -139,11 +138,11 @@ body{
     align-items: center;
     padding: 1rem;
     position: fixed;
-    top: 13%;
-    left: 35%;
+    top: 8%;
+    left: 32.5%;
     min-width: 150px;
     gap: .3rem;
-    background-color: #000;
+    background-color: var(--primary);
     border-bottom: 3px solid var(--secondary);
     animation: addressShow .3s forwards;
 }
@@ -247,7 +246,7 @@ body{
     top: 13%;
     left: 100%;
     transition: ease-in-out 1s;
-    background-color: rgba(0, 0, 0, 0.95);
+    background-color: var(--primary);
 }
 .mobile-nav-footer{
     display: flex;
