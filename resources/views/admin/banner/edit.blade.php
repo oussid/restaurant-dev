@@ -49,7 +49,7 @@
                         {{$message}}
                     @enderror
                 </div>
-                <input type="text" id="numberInp" name="subtitle" placeholder="Banner subtitle" value="{{$banner->subtitle}}">
+                <input type="text" name="subtitle" placeholder="Banner subtitle" value="{{$banner->subtitle}}">
             </div>
 
             <div>
@@ -61,7 +61,7 @@
                         {{$message}}
                     @enderror
                 </div>
-                <input type="text" id="numberInp" name="cta_button" placeholder="Button Text" value="{{$banner->cta_button}}">
+                <input type="text" name="cta_button" placeholder="Button Text" value="{{$banner->cta_button}}">
             </div>
 
             <div>
@@ -73,7 +73,7 @@
                         {{$message}}
                     @enderror
                 </div>
-                <input type="text" id="numberInp" name="cta_url" placeholder="Call to action link" value="{{$banner->cta_url}}">
+                <input type="text" name="cta_url" placeholder="Call to action link" value="{{$banner->cta_url}}">
             </div>
         </div>
 

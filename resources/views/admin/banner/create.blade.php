@@ -60,7 +60,7 @@
                         <p class="error-message">{{$message}}</p>
                     @enderror
                 </div>
-                <input type="text" id="numberInp" name="cta_button" placeholder="Button Text" value="{{old('cta_button')}}">
+                <input type="text"  name="cta_button" placeholder="Button Text" value="{{old('cta_button')}}">
             </div>
 
             <div>
@@ -72,7 +72,7 @@
                         <p class="error-message">{{$message}}</p>
                     @enderror
                 </div>
-                <input type="text" id="numberInp" name="cta_url" placeholder="Call to action link" value="{{old('cta_url')}}">
+                <input type="text" name="cta_url" placeholder="Call to action link" value="{{old('cta_url')}}">
             </div>
         </div>
 

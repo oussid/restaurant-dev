@@ -1164,6 +1164,19 @@ textarea:focus{
     left: calc(50% + 1.15rem);
 }
 
+.order-progress-status.red .order-progress-status-circle{
+    border: 1px solid var(--admin-red);
+    color: var(--admin-red);
+}
+
+.order-progress-status.red::before{
+    background: var(--admin-red);
+}
+
+.order-progress-status.red:last-child::after{
+    background: var(--admin-red);
+}
+
 .order-progress-status.active .order-progress-status-circle{
     border: 1px solid var(--admin-blue);
     color: var(--admin-blue);

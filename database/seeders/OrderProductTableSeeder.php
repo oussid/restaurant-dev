@@ -361,6 +361,195 @@ class OrderProductTableSeeder extends Seeder
                 'updated_at' => '2023-05-06 12:20:00',
                 'quantity' => 1,
             ),
+            38 => 
+            array (
+                'id' => 39,
+                'order_id' => 14,
+                'product_id' => 13,
+                'created_at' => '2023-05-12 09:21:09',
+                'updated_at' => '2023-05-12 09:21:09',
+                'quantity' => 1,
+            ),
+            39 => 
+            array (
+                'id' => 40,
+                'order_id' => 14,
+                'product_id' => 14,
+                'created_at' => '2023-05-12 09:21:09',
+                'updated_at' => '2023-05-12 09:21:09',
+                'quantity' => 1,
+            ),
+            40 => 
+            array (
+                'id' => 41,
+                'order_id' => 14,
+                'product_id' => 12,
+                'created_at' => '2023-05-12 09:21:09',
+                'updated_at' => '2023-05-12 09:21:09',
+                'quantity' => 3,
+            ),
+            41 => 
+            array (
+                'id' => 42,
+                'order_id' => 14,
+                'product_id' => 15,
+                'created_at' => '2023-05-12 09:21:10',
+                'updated_at' => '2023-05-12 09:21:10',
+                'quantity' => 2,
+            ),
+            42 => 
+            array (
+                'id' => 43,
+                'order_id' => 15,
+                'product_id' => 7,
+                'created_at' => '2023-05-12 09:21:36',
+                'updated_at' => '2023-05-12 09:21:36',
+                'quantity' => 1,
+            ),
+            43 => 
+            array (
+                'id' => 44,
+                'order_id' => 15,
+                'product_id' => 6,
+                'created_at' => '2023-05-12 09:21:36',
+                'updated_at' => '2023-05-12 09:21:36',
+                'quantity' => 1,
+            ),
+            44 => 
+            array (
+                'id' => 45,
+                'order_id' => 15,
+                'product_id' => 5,
+                'created_at' => '2023-05-12 09:21:36',
+                'updated_at' => '2023-05-12 09:21:36',
+                'quantity' => 4,
+            ),
+            45 => 
+            array (
+                'id' => 46,
+                'order_id' => 16,
+                'product_id' => 14,
+                'created_at' => '2023-05-12 09:22:00',
+                'updated_at' => '2023-05-12 09:22:00',
+                'quantity' => 1,
+            ),
+            46 => 
+            array (
+                'id' => 47,
+                'order_id' => 16,
+                'product_id' => 13,
+                'created_at' => '2023-05-12 09:22:00',
+                'updated_at' => '2023-05-12 09:22:00',
+                'quantity' => 1,
+            ),
+            47 => 
+            array (
+                'id' => 48,
+                'order_id' => 16,
+                'product_id' => 12,
+                'created_at' => '2023-05-12 09:22:00',
+                'updated_at' => '2023-05-12 09:22:00',
+                'quantity' => 1,
+            ),
+            48 => 
+            array (
+                'id' => 49,
+                'order_id' => 16,
+                'product_id' => 9,
+                'created_at' => '2023-05-12 09:22:00',
+                'updated_at' => '2023-05-12 09:22:00',
+                'quantity' => 4,
+            ),
+            49 => 
+            array (
+                'id' => 50,
+                'order_id' => 17,
+                'product_id' => 11,
+                'created_at' => '2023-05-12 09:22:23',
+                'updated_at' => '2023-05-12 09:22:23',
+                'quantity' => 6,
+            ),
+            50 => 
+            array (
+                'id' => 51,
+                'order_id' => 18,
+                'product_id' => 14,
+                'created_at' => '2023-05-12 09:22:41',
+                'updated_at' => '2023-05-12 09:22:41',
+                'quantity' => 1,
+            ),
+            51 => 
+            array (
+                'id' => 52,
+                'order_id' => 18,
+                'product_id' => 12,
+                'created_at' => '2023-05-12 09:22:41',
+                'updated_at' => '2023-05-12 09:22:41',
+                'quantity' => 1,
+            ),
+            52 => 
+            array (
+                'id' => 53,
+                'order_id' => 19,
+                'product_id' => 13,
+                'created_at' => '2023-05-12 09:23:12',
+                'updated_at' => '2023-05-12 09:23:12',
+                'quantity' => 15,
+            ),
+            53 => 
+            array (
+                'id' => 54,
+                'order_id' => 20,
+                'product_id' => 13,
+                'created_at' => '2023-05-12 09:24:40',
+                'updated_at' => '2023-05-12 09:24:40',
+                'quantity' => 1,
+            ),
+            54 => 
+            array (
+                'id' => 55,
+                'order_id' => 21,
+                'product_id' => 12,
+                'created_at' => '2023-05-12 10:10:18',
+                'updated_at' => '2023-05-12 10:10:18',
+                'quantity' => 4,
+            ),
+            55 => 
+            array (
+                'id' => 56,
+                'order_id' => 21,
+                'product_id' => 13,
+                'created_at' => '2023-05-12 10:10:18',
+                'updated_at' => '2023-05-12 10:10:18',
+                'quantity' => 2,
+            ),
+            56 => 
+            array (
+                'id' => 57,
+                'order_id' => 22,
+                'product_id' => 8,
+                'created_at' => '2023-05-12 10:10:44',
+                'updated_at' => '2023-05-12 10:10:44',
+                'quantity' => 28,
+            ),
+            57 => 
+            array (
+                'id' => 58,
+                'order_id' => 23,
+                'product_id' => 14,
+                'created_at' => '2023-05-12 10:11:12',
+                'updated_at' => '2023-05-12 10:11:12',
+                'quantity' => 1,
+            ),
+            58 => 
+            array (
+                'id' => 59,
+                'order_id' => 23,
+                'product_id' => 12,
+                'created_at' => '2023-05-12 10:11:12',
+                'updated_at' => '2023-05-12 10:11:12',
+                'quantity' => 4,
+            ),
         ));
         
         

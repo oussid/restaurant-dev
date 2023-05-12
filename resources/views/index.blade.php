@@ -58,7 +58,7 @@
         <x-sections-header>
             <x-slot name="title">Recommended</x-slot>
             <x-slot name="button">View All</x-slot>
-            <x-slot name="buttonUrl">//products</x-slot>
+            <x-slot name="buttonUrl">/products</x-slot>
         </x-sections-header>
         <x-products-spreader :products="$products" />
     </div>

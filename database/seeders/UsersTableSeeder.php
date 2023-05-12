@@ -243,6 +243,20 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2023-05-06 12:19:09',
                 'updated_at' => '2023-05-06 12:19:09',
             ),
+            16 => 
+            array (
+                'id' => 18,
+                'name' => 'Brad Lewis',
+                'email' => 'bradley150@gmail.com',
+                'mobile' => '0687759060',
+                'profile_pic' => 'uploads/1683753529-Brad Lewis.png',
+                'password' => '$2y$10$Awjq1ADdIvr.U.WBOJyObeQYmJsby7h3GIJu4RIu/4Lh4gboRq31q',
+                'role' => 1,
+                'email_verified_at' => NULL,
+                'remember_token' => NULL,
+                'created_at' => '2023-05-10 21:18:49',
+                'updated_at' => '2023-05-10 21:18:49',
+            ),
         ));
         
         

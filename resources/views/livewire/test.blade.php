@@ -1,65 +1,97 @@
-<div class="table-container">
-    <div class="table-container-top">
-        <div class="table-container-top-title">
-        </div>
-        <div class="table-container-top-search">
-            <input wire:model='search' type="text" placeholder="Search">
-        </div>
-    </div>
-    <div class="table-container-main">
-        <table>
-            <thead>
-                <tr>
-                    <th>Product ID</th>
-                    <th>Name</th>
-                    <th>Category</th>                   
-                    <th>Today's Special</th>                   
-                    <th>Status</th>                   
-                    <th>Action</th>                    
-                </tr>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="{{ asset( "css/fontawesome.min.css")}}" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>atlasty</title>
+  <style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    nav{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center; 
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        background: #fff;
+        z-index: 9;
+        padding-inline: 1rem;
+    }
+    nav .tab{
+        text-decoration: none;
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: #C8AF6F;
+    }
+    nav .section{
+        display: flex;
+        gap: 1rem;
+    }
+    .container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 70vh;;
+    }
+    .container .section.links{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+        gap: 5rem;
+    }
+    .container .section.links .link{
+        text-decoration: none;
+        padding: 1rem;
+        background: #C8AF6F;
+        border-radius: 3px;
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: #fff;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        transition: all .3s ease-in-out;
+    }
+    .container .section.links .link:hover{
+        transform: translateY(-6px)
+    }
+    .container .section.links .link:active{
+        transition: 0s ;
+        transform: translateY(0)
+    }
 
-            </thead>
-            <tbody>
-                @forelse ($orders as $product)
-                    <tr>
-                        <td> {{$product->id}} </td>
-                        <td> {{$product->order_number}} </td>
-                        <td> {{$product->order_number}} </td>
-                        <td class="{{$this->convertStatus($product->status)['class']}} ">
-                            {{$this->convertStatus($product->status)['label']}}
-                        </td>
-                        <td> No </td>
-                        <td>
-                            <td class="col-action-btns"> 
-                                <button onclick="toggleDropdown('{{$product->order_number}}')" class="action-resource-btn dropdownBtn"> 
-                                    Actions <i class="fa-solid fa-chevron-down"></i>
-                                </button> 
-                                <div id="{{$product->order_number}}" class="action-resource-btn-dropdown dropdown">
-                                    <div wire:click="updateStatus({{$product->id}},1)" class="action-resource-btn-dropdown-tab">
-                                        Preparing
-                                    </div>
-                                    @if ($product->delivery_type != 'takeout')
-                                        <div   wire:click="setOrderId({{$product->id}})"  class="action-resource-btn-dropdown-tab">
-                                            Assign to delivery man
-                                        </div>
-                                    @endif
-                                    <div wire:click="updateStatus({{$product->id}},3)" class="action-resource-btn-dropdown-tab">
-                                        Completed
-                                    </div>
-                                    <div wire:click="updateStatus({{$product->id}},0)"  class="action-resource-btn-dropdown-tab">
-                                        Cancel
-                                    </div>
-                                </div>
-                            </td>
-                        </td>
-                    </tr>
-                @empty
-                    <tr><td colspan='6'>No products to show</td></tr>
-                @endforelse
-            </tbody>
-        </table>
+  </style>
+</head>
+<body>
+  
+<nav>
+    <div class="section">
+        <a href="/"><img width="200px" src="images/logo.jpg" alt=""></a>
     </div>
-    <div class="table-container-bottom">
-        {{$orders->links('pagination-links')}}
+    <div class="section">
+
     </div>
-</div>  
+    <div class="section">
+        <a class="tab" href="/">Accueil</a>
+        <a class="tab" href="{{route('facture.liste')}}">Factures</a>
+        <a class="tab" href="{{route('facture.liste')}}">Créer</a>
+    </div>
+</nav>
+
+  <div class="container">
+    <div class="section links">
+        <a class="link" href="{{route('facture.create')}}">Créer une Facture</a>
+        <a class="link" href="{{route('facture.liste')}}">Mes Factures</a>
+    </div>
+  </div>
+  
+
+</table>
+</body>
+</html>

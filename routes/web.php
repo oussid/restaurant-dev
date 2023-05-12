@@ -20,7 +20,7 @@ use App\Http\Controllers\TableController;
 |
 */
 Route::get('/test', function () {
-    return view('mail.password-reset');
+    return view('test');
 });
 
 
@@ -37,7 +37,7 @@ Route::post('/contact',[userController::class, 'contact']);
 Route::get('/cart',[cartController::class, 'cartPage']);
 Route::post('/cart_bill_continue',[cartController::class, 'cartBillContinue']);
 Route::get('/products/{category?}',[userController::class, 'searchPage']);
-Route::get('/myorders',[userController::class,'myordersPage']);
+Route::get('/myorders',[userController::class,'myordersPage'])->middleware('auth');
 Route::post('/create_order',[OrderController::class, 'store']);
 Route::post('/cancel_order',[OrderController::class, 'cancelOrder']);
 Route::get('/privacy_policy',[userController::class, 'privacyPolicy']);

@@ -1,8 +1,8 @@
 <div class="order-progress-container">
     @if ($order->status == 0)
-    <div class="order-progress-status">
+    <div class="order-progress-status red">
         <div class="order-progress-status-circle">
-            <i class="fa-solid fa-bell"></i>
+            <i class="fa-solid fa-x"></i>
         </div>
         <div class="order-progress-status-label">
             Canceled

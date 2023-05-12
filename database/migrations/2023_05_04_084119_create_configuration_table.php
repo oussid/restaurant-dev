@@ -37,8 +37,8 @@ return new class extends Migration
             'slogan' => 'Bringing the world to your plate',
             'working_days' => 'Monday to Sunday',
             'working_hours' => '07:00AM to 22:00PM',
-            'primary_color' => '#F82647',
-            'secondary_color' => '#000',
+            'secondary_color' => '#F82647',
+            'primary_color' => '#000',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
