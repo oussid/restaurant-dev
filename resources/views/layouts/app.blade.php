@@ -10,6 +10,14 @@
         <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
         @livewireStyles
         <title>Restaurant</title>
+<style>
+        :root {
+
+            --primary:{{ $config->primary_color }};
+            --secondary:{{ $config->secondary_color}};
+            --secondary-hover:none;
+        }
+        </style>
     </head>
     <body>
         @yield('content')

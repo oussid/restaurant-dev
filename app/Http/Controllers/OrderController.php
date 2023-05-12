@@ -117,7 +117,7 @@ class OrderController extends Controller
             $order->status = 3;
             $order->save();
             return session()->flash('success', 'Status successfully updated.');
-            
+
         }
         elseif($status == 0){
             $order->delivery_man_id = null;
