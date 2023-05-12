@@ -7,8 +7,8 @@
         <a href="{{route('banner.index')}}" class="breadcrum-link">
             Banners
         </a> / 
-        <a href="{{route('banner.create')}}" class="breadcrum-link">
-            Add New
+        <a href="{{route('banner.create', ['banner'=>$banner->id])}}" class="breadcrum-link">
+            Update
         </a>
     </div>
 

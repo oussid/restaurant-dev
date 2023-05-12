@@ -4,8 +4,8 @@
     <form action="{{route('admin.signup')}}" method="POST" class="login-admin-form">
         @csrf
         <div class="login-form-top">
-            <h2>Welcome back!</h2>
-            <p>Sign in to continue</p>
+            <h2>TEMPORARY PAGE</h2>
+            <p>This page is for development purposes only</p>
         </div>
 
         <div class="login-form-main">

@@ -85,6 +85,10 @@
             <i class="fa-solid fa-user"></i>
             Admins
         </a >
+        <a href="{{route('inbox.index')}}" class="admin-sidebar-tab {{getPageName(Request::url()) === 'inbox' ? 'active' : ''}}">
+            <i class="fa-solid fa-message"></i>
+            Inboxes
+        </a >
         <a href="{{route('admin.config')}}" class="admin-sidebar-tab {{getPageName(Request::url()) === 'configuration' ? 'active' : ''}}">
             <i class="fa-solid fa-gear"></i>
             Configuration

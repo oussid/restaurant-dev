@@ -855,6 +855,8 @@ footer{
     color: #fff;
     display: flex;
     flex-direction: row;
+    /* align-self: flex-end; */
+    justify-self: end;
     gap: 5rem;
 }
 

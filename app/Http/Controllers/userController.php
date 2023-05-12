@@ -20,7 +20,7 @@ class userController extends Controller
 {
     public function index(){
        $categories = DB::table('categories')->get();
-       $products =Product::orderBy('created_at', 'desc')->get();
+       $products =Product::orderBy('created_at', 'desc')->limit(12)->get();
        $sampleProducts =Product::skip(3)->take(4)->get();
        $todaySpecialProducts =Product::where('today_special', true)->get();
         return view('index',[

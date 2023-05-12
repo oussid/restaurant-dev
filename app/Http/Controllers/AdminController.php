@@ -174,22 +174,24 @@ class AdminController extends Controller
     
     // send the email with the link to reset password
     public function sendResetPasswordMail (Request $request) {
-        
+        // validate email
         $request->validate([
             'email' => 'required|email'
         ]);
 
         $user = DB::table('users')->where('email', $request->email)->first();
-
+        // if user does not exist
         if(!$user){
             return redirect()->back()->with('error', 'Email was not found');
         }
+
         // delete token if it has already been created then create a new one
         $token = DB::table('password_reset_tokens')->where('email', $request->email)->first();
         if($token){
             DB::table('password_reset_tokens')->where('email', $request->email)->delete();
         }
 
+        // generate unique token for reset pwd url
         $token = Str::random(60);
         
         DB::table('password_reset_tokens')->insert([
@@ -198,6 +200,7 @@ class AdminController extends Controller
             'created_at' => Carbon::now(),
         ]);
 
+        // send email
         Mail::to($request->email)->send(new PasswordResetMail($token));
 
         return redirect()->back()->with('success', 'a password reset link was sent to your email');

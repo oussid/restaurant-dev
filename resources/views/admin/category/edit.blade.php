@@ -7,7 +7,7 @@
         <a href="{{route('category.index')}}" class="breadcrum-link">
             Categories
         </a> / 
-        <a href="{{route('category.edit')}}" class="breadcrum-link">
+        <a href="{{route('category.edit',  ['category'=> $category->id])}}" class="breadcrum-link">
             Update
         </a>
     </div>

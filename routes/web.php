@@ -79,6 +79,7 @@ Route::group(['prefix'=> 'admin', 'namespace'=> 'App\Http\Controllers', 'middlew
     Route::resource('testimonial', TestimonialController::class);
     Route::resource('table', TableController::class);
     Route::resource('banner', BannerController::class);
+    Route::resource('inbox', InboxController::class);
 });
 
 

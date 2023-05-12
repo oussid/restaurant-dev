@@ -17,13 +17,25 @@
             </div>
         </div>
         <div class="footer-main-links">
-            <div class="footer-main-links-section">
+            {{-- <div class="footer-main-links-section">
                 <h2 class="footer-main-links-section-title">
                     About
                 </h2>
                 <div class="footer-main-links-section-tabs">
 
                     <a href="#">Our team</a>
+                    <a href="/#testimonials">Testimonials</a>
+                </div>
+            </div> --}}
+            <div class="footer-main-links-section">
+                <h2 class="footer-main-links-section-title">
+                    Pages
+                </h2>
+                <div class="footer-main-links-section-tabs">
+                    <a href="/">Home</a>
+                    <a href="products">Products</a>
+                    <a href="booking">Table booking</a>
+                    <a href="contact">Contact</a>
                     <a href="/#testimonials">Testimonials</a>
                 </div>
             </div>
@@ -35,17 +47,6 @@
                     <a href="privacy_policy">Privacy policy</a>
                     <a href="refund_policy">Refund policy</a>
                     <a href="terms_policy">Terms and conditions</a>
-                </div>
-            </div>
-            <div class="footer-main-links-section">
-                <h2 class="footer-main-links-section-title">
-                    Pages
-                </h2>
-                <div class="footer-main-links-section-tabs">
-                    <a href="/">Home</a>
-                    <a href="products">Products</a>
-                    <a href="booking">Table booking</a>
-                    <a href="contact">Contact</a>
                 </div>
             </div>
         </div>

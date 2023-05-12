@@ -68,7 +68,7 @@
         </div>
 
         <div class="customer-show-main">
-            @livewire('orders-table', ['customer' => $customer])
+            @livewire('orders-table', ['customer' => $customer, 'title'=> $customer->name . "' orders"])
         </div>
     </div>
 </div>

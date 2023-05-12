@@ -28,7 +28,7 @@
                        <p class="error-message">{{$message}}</p> 
                     @enderror
                 </div>
-                <input type="text" placeholder="Password" name="password" value="{{old('password')}}"> 
+                <input type="password" placeholder="Password" name="password" value="{{old('password')}}"> 
             </div>
             <button type="submit">Login</button>
         </div>

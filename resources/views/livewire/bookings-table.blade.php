@@ -33,7 +33,14 @@
                         <td> {{$booking->table->number}} </td>
                         <td> {{$booking->booking_type}} </td>
                         <td> {{$booking->special_request}} </td>
-                        <td> actions </td>
+                        <td class="col-action-btns">
+
+                            <form action="{{route('booking.destroy', ['booking'=> $booking->id])}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button class="details-resource-btn danger"><i class="fa-solid fa-trash"></i></button>
+                            </form>
+                        </td>
                     </tr>
                 @empty
                     <tr><td colspan='99'>No bookins to show</td></tr>

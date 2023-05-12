@@ -1,5 +1,5 @@
 @if ($testimonials->count() > 0)
-<div class="swiper">
+<div id="testimonials" class="swiper">
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
       <!-- Slides -->
