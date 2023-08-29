@@ -3,8 +3,7 @@
 @section('content')
     
 <div class="login-form-container">
-    {{session('error')}}
-    {{session('message')}}
+    
     <form action="{{route('admin.login')}}" method="POST" class="login-admin-form">
         @csrf
         <div class="login-form-top">

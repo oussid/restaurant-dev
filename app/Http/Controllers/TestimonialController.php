@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class TestimonialController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('demo')->only(['store', 'update', 'destroy']);
+    }
+
     /**
      * Display a listing of the resource.
      */

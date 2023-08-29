@@ -19,6 +19,9 @@ class ProfileForm extends Component
     public $tempImage;
     public $imageDeleted = false; //bool
     public $modalId;
+
+    protected $middleware = ['demo' => ['only' => ['save']]];
+    
     
     function mount(){
         $this->name = Auth::user()->name;
@@ -48,6 +51,9 @@ class ProfileForm extends Component
     }
 
     public function save() {
+        if(env('APP_DEMO_MODE')){
+            return redirect()->to(url()->previous())->with('error', "You can't perform this action on demo mode.");
+        }
         $this->validate();
         // if the user uploaded a photo and saved remove the old photo from the public folder and update it with the new 1
         if($this->image){

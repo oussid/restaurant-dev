@@ -47,7 +47,7 @@
                                 <div wire:click="updateStatus({{$order->id}},1)" class="action-resource-btn-dropdown-tab">
                                     Preparing
                                 </div>
-                                @if ($order->delivery_type != 'takeout')
+                                @if ($order->delivery_type != 'takeout' && $order->status != 2)
                                 
                                     <div  wire:click="showModal('assign-to-delivery-man', {{$order->id}})"  class="action-resource-btn-dropdown-tab">
                                         Assign to delivery man

@@ -49,15 +49,12 @@ Route::get('/pdf',[OrderController::class,'test']);
 // user must not be authenticated
 Route::middleware(['guest'])->group(function () {
     Route::get('admin/login', [AdminController::class, 'loginForm']);
-    Route::get('admin/signup', [AdminController::class, 'signupForm']);
-    Route::post('admin/signup', [AdminController::class, 'signup'])->name('admin.signup'); // route for development purposes only
     Route::post('admin/login', [AdminController::class, 'login'])->name('admin.login');
     // password reset routes
     Route::get('/admin/forgot-password', [AdminController::class, 'forgotPasswordForm'])->name('forgotPasswordForm');
     Route::post('/admin/forgot-password', [AdminController::class, 'sendResetPasswordMail'])->name('sendForgotPasswordEmail');
     Route::get('/admin/forgot-password/{token}', [AdminController::class, 'resetPasswordForm'])->name('resetPasswordForm');
     Route::post('/admin/reset-password', [AdminController::class, 'resetPassword'])->name('resetPassword');
-
 });
 
 // admin routes

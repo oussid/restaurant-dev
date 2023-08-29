@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\File;
 
 class ProductController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('demo')->only(['store', 'update', 'destroy']);
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -122,5 +127,6 @@ class ProductController extends Controller
 
         $product->delete();
         return redirect()->back()->with('success', 'Product deleted');
+        
     }
 }

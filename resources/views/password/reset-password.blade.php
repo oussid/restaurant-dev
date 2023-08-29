@@ -3,8 +3,6 @@
 
 @section('content')
 <div class="login-form-container">
-    {{session('error')}}
-    {{session('message')}}
     <form action="{{route('resetPassword')}}" method="post" class="login-admin-form">
         @csrf
         <div class="login-form-top">
@@ -16,7 +14,7 @@
             <input type="text" name="token" hidden value="{{$token}}">
             <div>
                 @error('email')
-                   <p class="error-message">{{$message}}</p> 
+                    <p class="error-message">{{$message}}</p> 
                 @enderror
                 <input type="email" placeholder="Email address" name="email" value="{{old('email')}}">
             </div>

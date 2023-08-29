@@ -33,7 +33,7 @@ html{
     border-radius: 6px;
   }
   ::-webkit-scrollbar-thumb:active{
-    background-color: var(--secondary-hover);
+    background-color: var(--secondary);
 
   }
 
@@ -554,8 +554,14 @@ body{
     border: white 5px solid;
     transition:ease-in-out .3s;
 }
+
+.category:hover>.category-img{
+    outline: var(--secondary)  5px solid;
+
+}
 .category:hover{
     transform: rotateY(30deg);
+
 }
 .category-name{
     text-align: center;
@@ -720,7 +726,7 @@ body{
     color: white;
 }
 .signup-form-button>button:hover, .login-form-button>button:hover{
-    background: var(--secondary-hover);
+    background: var(--secondary);
     cursor: pointer;
 }
 .error{
@@ -1035,7 +1041,7 @@ footer{
     transition: ease-in-out .3s;
 }
 .booking-form-button>button:hover{
-    background-color: var(--secondary-hover);
+    background-color: var(--secondary);
 }
 .flash-error>h3{
     color: red;
@@ -1142,7 +1148,7 @@ footer{
     transition: ease-in-out .3s;
 }
 .contact-form-long-inputs>button:hover{
-    background-color: var(--secondary-hover);
+    background-color: var(--secondary);
 }
 /*Contact Page End*/
 /*Cart page start*/
@@ -1535,7 +1541,7 @@ border-radius: 3px;
     transition: ease-in-out .3s;
 }
 .myorders-order-footer>button:hover{
-    background-color: var(--secondary-hover);
+    background-color: var(--secondary);
 }
 .myorders-order-footer>button:hover>i{
     transform: rotate(135deg);
@@ -1585,7 +1591,7 @@ border-radius: 3px;
 /* privacy policy end*/
 
 
-/* ##############################RESPONSIVENES######################## */
+/* ############################## RESPONSIVENES ######################## */
 @media only screen and (max-width: 930px){
     .footer-main{
         padding: 3rem 0;

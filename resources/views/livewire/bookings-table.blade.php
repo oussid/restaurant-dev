@@ -26,7 +26,7 @@
                     <tr>
                         <td> {{$booking->id}} </td>
                         <td>
-                            {{$booking->contact_name}}  <br> {{$booking->contact_mobile}}  <br> {{$booking->contact_email}} 
+                         {{$booking->contact_name}}  <br> {{$booking->contact_mobile}}  <br> {{$booking->contact_email}} 
                         </td>
                         <td> {{$booking->booking_date}}  <br> {{$booking->booking_time}} </td>
                         <td> {{$booking->guests_number}} </td>

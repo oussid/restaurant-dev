@@ -4,9 +4,10 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Config;
 use Symfony\Component\HttpFoundation\Response;
 
-class AdminMiddleware
+class DemoMode
 {
     /**
      * Handle an incoming request.
@@ -15,10 +16,9 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // dd($request->user());
-        if ($request->user() && $request->user()->role == 2) {
-            return $next($request);
+        if (env('APP_DEMO_MODE')) {
+            return redirect()->back()->with('error', "You can't perform this action on demo mode.");
         }
-        return redirect('/admin/login');
+        return $next($request);
     }
 }

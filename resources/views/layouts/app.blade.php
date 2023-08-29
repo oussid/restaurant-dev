@@ -9,7 +9,7 @@
         {{-- swiper  --}}
         <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
         @livewireStyles
-        <title>Restaurant</title>
+        <title>{{$config->name}}</title>
 <style>
         :root {
 

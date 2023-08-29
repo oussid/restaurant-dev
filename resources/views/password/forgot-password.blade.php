@@ -2,8 +2,6 @@
 
 @section('content')
 <div class="login-form-container">
-    {{session('error')}}
-    {{session('message')}}
     <form action="{{route('sendForgotPasswordEmail')}}" method="post" class="login-admin-form">
         @csrf
         <div class="login-form-top">

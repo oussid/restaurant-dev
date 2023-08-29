@@ -22,8 +22,8 @@
             @csrf
         {{-- Sign up header (logo and text) --}}
             <div class="signup-form-header">
-                <div onclick="window.location.href='/'" class="form-logo"></div>
-                <h3>Restaurant</h3>
+                <div onclick="window.location.href='/'" style="background-image: url('{{$config->logo}}')" class="form-logo"></div>
+                <h3>{{$config->name}}</h3>
             </div>
             {{-- Sign up long inputs container --}}
             <div class="signup-form-long-inputs">

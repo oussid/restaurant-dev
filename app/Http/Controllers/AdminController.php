@@ -17,6 +17,11 @@ use Illuminate\Support\Facades\Mail;
 
 class AdminController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('demo')->only(['configure', 'sendResetPasswordMail', 'resetPasswordForm', 'resetPassword']);
+    }
+
     // DASHBOARD
     public function dashboard(){
         $ordersForChart = DB::table('orders')
@@ -54,35 +59,6 @@ class AdminController extends Controller
     // SHOW LOGIN FORM
     public function loginForm(){
         return view('admin.auth.login');
-    }
-
-    // SHOW SIGNUP FORM
-    public function signupForm () {
-        return view('admin.auth.signup');
-    }
-    
-    // SIGNUP
-    public function signup (Request $request) {
-        $data = $request->validate([
-            'name'=> 'required',
-            'email'=> 'required|email|unique:users,email',
-            'password'=> 'required|confirmed',
-        ]);
-
-        $user = User::create([
-            'name'=> $data['name'],
-            'email'=> $data['email'],
-            'password'=> bcrypt($data['password']) ,
-            'role'=> 2,
-        ]);
-        
-        $token = $user->createToken('admin_token', ['everything']);
-        $user->save();
-
-        // dd(Auth::user());
-        Auth::login($user); 
-        return redirect('/admin');
-        
     }
 
     // LOGIN
