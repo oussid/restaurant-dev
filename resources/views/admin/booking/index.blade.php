@@ -12,7 +12,7 @@
 
     </div>
 
-    <div class="resource-index-main">
+    <div class="resource-index-main js-adjust-width">
         @livewire('bookings-table')
     </div>
 </div>

@@ -3,7 +3,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0px 8rem;
+        padding: 0px 1rem;
         width: 100%
     }
     .header-title{
@@ -23,6 +23,12 @@
         color:white;
         cursor: pointer;
     }
+    @media only screen and (max-width: 430px){
+        .header-title{
+        font-family: 'Dancing Script', cursive;
+        font-size: 2rem;
+    }
+}
 </style>
 <div class="sections-header-container">
     <h1 class="header-title">{{ $title }}</h1>

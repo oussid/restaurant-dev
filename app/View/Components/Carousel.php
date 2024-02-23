@@ -14,7 +14,7 @@ class Carousel extends Component
      */
     public $slides = [ 
         [
-            'title'=>'Stay Home & Delivered Your Foods',
+            'title'=>'Stay Home & Get Your Food Delivered',
             'subtitle' => 'Flat 20% Discount',
             'image' => 'images/slide1.jpg',
             'button' => [  // equals to null if it does not exist

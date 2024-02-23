@@ -67,8 +67,8 @@
             </div>
         </div>
 
-        <div class="customer-show-main">
-            @livewire('orders-table', ['customer' => $customer, 'title'=> $customer->name . "' orders"])
+        <div class="customer-show-main js-adjust-width">
+            @livewire('orders-table', ['customer' => $customer, 'title'=> $customer->name . "'s orders"])
         </div>
     </div>
 </div>

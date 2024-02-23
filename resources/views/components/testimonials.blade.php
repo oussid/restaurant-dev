@@ -1,5 +1,5 @@
 @if ($testimonials->count() > 0)
-<div id="testimonials" class="swiper">
+<div id="testimonials" class="swiper swiper2">
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
       <!-- Slides -->
@@ -18,11 +18,11 @@
       @endforeach
     </div>
     <!-- If we need pagination -->
-    <div class="swiper-pagination"></div>
+    <div class="swiper-pagination swiper-pagination2"></div>
   
     <!-- If we need navigation buttons -->
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev swiper-button-prev2"></div>
+    <div class="swiper-button-next swiper-button-next2"></div>
   </div>
 @endif
 

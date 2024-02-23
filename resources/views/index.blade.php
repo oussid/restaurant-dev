@@ -3,7 +3,7 @@
 @section('content')
 
     <x-navbar/>
-    <x-carousel />
+    <x-home-carousel />
     <div class="sample-products-container">
         @forelse ( $sampleProducts as $product )
         <div onclick="window.location.href='/products'" class="sample-product">
@@ -66,7 +66,7 @@
     <x-services/>
     <div id="testimonials"></div>
     <x-testimonials />
-    <x-footer/>
-
+    <x-footer/> 
+    
 </body>
 </html>

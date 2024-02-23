@@ -3,7 +3,7 @@
 @section('content')
 <div class="admin-dashboard">
     {{-- DASHBOARD CARDS --}}
-    <div class="admin-dashboard-cards">
+    <div class="admin-dashboard-cards js-adjust-width">
         <x-dashboard-card label='Categories' count='{{$counts["categories"]}}' >
             <i class="fa-solid fa-list"></i>
         </x-dashboard-card>
@@ -38,7 +38,7 @@
     </div>
 
     {{-- DASHBOARD CHARTS --}}
-    <div class="admin-dashboard-charts">
+    <div class="admin-dashboard-charts js-adjust-width">
         <div id="admin-chart" class="admin-dashboard-charts-orders">
             <p class="chart-title">Orders</p>
             @if (count($ordersChart)>0)
@@ -58,8 +58,8 @@
             @endif
         </div>
     </div>
-    <div class="admin-dashboard-orders">
-        @livewire('orders-table', ['title' => "Today's orders"])
+    <div class="admin-dashboard-orders js-adjust-width">
+        @livewire('orders-table', ['title' => "Latest orders"])
     </div>
 
     

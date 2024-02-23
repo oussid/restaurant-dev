@@ -32,10 +32,8 @@
 </div>
 
 @elseif(((Auth::user() && Auth::user()->role != 2)  && $banners->count() > 0) || (!Auth::user() && $banners->count() > 0))
-
 <div class="home-carousel">
     @foreach ($banners as $banner)
-    {{-- {{dd($banner->image)}} --}}
     <div class="home-carousel-slide {{ $loop->index == 0 ? 'active' : ''}}" style="background-image: url('{{asset($banner->image)}}'); ">
         <div class="home-carousel-slide-text">
             <h2>{{$banner->subtitle}}</h2>
@@ -52,6 +50,7 @@
         <button class="home-carousel-next-btn"><i class="fa-solid fa-chevron-right"></i></button>
         <button class="home-carousel-prev-btn"><i class="fa-solid fa-chevron-left"></i></button>
 </div>
+
 
 
 @else

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="resource-create">
+<div class="resource-create js-adjust-width">
     <div class="breadcrum">
         <a href="{{route('category.index')}}" class="breadcrum-link">
             Categories

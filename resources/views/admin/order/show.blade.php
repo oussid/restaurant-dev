@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="show-container">
+<div class="show-container js-adjust-width">
     <div class="show-top">
         <div class="breadcrum">
             <a href="{{route('order.index')}}" class="breadcrum-link">

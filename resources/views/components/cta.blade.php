@@ -1,9 +1,7 @@
 <style>
     .cta-container{
-        height: 425px;
         width: 100%;
         gap: 2rem;
-        background: url('https://single-restaurant.gravityinfotech.net/storage/app/public/admin-assets/images/about/booknow_bg_image-637393cd7c886.png');
         background-repeat: no-repeat;
         background-size:cover;
         background-position:center;
@@ -37,8 +35,15 @@
         backdrop-filter:invert(3%);
         flex-direction: column;
     }
+
+    @media only screen and (max-width: 520px){
+        .cta-text-section>h1{
+        font-size: 40px;
+        text-align: center
+    }
+    }
 </style>
-<div class="cta-container">
+<div class="cta-container" style="background-image:url('{{asset("images/food-pattern.jpg")}}')">
     <div class="cta-text-section">
         <h2>Book a table</h2>
         <h1>Make a Reservation</h1>

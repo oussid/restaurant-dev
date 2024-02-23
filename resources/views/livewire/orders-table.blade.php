@@ -1,4 +1,4 @@
-<div class="table-container">
+<div class="table-container ">
     <div class="table-container-top">
         <div class="table-container-top-title">
             {{$title}}
@@ -7,6 +7,7 @@
             <input wire:model='search' type="text" placeholder="Search">
         </div>
     </div>
+    
     <div class="table-container-main">
         <table>
             <thead>
@@ -66,14 +67,16 @@
                     @empty
                     <tr><td colspan='7'>No orders to show</td></tr>
                     @endforelse
-                </tbody>
-            </table>
-        </div>
-        <div class="table-container-bottom">
-            {{$orders->links('pagination-links')}}
-        </div>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="table-container-bottom">
+        {{$orders->links('pagination-links')}}
+    </div>
         
-        <x-modal modalId="assign-to-delivery-man">
-            @livewire('assign-delivery-man', ['orderId'=> $orderId, 'modalId'=>'assign-to-delivery-man'], key($this->orderId))
-        </x-modal>
-    </div>  
+    <x-modal modalId="assign-to-delivery-man">
+        @livewire('assign-delivery-man', ['orderId'=> $orderId, 'modalId'=>'assign-to-delivery-man'], key($this->orderId))
+    </x-modal>
+</div>  
+

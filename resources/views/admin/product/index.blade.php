@@ -13,7 +13,7 @@
         </div>
     </div>
 
-    <div class="resource-index-main">
+    <div class="resource-index-main js-adjust-width">
         @livewire('products-table')
     </div>
 </div>

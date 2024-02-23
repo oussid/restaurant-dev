@@ -11,7 +11,7 @@
         </div>
     </div>
 
-    <div class="resource-index-main">
+    <div class="resource-index-main js-adjust-width">
         @livewire('users-table', [
             'emptyMessage' => 'No customers to show',
             'role' => 0,

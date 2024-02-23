@@ -1,0 +1,70 @@
+:root {
+
+    --primary:black;
+    --secondary:#f82648;
+    --secondary-hover:#bd1c34;
+    --border:rgba(0, 0, 0, 0.16);
+    --admin-primary: #01112B;
+    --admin-primary-hover: #021c46;
+    --admin-secondary: #0A98AF;
+
+}
+
+.swiper1 {
+    height: 100vh;
+}
+
+.home-slide{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-slide .slide-row {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* gap: 2rem; */
+}
+
+.home-slide .slide-row button{
+    background: var(--secondary);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1.8rem;
+    padding: .5rem 1rem;
+    color: white;
+    transition: .3s ease-in-out all;
+    z-index: 1;
+    border-radius: 6px;
+    margin-top: 3rem;
+}
+
+.home-slide .slide-row h2{
+    color: white;
+    text-shadow: 3px 4px 7px rgba(22, 22, 22, 0.959);
+}
+
+.home-slide .slide-row h1{
+    color: var(--secondary);
+    text-shadow: 3px 4px 7px rgba(22, 22, 22, 0.959);
+    font-size: 3rem;
+}
+
+@media only screen and (max-width: 700px){
+    .home-slide {
+        justify-content: end !important;
+        padding-bottom: 3rem;
+    }
+
+    .home-slide .slide-row h1{
+        font-size: 2rem;
+    }
+}
